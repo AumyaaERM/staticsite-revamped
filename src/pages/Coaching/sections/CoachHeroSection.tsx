@@ -1,59 +1,65 @@
 import React from 'react';
-import { Target } from 'lucide-react';
 
 export const CoachHeroSection: React.FC = () => {
-  return (
-    <div className="relative py-20 px-12 overflow-hidden" style={{ background: '#FCD421' }}>
-      {/* Curved Road Background Pattern */}
-      <div className="absolute right-0 top-0 h-full w-1/2 opacity-20">
-        <svg viewBox="0 0 500 500" className="h-full w-full">
-          <path 
-            d="M 0 250 Q 125 100, 250 250 T 500 250" 
-            stroke="black" 
-            strokeWidth="40" 
-            fill="none"
-            strokeDasharray="20,10"
-          />
-        </svg>
-      </div>
+  const credentials = [
+    'Former Big 4 Partner',
+    'ICF PCC Coach',
+    'Author'
+  ];
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Image */}
-          <div className="flex items-center justify-center">
+  return (
+    <div className="relative py-16 px-8 md:px-12 overflow-hidden" style={{ background: '#FCD421' }}>
+      <div className="max-w-7xl mx-auto relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Left Side - Coach Image */}
+          <div className="lg:col-span-3 flex items-center justify-center lg:justify-start">
             <img 
               src="/images/coaching/coach-hero.png" 
               alt="Manjula Banerji - Leadership Coach"
-              className="w-full max-w-md h-auto"
+              className="w-full max-w-sm h-auto"
             />
           </div>
 
-          {/* Right Side - Content */}
-          <div className="space-y-6">
-            <h1 className="text-[64px] leading-tight font-bold" style={{
+          {/* Center - Content */}
+          <div className="lg:col-span-6 text-center space-y-6">
+            <h1 className="text-[48px] md:text-[64px] leading-tight font-bold" style={{
               fontFamily: 'Inter, sans-serif',
               color: '#000000'
             }}>
-              Transforming Leaders for Tomorrow
+              Transforming Leaders<br />for Tomorrow
             </h1>
 
-            <p className="text-[20px] leading-relaxed" style={{
+            <p className="text-[18px] md:text-[20px] leading-relaxed" style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 400,
               color: '#000000'
             }}>
-              Four decades of corporate excellence meets transformation coaching methodology
+              Four decades of corporate excellence meets transformative coaching methodology
             </p>
 
-            {/* Target Icon */}
-            <div className="absolute right-20 top-20">
-              <div className="relative w-32 h-32">
-                <Target className="w-full h-full text-red-500" strokeWidth={1.5} />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-8 h-8 bg-red-500 rounded-full"></div>
+            {/* Credentials */}
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
+              {credentials.map((credential, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <div className="w-4 h-4 rounded-full" style={{ background: '#FFFFFF' }}></div>
+                  <span className="text-[18px] md:text-[20px] font-medium" style={{
+                    fontFamily: 'Inter, sans-serif',
+                    color: '#000000'
+                  }}>
+                    {credential}
+                  </span>
                 </div>
-              </div>
+              ))}
             </div>
+          </div>
+
+          {/* Right Side - Goal/Target Image */}
+          <div className="lg:col-span-3 flex items-center justify-center lg:justify-end">
+            <img 
+              src="/images/coaching/goal.png" 
+              alt="Goal and roadmap to success"
+              className="w-full max-w-sm h-auto"
+            />
           </div>
         </div>
       </div>

@@ -27,6 +27,7 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <div className="h-6 bg-white"></div>
       <HeroSectionHome />
       <WhoWeAreHome />
       <CoreValues />

@@ -5,6 +5,8 @@ import { About } from './pages/About';
 import { Careers } from './pages/Careers';
 import { Contact } from './pages/Contact';
 import { Coaching } from './pages/Coaching';
+import { Training } from './pages/Training';
+import { ExecutiveCoaching } from './pages/ExecutiveCoaching';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 
@@ -17,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/about" element={
           <div className="min-h-screen flex flex-col">
             <Navbar />
+            <div className="h-6 bg-white"></div>
             <main className="flex-1">
               <About />
             </main>
@@ -26,6 +29,7 @@ const App: React.FC = () => {
         <Route path="/careers" element={
           <div className="min-h-screen flex flex-col">
             <Navbar />
+            <div className="h-6 bg-white"></div>
             <main className="flex-1">
               <Careers />
             </main>
@@ -35,6 +39,7 @@ const App: React.FC = () => {
         <Route path="/contact" element={
           <div className="min-h-screen flex flex-col">
             <Navbar />
+            <div className="h-6 bg-white"></div>
             <main className="flex-1">
               <Contact />
             </main>
@@ -44,8 +49,29 @@ const App: React.FC = () => {
         <Route path="/coaching" element={
           <div className="min-h-screen flex flex-col">
             <Navbar />
+            <div className="h-6 bg-white"></div>
             <main className="flex-1">
               <Coaching />
+            </main>
+            <Footer />
+          </div>
+        } />
+        <Route path="/training" element={
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <div className="h-6 bg-white"></div>
+            <main className="flex-1">
+              <Training />
+            </main>
+            <Footer />
+          </div>
+        } />
+        <Route path="/executive-coaching" element={
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <div className="h-6 bg-white"></div>
+            <main className="flex-1">
+              <ExecutiveCoaching />
             </main>
             <Footer />
           </div>

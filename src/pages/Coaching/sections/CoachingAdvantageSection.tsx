@@ -1,87 +1,115 @@
 import React from 'react';
-import { Check, ArrowRight } from 'lucide-react';
+import { Star, ExternalLink } from 'lucide-react';
 
 export const CoachingAdvantageSection: React.FC = () => {
-  const highlights = [
-    'Strategic Leadership in the New-Age Workplaces',
-    'Cultivating authentic agility in today\'s evolving business landscape',
-    'Empowering Values Through Transformational Coaching',
-    'Intentional learning as a key driver of personal and organizational progress',
-    'Leadership and succession and guided action for growth and fulfillment',
-    'Helping leaders overcome the fear of Failure and cultivate Resilience',
-    'Driving Sustainable Change Across Organizations',
-    'Bringing real value to business life with lasting impact and transformation'
+  const insights = [
+    {
+      title: 'Strategic Leadership in the New-Age Workplace',
+      subtitle: 'Cultivating leadership agility to thrive in evolving business landscapes.'
+    },
+    {
+      title: 'Empowering Teams Through Transformational Coaching',
+      subtitle: 'Building high-performing, resilient teams with clarity and purpose.'
+    },
+    {
+      title: 'Navigating Career & Life Transitions with Confidence',
+      subtitle: 'Leveraging self-awareness and guided action for growth and fulfillment.'
+    },
+    {
+      title: 'Fostering Purpose-Driven Professional Development',
+      subtitle: 'Aligning personal values with career aspirations to unlock true potential.'
+    },
+    {
+      title: 'Driving Sustainable Change Across Organizations',
+      subtitle: 'Embedding coaching mindsets to fuel lasting impact and innovation.'
+    }
   ];
 
   return (
-    <div className="bg-white py-16 px-12">
+    <div className="bg-white py-16 px-8 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-[48px] leading-tight font-bold mb-12" style={{
-          fontFamily: 'Inter, sans-serif',
-          color: '#FCD421'
-        }}>
-          The Coaching Advantage<br />
-          <span style={{ color: '#000000' }}>in the New-Age Workplace</span>
-        </h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Book Image */}
-          <div className="flex items-center justify-center">
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 w-24 h-24 rounded-full flex items-center justify-center" style={{
-                background: '#FCD421'
-              }}>
-                <span className="text-[48px]">📖</span>
-              </div>
-              <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-2xl p-8 shadow-2xl">
-                <img 
-                  src="/images/coaching/book-cover.png" 
-                  alt="The Coaching Advantage Book"
-                  className="w-full max-w-sm mx-auto"
-                />
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left Side - Book Cover */}
+          <div className="flex items-start justify-center lg:justify-start">
+            <div className="relative max-w-md">
+              <img 
+                src="/images/coaching/book-cover.png" 
+                alt="The Coaching Advantage Book"
+                className="w-full h-auto rounded-lg shadow-xl"
+              />
             </div>
           </div>
 
-          {/* Right Side - Key Highlights */}
+          {/* Right Side - Title, Subtitle, Key Insights, Button */}
           <div>
-            <h3 className="text-[32px] font-bold mb-8" style={{
+            {/* Title */}
+            <h2 className="text-[36px] md:text-[48px] font-bold mb-2" style={{
+              fontFamily: 'Inter, sans-serif',
+              lineHeight: '1.2'
+            }}>
+              <span style={{ color: '#FCD421' }}>The Coaching </span>
+              <span style={{ color: '#FCD421', fontStyle: 'italic' }}>Advantage</span>
+              <br />
+              <span style={{ color: '#000000' }}>in the New-</span>
+              <span style={{ color: '#000000', fontStyle: 'italic' }}>Age</span>
+              <span style={{ color: '#000000' }}> Workplace</span>
+            </h2>
+
+            {/* Subtitle */}
+            <p className="text-[16px] mb-6" style={{
+              fontFamily: 'Inter, sans-serif',
+              color: '#000000',
+              lineHeight: '1.4'
+            }}>
+              Explore how intentional coaching builds resilient, purpose-driven leaders in today's rapidly evolving business landscape.
+            </p>
+
+            {/* Key Insights */}
+            <h3 className="text-[20px] font-bold mb-4" style={{
               fontFamily: 'Inter, sans-serif',
               color: '#000000'
             }}>
-              Key Highlights:
+              Key Insights:
             </h3>
 
-            <ul className="space-y-4">
-              {highlights.map((highlight, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1" style={{
-                    background: '#FCD421'
-                  }}>
-                    <Check className="w-4 h-4" style={{ color: '#000000' }} />
+            <div className="space-y-4">
+              {insights.map((insight, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <Star 
+                    className="w-5 h-5 flex-shrink-0 mt-0.5" 
+                    style={{ color: '#FCD421', fill: '#FCD421' }} 
+                  />
+                  <div>
+                    <h4 className="text-[15px] font-bold mb-0.5" style={{
+                      fontFamily: 'Inter, sans-serif',
+                      color: '#000000'
+                    }}>
+                      {insight.title}
+                    </h4>
+                    <p className="text-[14px]" style={{
+                      fontFamily: 'Inter, sans-serif',
+                      color: '#000000',
+                      lineHeight: '1.3'
+                    }}>
+                      {insight.subtitle}
+                    </p>
                   </div>
-                  <span className="text-[16px] leading-relaxed" style={{
-                    fontFamily: 'Inter, sans-serif',
-                    color: '#000000'
-                  }}>
-                    {highlight}
-                  </span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
 
             <button 
-              className="mt-8 inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all hover:scale-105 hover:shadow-lg"
+              className="mt-6 inline-flex items-center gap-2 px-8 py-3 rounded-lg transition-all hover:scale-105 hover:shadow-lg"
               style={{
                 background: '#FCD421',
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 600,
-                fontSize: '18px',
+                fontSize: '16px',
                 color: '#000000'
               }}
             >
               Get Your Copy
-              <ArrowRight className="w-5 h-5" />
+              <ExternalLink className="w-5 h-5" />
             </button>
           </div>
         </div>
