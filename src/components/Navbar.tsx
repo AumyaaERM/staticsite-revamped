@@ -5,26 +5,27 @@ import { Search } from 'lucide-react';
 // Navbar Component
 export const Navbar: React.FC = () => {
   const location = useLocation();
+  const [showConsultingDropdown, setShowConsultingDropdown] = useState(false);
   const [showCoachingDropdown, setShowCoachingDropdown] = useState(false);
   const dropdownTimerRef = useRef<number | null>(null);
 
-  const handleMouseEnter = () => {
-    if (dropdownTimerRef.current) {
-      clearTimeout(dropdownTimerRef.current);
-    }
-    setShowCoachingDropdown(true);
+  const timer1 = useRef<number | null>(null);
+  const timer2 = useRef<number | null>(null);
+
+  const open = (setter: any, timer: any) => {
+    if (timer.current) clearTimeout(timer.current);
+    setter(true);
   };
 
-  const handleMouseLeave = () => {
-    dropdownTimerRef.current = setTimeout(() => {
-      setShowCoachingDropdown(false);
-    }, 300); 
+  const close = (setter: any, timer: any) => {
+    timer.current = window.setTimeout(() => setter(false), 250);
   };
+
   
   return (
     <nav className="px-6 py-4 relative" style={{ background: '#FCD421' }}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="flex items-end">
+      <div className="max-w-7xl mx-auto flex items-center justify-center gap-8">
+        <div className="flex items-center gap-8">
           <Link to="/" className="flex flex-col items-end rounded-t-[10px] px-4 pt-1 py-5" style={{
             background: '#FFFFFF',
             marginBottom: '-30px'
@@ -71,81 +72,121 @@ export const Navbar: React.FC = () => {
           >
             ABOUT US
           </Link>
-          <a 
-            href="#consulting" 
-            className="text-[16px] leading-[150%] uppercase hover:border-b-2 hover:border-black pb-1"
-            style={{
-              fontFamily: 'Days One, sans-serif',
-              fontWeight: 400,
-              color: '#191600'
-            }}
+            {/* CONSULTING SERVICES --------------------------- */}
+            <div
+            className="relative text-black"
+            onMouseEnter={() => open(setShowConsultingDropdown, timer1)}
+            onMouseLeave={() => close(setShowConsultingDropdown, timer1)}
           >
-            CONSULTING SERVICES
-          </a>
-          <div 
-            className="relative"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Link 
-              to="/executive-coaching" 
-              className="text-[16px] leading-[120%] uppercase pb-1 text-center"
+            <div
+              className="text-[16px] uppercase pb-1 cursor-pointer"
               style={{
-                fontFamily: 'Days One, sans-serif',
-                fontWeight: 400,
-                color: '#191600',
-                borderBottom: location.pathname === '/executive-coaching' ? '2px solid #000000' : 'none'
+                fontFamily: 'Days One',
+                borderBottom:
+                  location.pathname.startsWith('/consulting')
+                    ? '2px solid black'
+                    : 'none'
               }}
             >
-              COACHING &<br/>WORKSHOP
-            </Link>
-            
-            {/* Dropdown Menu */}
+              CONSULTING SERVICES
+            </div>
+
+            {showConsultingDropdown && (
+              <div
+                className="absolute top-full left-0 mt-2 shadow-lg z-50"
+                style={{ background: '#FCD421', minWidth: '260px' }}
+              >
+                {[
+                  ['business-consulting', 'Business Consulting'],
+                  ['tech-consulting', 'Tech Consulting'],
+                  ['risk-consulting', 'Risk Consulting'],
+                  ['esg-consulting', 'ESG Consulting'],
+                  ['compliance-services', 'Compliance Services']
+                ].map(([path, text]) => (
+                  <Link
+                    key={path}
+                    to={`/consulting/${path}`}  
+                    className="block px-6 py-3"
+                    style={{
+                      fontFamily: 'Days One',
+                      borderBottom: '1px dotted #000',
+                      color: '#000'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = '#000';
+                      e.currentTarget.style.color = '#FCD421';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.color = '#000';
+                    }}
+                  >
+                    {text}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* COACHING & WORKSHOP --------------------------- */}
+          <div
+            className="relative text-black"
+            onMouseEnter={() => open(setShowCoachingDropdown, timer2)}
+            onMouseLeave={() => close(setShowCoachingDropdown, timer2)}
+          >
+            <div
+              className="text-[16px] uppercase pb-1 cursor-pointer"
+              style={{
+                fontFamily: 'Days One',
+                borderBottom:
+                  location.pathname.startsWith('/coaching')
+                    ? '2px solid black'
+                    : 'none'
+              }}
+            >
+              COACHING & <br/>WORKSHOP
+            </div>
+
             {showCoachingDropdown && (
-              <div 
-                className="absolute top-full left-0 mt-1 shadow-lg overflow-hidden z-50"
-                style={{ 
-                  minWidth: '250px',
-                  background: '#FCD421'
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+              <div
+              className="absolute top-full left-0 mt-2 shadow-lg z-50"
+              style={{ background: '#FCD421', minWidth: '260px' }}
               >
                 <Link
                   to="/executive-coaching"
-                  className="block px-6 py-3 transition-colors"
+                  className="block px-6 py-3"
                   style={{
-                    fontFamily: 'Days One, sans-serif',
-                    fontSize: '16px',
-                    color: '#000000',
-                    borderBottom: '1px dotted #000000'
+                    fontFamily: 'Days One',
+                    borderBottom: '1px dotted #000',
+                    color: '#000'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#000000';
+                    e.currentTarget.style.background = '#000';
                     e.currentTarget.style.color = '#FCD421';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.color = '#000000';
+                    e.currentTarget.style.color = '#000';
                   }}
                 >
                   Executive Coaching
                 </Link>
+
                 <Link
                   to="/training"
-                  className="block px-6 py-3 transition-colors"
+                  className="block px-6 py-3"
                   style={{
-                    fontFamily: 'Days One, sans-serif',
-                    fontSize: '16px',
-                    color: '#000000'
+                    fontFamily: 'Days One',
+                    borderBottom: '1px dotted #000',
+                    color: '#000'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#000000';
+                    e.currentTarget.style.background = '#000';
                     e.currentTarget.style.color = '#FCD421';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.color = '#000000';
+                    e.currentTarget.style.color = '#000';
                   }}
                 >
                   Register For Training
@@ -153,6 +194,7 @@ export const Navbar: React.FC = () => {
               </div>
             )}
           </div>
+
           <Link 
             to="/careers" 
             className="text-[16px] leading-[150%] uppercase pb-1"
@@ -178,7 +220,7 @@ export const Navbar: React.FC = () => {
             CONTACT US
           </Link>
           
-          {/* Search Box */}
+           {/* Search Box */}
           <div className="flex items-center gap-2 border-l pl-4 rounded-[70px] px-4 py-3" style={{
             border: '1px solid rgba(25, 22, 0, 0.12)',
             borderRadius: '70px'

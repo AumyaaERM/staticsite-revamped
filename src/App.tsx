@@ -9,6 +9,11 @@ import { Training } from './pages/Training';
 import { ExecutiveCoaching } from './pages/ExecutiveCoaching';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { BusinessConsulting } from './pages/Consulting/BusinessConsulting';
+import { TechnologyConsulting } from './pages/Consulting/TechnologyConsulting';
+import { RiskAdvisory } from './pages/Consulting/RiskAdvisory';
+import { ESGConsulting } from './pages/Consulting/ESGConsulting';
+import { ComplianceServices } from './pages/Consulting/ComplianceServices';
 
 // Main App Component
 const App: React.FC = () => {
@@ -76,6 +81,11 @@ const App: React.FC = () => {
             <Footer />
           </div>
         } />
+        <Route path="/consulting/business-consulting" element={<BusinessConsulting />} />
+        <Route path="/consulting/tech-consulting" element={<TechnologyConsulting />} />
+        <Route path="/consulting/risk-consulting" element={<RiskAdvisory />} />
+        <Route path="/consulting/esg-consulting" element={<ESGConsulting />} />
+        <Route path="/consulting/compliance-services" element={<ComplianceServices />} />
       </Routes>
     </Router>
   );
