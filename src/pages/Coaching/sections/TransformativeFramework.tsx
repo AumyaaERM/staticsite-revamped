@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Target, Lightbulb, TrendingUp } from 'lucide-react';
 
 export const TransformativeFramework: React.FC = () => {
@@ -96,15 +97,18 @@ export const TransformativeFramework: React.FC = () => {
             Discover how the Transformative Transitions Framework™ can unlock your potential
           </p>
 
-          <button className="px-8 py-4 rounded-lg text-[16px] font-semibold transition-all hover:scale-105" style={{
-            fontFamily: 'Inter, sans-serif',
-            background: '#FFF8E1',
-            color: '#000000',
-            border: 'none',
-            cursor: 'pointer'
-          }}>
+          <Link 
+            to="/contact"
+            className="inline-block px-8 py-4 rounded-lg text-[16px] font-semibold transition-all hover:scale-105" 
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              background: '#FFF8E1',
+              color: '#000000',
+              textDecoration: 'none'
+            }}
+          >
             Schedule Your Discovery Call
-          </button>
+          </Link>
         </div>
       </div>
     </div>

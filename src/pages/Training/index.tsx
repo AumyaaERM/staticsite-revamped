@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 export const Training: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
@@ -10,10 +13,48 @@ export const Training: React.FC = () => {
     organization: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [banner, setBanner] = useState({ show: false, message: '', type: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
+    setBanner({ show: false, message: '', type: '' });
+
+    // Create FormData for Google Forms submission
+    const formDataToSubmit = new FormData();
+    formDataToSubmit.append('entry.2092238618', formData.fullName);
+    formDataToSubmit.append('entry.1556369182', formData.email);
+    formDataToSubmit.append('entry.144821333', formData.phoneNumber);
+    formDataToSubmit.append('entry.1437870189', formData.qualification);
+    formDataToSubmit.append('entry.479301265', formData.organization);
+
+    try {
+      await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfYez1KICO2P1lOWMUE8PIDfQ6QyN_wWSNhcW9HmiWuqbKRtw/formResponse', {
+        method: 'POST',
+        body: formDataToSubmit,
+        mode: 'no-cors'
+      });
+
+      setBanner({ show: true, message: '✅ Form submitted successfully!', type: 'success' });
+      setFormData({
+        fullName: '',
+        phoneNumber: '',
+        email: '',
+        qualification: '',
+        organization: ''
+      });
+
+      // Hide banner after 7 seconds
+      setTimeout(() => {
+        setBanner({ show: false, message: '', type: '' });
+      }, 7000);
+    } catch (error) {
+      setBanner({ show: true, message: '❌ Failed to submit the form. Please try again.', type: 'error' });
+      
+      // Hide banner after 7 seconds
+      setTimeout(() => {
+        setBanner({ show: false, message: '', type: '' });
+      }, 7000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -153,22 +194,8 @@ export const Training: React.FC = () => {
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   background: '#F9FAFB',
-                  border: '1px solid #E5E7EB'
-                }}
-              />
-
-              <input
-                type="tel"
-                name="phoneNumber"
-                placeholder="Phone Number"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                required
-                className="w-full px-6 py-4 rounded-xl text-[16px] focus:outline-none focus:border-gray-300 placeholder-gray-500"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  background: '#F9FAFB',
-                  border: '1px solid #E5E7EB'
+                  border: '1px solid #E5E7EB',
+                  color: '#000000'
                 }}
               />
 
@@ -183,7 +210,24 @@ export const Training: React.FC = () => {
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   background: '#F9FAFB',
-                  border: '1px solid #E5E7EB'
+                  border: '1px solid #E5E7EB',
+                  color: '#000000'
+                }}
+              />
+
+              <input
+                type="tel"
+                name="phoneNumber"
+                placeholder="Phone Number"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                required
+                className="w-full px-6 py-4 rounded-xl text-[16px] focus:outline-none focus:border-gray-300 placeholder-gray-500"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  background: '#F9FAFB',
+                  border: '1px solid #E5E7EB',
+                  color: '#000000'
                 }}
               />
 
@@ -198,7 +242,8 @@ export const Training: React.FC = () => {
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   background: '#F9FAFB',
-                  border: '1px solid #E5E7EB'
+                  border: '1px solid #E5E7EB',
+                  color: '#000000'
                 }}
               />
 
@@ -213,9 +258,27 @@ export const Training: React.FC = () => {
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   background: '#F9FAFB',
-                  border: '1px solid #E5E7EB'
+                  border: '1px solid #E5E7EB',
+                  color: '#000000'
                 }}
               />
+
+              {/* Success/Error Banner */}
+              {banner.show && (
+                <div 
+                  className="p-3 rounded-lg border"
+                  style={{
+                    display: 'block',
+                    color: banner.type === 'success' ? 'green' : 'red',
+                    backgroundColor: banner.type === 'success' ? '#e0f9e0' : '#f9e0e0',
+                    border: `1px solid ${banner.type === 'success' ? 'green' : 'red'}`,
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '14px'
+                  }}
+                >
+                  {banner.message}
+                </div>
+              )}
 
               <button
                 type="submit"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './About.css';
 import { HeroSectionAbout } from './sections/HeroSectionAbout';
 import { AboutContent } from './sections/AboutContent';
@@ -9,6 +9,10 @@ import { CompaniesSection } from './sections/CompaniesSection';
 import { LeadersSection } from './sections/LeadersSection';
 
 export const About: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="about-page">
       <HeroSectionAbout />

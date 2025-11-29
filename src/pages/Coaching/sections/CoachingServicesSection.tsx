@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Smile, Mail, Linkedin } from 'lucide-react';
 
 export const CoachingServicesSection: React.FC = () => {
@@ -87,18 +88,20 @@ export const CoachingServicesSection: React.FC = () => {
             </div>
 
             {/* Book Appointment Button */}
-            <button 
-              className="px-8 py-3 rounded-lg transition-all hover:scale-105 hover:shadow-lg mb-8"
+            <Link 
+              to="/contact"
+              className="inline-block px-8 py-3 rounded-lg transition-all hover:scale-105 hover:shadow-lg mb-8"
               style={{
                 background: '#FFF8E1',
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 600,
                 fontSize: '16px',
-                color: '#000000'
+                color: '#000000',
+                textDecoration: 'none'
               }}
             >
               Book An Appointment
-            </button>
+            </Link>
 
             {/* Illustration */}
             <div className="flex justify-end">
