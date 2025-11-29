@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Phone } from 'lucide-react';
 import { Footer } from '../../components/Footer';
 import { Navbar } from '../../components/Navbar';
@@ -24,6 +24,10 @@ const ChatButton: React.FC = () => {
 };
 
 const Home: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />

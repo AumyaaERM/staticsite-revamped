@@ -10,6 +10,7 @@ export const LeadersSection: React.FC = () => {
       image: "/images/about/yukti-arora.png",
       credentials: "CA, CISA, DISA, ISO 27001 Lead Auditor",
       email: "yukti.arora@aumyaa.com",
+      linkedin: "https://www.linkedin.com/in/yukti-arora-033a3914",
       expertise: "Process, Control, and Technology Risk Advisory, ERP Implementation, Cyber Security and Privacy Framework, Process Automation, SOX Implementation, RPA, Blockchain, Internal Audit, ERM Implementation, SAP GRC Access Control",
       experience: "Over 2 Decades",
       memberships: "ICAI, ISACA, IIA, IOD"
@@ -20,6 +21,7 @@ export const LeadersSection: React.FC = () => {
       image: "/images/about/jyoti-singh.png",
       credentials: "B.Com, CA, DISA, Certificate Course on BRSR, GRI Certified, TCFD Certified",
       email: "jyoti.singh@aumyaa.com",
+      linkedin: "https://www.linkedin.com/in/ca-jyoti-singh-8b94151b6",
       expertise: "ESG, Sustainability reporting, Sustainability Assurance, Integrated reporting, Circular Economy, Assurance, Corporate governance, Internal Controls, and Risk management.",
       experience: "Over 2 Decades",
       memberships: ""
@@ -30,6 +32,7 @@ export const LeadersSection: React.FC = () => {
       image: "/images/about/maula-ramoju.png",
       credentials: "Former Audit & Assurance Partner and Board member of Deloitte Haskins & Sells LLP (India), ICF-accredited Executive Coach & Chartered Accountant,",
       email: "mbanerji1301@gmail.com",
+      linkedin: "https://www.linkedin.com/in/manjula-banerji-7224b7290",
       expertise: "1000+ hours of coaching, Mentored numerous professionals.",
       experience: "40+ Years",
       memberships: ""
@@ -161,6 +164,18 @@ export const LeadersSection: React.FC = () => {
                         <p>{leader.credentials}</p>
                         
                         <p><strong>Email:</strong> {leader.email}</p>
+                        
+                        <p>
+                          <strong>LinkedIn:</strong>{' '}
+                          <a 
+                            href={leader.linkedin} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline"
+                          >
+                            View Profile
+                          </a>
+                        </p>
                         
                         <p><strong>Expertise:</strong> {leader.expertise}</p>
                         

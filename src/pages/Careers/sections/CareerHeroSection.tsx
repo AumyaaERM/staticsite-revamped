@@ -64,7 +64,10 @@ export const CareerHeroSection: React.FC = () => {
             </div>
 
             {/* Upload Resume Button */}
-            <button 
+            <a 
+              href="https://forms.gle/bp4vpnT4omHhjdP19"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full flex items-center justify-between px-9 py-4 rounded-full transition-all hover:scale-105 hover:shadow-lg"
               style={{
                 background: '#FCD421',
@@ -72,14 +75,15 @@ export const CareerHeroSection: React.FC = () => {
                 fontWeight: 600,
                 fontSize: '18px',
                 borderRadius: '50px',
-                color: '#000000'
+                color: '#000000',
+                textDecoration: 'none'
               }}
             >
               Upload resume
               <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
                 <ArrowRight className="w-5 h-5" style={{ color: '#000000' }} />
               </div>
-            </button>
+            </a>
           </div>
 
           {/* Right Side - Image */}

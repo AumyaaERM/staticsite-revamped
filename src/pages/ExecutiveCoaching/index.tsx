@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Brain, TrendingUp, Award } from 'lucide-react';
 
 export const ExecutiveCoaching: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const services = [
     {
       icon: <Users className="w-10 h-10" style={{ color: '#4F63D2' }} />,
@@ -117,15 +120,20 @@ export const ExecutiveCoaching: React.FC = () => {
               Unlock your executive potential with personalized coaching designed to elevate your leadership skills, strategic thinking, and organizational impact.
             </p>
 
-            <button className="px-8 py-4 rounded-xl transition-all hover:scale-105 hover:shadow-lg" style={{
-              background: '#FFFFFF',
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 600,
-              fontSize: '18px',
-              color: '#000000'
-            }}>
+            <Link 
+              to="/contact"
+              className="px-8 py-4 rounded-xl transition-all hover:scale-105 hover:shadow-lg inline-block" 
+              style={{
+                background: '#FFFFFF',
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 600,
+                fontSize: '18px',
+                color: '#000000',
+                textDecoration: 'none'
+              }}
+            >
               Start Your Journey
-            </button>
+            </Link>
           </div>
 
           {/* Image */}
