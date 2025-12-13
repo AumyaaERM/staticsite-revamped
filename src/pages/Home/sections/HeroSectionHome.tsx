@@ -1,37 +1,111 @@
-import React from 'react';
-import { Search, MessageCircle, ArrowRight, ChevronRight, Download, Phone } from 'lucide-react';
-// Hero Section Component
+import React, { useState, useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
+interface Slide {
+  image: string;
+  text: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
 export const HeroSectionHome: React.FC = () => {
-    return (
-      <div className="relative h-96 bg-cover bg-center" style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&h=400&fit=crop')"
-      }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
-        
-        <div className="absolute top-8 right-8 flex items-center gap-3">
-          <MessageCircle className="w-8 h-8 text-yellow-400 fill-yellow-400" />
-          <button className="bg-yellow-400 text-black font-bold px-6 py-3 text-lg">
-            Quick Inquiry
-          </button>
-        </div>
-        
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img 
-            src="https://images.unsplash.com/photo-1535850452537-b57c3c79f5e7?w=300&h=300&fit=crop" 
-            alt="Light bulb with plant"
-            className="w-64 h-64 rounded-full object-cover"
+  const navigate = useNavigate();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides: Slide[] = [
+    {
+      image: '/images/home/tc1.png',
+      text: 'Tech That Transforms. Strategy That Scales',
+      buttonText: 'Technology Consulting',
+      buttonLink: '/consulting/technology'
+    },
+    {
+      image: '/images/home/attachment (1) 3-1.svg',
+      text: 'Navigate Risk with Foresight and Precision',
+      buttonText: 'Risk Advisory',
+      buttonLink: '/consulting/risk'
+    },
+    {
+      image: '/images/home/bc1.png',
+      text: 'Strategies That Spark Transformation',
+      buttonText: 'Business Consulting',
+      buttonLink: '/consulting/business'
+    },
+    {
+      image: '/images/home/esg1.png',
+      text: 'Accelerating Growth with Purpose and Responsibility',
+      buttonText: 'ESG Consulting',
+      buttonLink: '/consulting/esg'
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative h-[600px] overflow-hidden relative">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+        >
+          <img
+            src={slide.image}
+            alt={slide.text}
+            className="w-full h-full object-cover"
           />
         </div>
-        
-        <div className="absolute bottom-8 left-0 right-0 px-12 flex gap-4">
-          <div className="bg-yellow-400 text-black font-bold text-2xl px-8 py-4 flex-1">
-            Accelerating Growth With Purpose And Responsibility
-          </div>
-          <button className="bg-yellow-400 text-black font-bold px-8 py-4 flex items-center gap-2">
-            ESG Consulting
-            <ArrowRight className="w-6 h-6" />
-          </button>
+      ))}
+
+      <div className="absolute inset-0 bg-black/30" />
+
+      <div className="absolute top-0 right-0 flex items-center gap-3 z-10">
+        <a
+          href="https://wa.me/9818248133"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-12 h-12 flex items-center justify-center"
+        >
+          <img
+            src="/images/home/whatsapp.png"
+            alt="WhatsApp"
+            className="w-full h-full object-contain"
+          />
+        </a>
+        <a
+          href="/contact-us.html"
+          style={{ fontFamily: 'Days One, sans-serif', textDecoration: 'none', color: "white" }}
+
+          className=" py-[10px] px-[15px] bg-[#fcd421] text-white no-underline font-bold flex items-center justify-center text-center"
+        >
+          Quick Enquiry
+        </a>
+      </div>
+
+      <div className="absolute bottom-8 left-0 right-8 z-10">
+        <div className="flex items-end justify-between gap-4">
+          <label style={{ fontFamily: 'Days One, sans-serif' }}
+            className="bg-[#FCD421] text-black font-bold text-2xl w-full md:text-3xl px-6 py-4 rounded-r-2xl inline-block">
+            {slides[currentSlide].text}
+          </label>
+          <a
+            style={{ fontFamily: 'Days One, sans-serif', color: "black" }}
+            onClick={() => navigate(slides[currentSlide].buttonLink)}
+            className="bg-[#FCD421] flex items-center gap-2 whitespace-nowrap text-black font-bold 
+             text-2xl md:text-3xl px-6 py-4 rounded-2xl inline-flex"
+          >
+            <span>{slides[currentSlide].buttonText}</span>
+            <ArrowRight className="w-5 h-5" />
+          </a>
+
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};

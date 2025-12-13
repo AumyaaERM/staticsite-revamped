@@ -13,15 +13,6 @@ import { ServicesSection } from './sections/ServicesSection';
 import { WhoWeAreHome } from './sections/WhoWeAreHome';
 
 
-// Chat Button Component
-const ChatButton: React.FC = () => {
-  return (
-    <button className="fixed bottom-8 right-8 bg-black text-yellow-400 font-bold px-8 py-4 rounded-full flex items-center gap-3 shadow-2xl hover:bg-gray-800 transition-all hover:scale-105 z-50">
-      Chat With Us
-      <Phone className="w-5 h-5" />
-    </button>
-  );
-};
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -42,7 +33,6 @@ const Home: React.FC = () => {
       <ClientsSection />
       <TestimonialsSection />
       <Footer />
-      <ChatButton />
     </div>
   );
 };

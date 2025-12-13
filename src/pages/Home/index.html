@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/index-470e4cd86318250dcd105ab6c4148a04a9b5f6bc9bd34ecdb4cb37ea3ecd40ac.css" />
+  <style>
+    /*------------THIS IS FOR HOVER PART ON HOME PAGE----------*/
+    .vision-tile,
+    .mission-tile {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Image styles */
+    .forward-img,
+    .backward-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* Hover effect */
+    .backward-img {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .vision-tile:hover .backward-img,
+    .mission-tile:hover .backward-img {
+      opacity: 1;
+    }
+
+    .vision-tile:hover .forward-img,
+    .mission-tile:hover .forward-img {
+      opacity: 0;
+    }
+
+
+    /*---------END------*/
+
+
+    /*-------NAVBAR HOVER---------*/
+
+    .menu-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .menu-title {
+      background-color: #fdd218;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .menu-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+    }
+
+    .menu-wrapper:hover .menu-dropdown {
+      display: block;
+    }
+
+    .menu-dropdown label {
+      display: block;
+      padding: 8px 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .menu-dropdown label:hover {
+      background-color: #f0f0f0;
+    }
+
+
+    /*---------NAVBAR HOVER END----------*/
+
+
+    /* Only animate elements with this specific class */
+    .slide-in-animate {
+      animation: slideInFromLeft 1s ease-out;
+    }
+
+    @keyframes slideInFromLeft {
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Only animate elements with this specific class */
+    .slide-in-animate-right {
+      animation: slideInFromRight 1s ease-out;
+    }
+
+    @keyframes slideInFromRight {
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .fade-in-animate {
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Container */
+    .webinar-form-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px;
+      padding: 40px;
+      flex-wrap: wrap;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+    }
+
+    /* Left Side Text */
+    .webinar-form-left {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+
+    .webinar-form-left h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #121103;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .webinar-form-left .highlight {
+      color: #FFD400;
+    }
+
+    /* Right Side Form */
+    .webinar-form-right {
+      flex: 1 1 320px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .webinar-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .webinar-form input {
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid #eee;
+      font-size: 1rem;
+      background-color: white;
+      box-sizing: border-box;
+      width: 100%;
+      outline: none;
+      transition: border 0.2s ease;
+    }
+
+    .webinar-form input:focus {
+      border-color: #ffd400;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      background-color: #FFD400;
+      color: #121103;
+      font-size: 1rem;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #f2c600;
+    }
+
+    .submit-btn .arrow {
+      background: white;
+      border-radius: 50%;
+      padding: 5px 10px;
+      margin-left: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .webinar-form-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+      }
+
+      .webinar-form-left h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .webinar-form-left h2 {
+        font-size: 1.5rem;
+      }
+
+      .webinar-form input,
+      .submit-btn {
+        font-size: 0.95rem;
+        padding: 14px;
+      }
+
+      .submit-btn .arrow {
+        padding: 4px 8px;
+      }
+    }
+
+    /* Careers Page PArt */
+
+    /* Careers Section Styles */
+    .careers-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .careers-left {
+      flex: 1 1 400px;
+      max-width: 600px;
+    }
+
+    .careers-left h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .careers-left .highlight {
+      color: #FFC727;
+      font-weight: 600;
+    }
+
+    .careers-left p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: left;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 20px 0;
+    }
+
+    .point {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .submit-text {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #555;
+      font-size: 0.95rem;
+      margin: 20px 0;
+    }
+
+    .upload-form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .upload-form input[type="file"] {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      flex: 1 1 auto;
+    }
+
+    .upload-form button {
+      background-color: #FFD521;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .upload-form button:hover {
+      background-color: #ffcc00;
+    }
+
+    .arrow {
+      font-size: 1.2rem;
+    }
+
+    /* Right Image */
+    .careers-right {
+      flex: 1 1 400px;
+      max-width: 600px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .careers-right img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 24px;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .careers-wrapper {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .careers-left h2 {
+        font-size: 2rem;
+      }
+
+      .upload-form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .upload-form button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+
+    .slideshow-wrapper {
+      position: relative;
+      width: 100%;
+      min-height: 40vw;
+      overflow: hidden;
+    }
+
+    .slide-1,
+    .slide-2,
+    .slide-3,
+    .slide-4 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: fadeSlide 16s infinite;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide-2 {
+      animation-delay: 4s;
+    }
+
+    .slide-3 {
+      animation-delay: 8s;
+    }
+
+    .slide-4 {
+      animation-delay: 12s;
+    }
+
+    @keyframes fadeSlide {
+      0% {
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      30% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+
+
+
+
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Days+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inria+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Instrument+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Sofia&display=swap" rel="stylesheet">
+</head>
+
+<body id="ic2u">
+  <div id="i9wd09e">
+    <div id="im9g7ul"><a href="index.html">
+        <img id="ih9gzzl" src="/assets/aumyaa bg.png" /></a></div>
+    <div id="i1nwttz" class="menu-wrapper"><!-- Include Google Font -->
+      <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
+
+      <style>
+        body {
+          margin: 0;
+          font-family: 'Days One', sans-serif;
+        }
+
+        .nav-container {
+          background-color: #FFD700;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          /* center everything horizontally */
+          padding: 0.5rem 1rem;
+          gap: 2rem;
+          /* spacing between items */
+          white-space: nowrap;
+        }
+
+        .menu-wrapper {
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+
+        .nav-container a {
+          text-decoration: none;
+          color: black;
+          font-weight: 600;
+          font-size: 1.1vw;
+          padding: 0 10px;
+          white-space: nowrap;
+        }
+
+        .nav-container a:hover {
+          color: #333;
+        }
+
+        .search-wrapper {
+          display: flex;
+          align-items: center;
+        }
+
+
+        .search-input::placeholder {
+          color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Logo styling */
+        .logo {
+          height: 50px;
+          /* adjust for bigger logo */
+          margin-right: 2rem;
+        }
+
+        .nav-container {
+          background-color: #FFD700;
+          min-height: 4vw;
+          display: flex;
+          align-items: flex-start;
+          padding-top: 2.3%;
+          justify-content: center;
+        }
+
+        .menu-wrapper {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .menu-button {
+          background-color: #FFD700;
+          font-size: 1.1vw;
+          cursor: pointer;
+          border-radius: 5%;
+          text-align: center;
+          white-space: nowrap;
+          width: fit-content;
+          font-weight: 600;
+          padding: 0;
+          /* No padding to interfere with vertical alignment */
+          margin: 0;
+        }
+
+        .menu-dropdown {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: #fff;
+          box-shadow: 0 2% 5% rgba(0, 0, 0, 0.2);
+          border-radius: 2%;
+          z-index: 1000;
+          animation: slideDown 0.4s ease forwards;
+          min-width: 20%;
+          width: max-content;
+          opacity: 0;
+          transform: translateY(-5%);
+        }
+
+        .menu-dropdown a {
+          font-size: 1.1vw;
+          padding: 2% 4%;
+          margin: 1% 0;
+          text-decoration: none;
+          color: #000;
+          font-weight: 600;
+          white-space: nowrap;
+          transition: background 0.3s ease;
+        }
+
+        .menu-dropdown a:hover {
+          background-color: #f0f0f0;
+        }
+
+        .menu-wrapper:hover .menu-dropdown {
+          display: flex;
+          animation: slideDown 0.4s ease forwards;
+        }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-5%);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @media (max-width: 768px) {
+
+          .menu-button,
+          .menu-dropdown a {
+            font-size: 2.5vw;
+            padding: 3% 5%;
+          }
+
+          .nav-container {
+            min-height: 15vw;
+          }
+        }
+
+        @media (max-width: 480px) {
+
+          .menu-button,
+          .menu-dropdown a {
+            font-size: 4vw;
+            padding: 4% 6%;
+          }
+
+          .nav-container {
+            min-height: 18vw;
+          }
+        }
+      </style>
+      <div class="nav-container">
+        <div class="menu-wrapper">
+          <div class="menu-button">CONSULTING SERVICES</div>
+          <div class="menu-dropdown">
+            <a href="/business-consulting.html">BUSINESS CONSULTING</a>
+            <a href="/technology-consulting.html">TECHNOLOGY CONSULTING</a>
+            <a href="/risk-advisory.html">RISK CONSULTING</a>
+            <a href="/esg-consulting.html">ESG CONSULTING</a>
+            <a href="/compliance-advisory.html">COMPLIANCE SERVICES</a>
+          </div>
+        </div>
+      </div>
+    </div><A id="ikck4o2" href="./executive-coaching.html">EXECUTIVE COACHING</A><A id="imwkum9"
+      href="./register-for-training.html">REGISTER FOR TRAINING</A><A id="im66rvf" href="./careers.html">CAREERS</A><A
+      id="iur7fer" href="./about-us.html">ABOUT US</A><A id="imrj8ek" href="./contact-us.html">CONTACT US</A>
+    <div class="search-wrapper">
+      <input type="text" class="search-input" placeholder="Search services" />
+    </div>
+  </div>
+  <!-- HTML Structure -->
+  <div id="idykbo5"></div>
+  <div id="ia7tvca" class="slideshow-wrapper" style="position: relative;">
+
+    <!-- Buttons in top-right -->
+    <div class="top-right-buttons" style="position: absolute; right: 0px; display: flex; gap: 10px; z-index: 10;">
+      <a href="https://wa.me/9818248133" target="_blank" style="display: inline-block;">
+        <img src="/assets/image.png" alt="WhatsApp" style="width: 50px; height: 50px; object-fit: contain;">
+      </a>
+      <a href="/contact-us.html" class="quick-enquiry-btn"
+        style="padding: 10px 15px; background: #fcd421; color: white; text-decoration: none; font-weight: bold;display: flex; align-items: center; justify-content: center; text-align: center">
+        Quick Enquiry
+      </a>
+    </div>
+
+    <div id="ikunykr" class="slide-1">
+      <img id="id7stxj" src="/assets/tc1.png">
+      <label id="ilmiuph">Tech That Transforms. Strategy That Scales</label>
+      <a type="button" id="ienegow" href="./technology-consulting.html"></span>Technology Consulting</span> <img
+          src="/assets/Advance.png" alt="" /></a>
+    </div>
+
+    <div id="ie017wd" class="slide-2">
+      <img id="i7kjlr6" src="/assets/attachment (1) 3-1.svg">
+      <label id="inwhxp7">Navigate Risk with Foresight and Precision</label>
+      <a type="button" id="ivyse3h" href="./risk-advisory.html"><span>Risk Advisory</span> <img
+          src="/assets/Advance.png" alt=""></a>
+    </div>
+
+    <div id="it20019" class="slide-3">
+      <img id="itqxcem" src="/assets/bc1.png">
+      <label id="iw2nodh">Strategies That Spark Transformation</label>
+      <a type="button" id="ihb64ag" href="./business-consulting.html"><span>Business Consulting</span> <img
+          src="/assets/Advance.png" alt="" /></a>
+    </div>
+
+    <div id="iozyqlu" class="slide-4">
+      <img id="i4byc1y" src="/assets/esg1.png">
+      <label id="io3ktik">Accelerating Growth with Purpose and Responsibility</label>
+      <a type="button" id="ihb64ag-2" href="./esg-consulting.html"><span>ESG Consulting</span> <img
+          src="/assets/Advance.png" alt=""></a>
+    </div>
+  </div>
+  <div class="container-who">
+
+    <!-- NEW WRAPPER for alignment -->
+    <div class="who-content">
+      <div id="irz85">
+        <label id="iabha">Who</label>
+        <label id="i2rux">We Are</label>
+        <label id="it6my">
+          <span id="i5ybx">
+            We are a team of seasoned professionals from Fortune 100 and Big 4 firms, dedicated to driving
+            business success. We specialize in Business Consulting, Technology Consulting, Risk Advisory, and ESG,
+            empowering organizations to navigate challenges, drive transformation, and achieve sustainable growth.
+          </span>
+        </label>
+      </div>
+
+      <div id="i2svi5n">
+        <div id="isbddso" class="vision-tile">
+          <img id="i4ahfmg" src="/assets/vision back.png" class="backward-img">
+          <img id="ia5mwag" src="/assets/vision front.png" class="forward-img">
+        </div>
+        <div id="i44537r" class="mission-tile">
+          <img id="icfpaxg" src="/assets/Mission back.png" class="backward-img">
+          <img id="ibhz6lp" src="/assets/Mission front.png" class="forward-img">
+        </div>
+        <div id="ire440m">
+          <img id="ik4d2zi" src="/assets/What's New.png">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="iyou5">
+    <div id="isx3ha8"><img id="ixn68n6" src="/assets/INTEGRITY.png" /><img id="ih4150h"
+        src="/assets/CLIENT-CENTRIC.png" /><img id="i0zmm56" src="/assets/Pasted Graphic 8.png" /><img id="iu744yc"
+        src="/assets/QUALITY.png" /><img id="iudv5xh" src="/assets/INNOVATION.png" /><img id="is2b4bi"
+        src="/assets/SUSTAINABILITY.png" /></div><img id="iutzeuo" src="/assets/image copy.png" />
+  </div>
+  <div id="iqwya"><label id="iyni3">Our Services</label><label id="ilj1q"><span></span><span></span><span
+        id="ilppk">Explore how we help you navigate change and thrive</span></label></div>
+  <div id="i1ko9">
+    <div id="i06dvd5">
+      <img id="igycfzc" src="/assets/servoice1.png">
+      <label id="i40jrdt">Business Consulting</label>
+      <label id="ie9kna8"><span></span><span id="ikukkkj">Aumyaa's Business Consulting services enhance performance
+          through customer journey mapping, program and project management, operational excellence, and vendor
+          management.</span></label>
+      <a type="button" id="iix5vnj" href="./business-consulting.html" class="view-details-btn">
+        View all details
+        <span class="arrow-circle">›</span>
+      </a>
+    </div>
+
+    <div id="izc9jdo">
+      <img id="id45h2m" src="/assets/service2.png">
+      <label id="iqcmh22">Technology Consulting</label>
+      <label id="i8t8bps"><span></span><span id="iq8fgnb">Aumyaa's technology Consulting Services enhance business
+          performance through process optimization, automation, IT strategy development, data management, digital
+          transformation, and enterprise collaboration.</span></label>
+      <a type="button" id="isbfiwl" href="./technology-consulting.html" class="view-details-btn">
+        View all details
+        <span class="arrow-circle">›</span>
+      </a>
+    </div>
+
+    <div id="iacmswb">
+      <img id="id45h2m-2-2" src="/assets/service4.png">
+      <label id="ixhrj3c">ESG Consulting</label>
+      <label id="ieefd2r"><span></span><span id="izox03p">Aumyaa's ESG Consulting services assist organizations in
+          integrating effective Environmental, Social, and Governance (ESG) practices to enhance operational efficiency,
+          sustainable value creation, and strengthen stakeholder relationships.</span></label>
+      <a type="button" id="i6xz7c7" href="./esg-consulting.html" class="view-details-btn">
+        View all details
+        <span class="arrow-circle">›</span>
+      </a>
+    </div>
+
+    <div id="i48pwdy">
+      <img id="id45h2m-2-2-2" src="/assets/service5.png">
+      <label id="iadq935">Compliance Support Solution</label>
+      <label id="i9n9df7"><span></span><span id="i7assgf">Aumyaa’s Compliance services support organizations in building
+          strong compliance frameworks, reducing regulatory risks, and staying aligned with evolving laws. We help drive
+          ethical practices and operational integrity, enabling confident and compliant business growth.</span></label>
+      <a type="button" id="i5jqtsx" href="./compliance-advisory.html" class="view-details-btn">
+        View all details
+        <span class="arrow-circle">›</span>
+      </a>
+    </div>
+
+    <div id="ify0vbo">
+      <img id="id45h2m-2" src="/assets/service3.png">
+      <label id="imcg42g">Risk Advisory</label>
+      <label id="i3owclh"><span></span><span id="iv3u6nj">Aumyaa's Risk Advisory services help businesses manage
+          uncertainty, enhance resilience, and create value through optimized internal controls, business continuity
+          planning, and continuous control monitoring.</span></label>
+      <a type="button" id="i0s714n" href="./risk-advisory.html" class="view-details-btn">
+        View all details
+        <span class="arrow-circle">›</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="in04o"><img id="iaj6v" src="/assets/video photo.png" /><img id="i21fj"
+      src="/assets/video yellow.png" /><label id="ie29m">In Focus</label><label id="illka"><span id="iil5mb">Embark on a transformative journey towards net - zero emmisions with our comprehensive guide! 🚀 From assessing your current standing to setting ambitious targets aligned with global standards, we explore each step of the Net Zero Roadmap.</span></label>
+      <label id="idjj3">Navigating Net Zero: A Sustainable<br />Business
+      Transformation</label><A type="button" id="ivjjt"
+      href="https://www.youtube.com/@aumy   aalearningacademy5425/featured">Watch More</A><iframe
+      allowfullscreen="allowfullscreen" id="imvfi" src="https://www.youtube.com/embed/a081_W5U_SY?"></iframe></div>
+  <div id="ipimmg"><img id="iy5j9i" src="/assets/Aumyaa Learning Academy.png" /><img id="iphonw"
+      src="/assets/ex coach 2.png" /><A type="button" id="i160tf" href="./aumyaa-learning-academy.html">View all
+      details ➜</A><A type="button" id="ir4tdb" href="./executive-coaching.html">View all details ➜</A><A id="io7f3g"
+      href="https://drive.google.com/file/d/1-HteGSDzS3ocNIcz3lIx8Rc3vkqnNZ48/view">Click here to get started</A></div>
+  <div id="ik5q9w"><img id="i1ls2l" src="/assets/new yellow bg.png" /><img id="io6tx8"
+      src="/assets/new yellow bg.png" /><label id="ig4cbh">Downloads</label><img id="ilbtbj"
+      src="/assets/black line.png" /><img id="ih3hli" src="/assets/news 1.png" /><A type="button" id="i5ezca"
+      href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fpranati%5Faumyaa%5Fcom%2FDocuments%2FNewsLetter&ga=1">Newsletter</A><A
+      type="button" id="ip4n6g"
+      href="https://aumyaaconsulting-my.sharepoint.com/:b:/r/personal/pranati_aumyaa_com/Documents/Aumyaa%20Profile%202025/Aumyaa%20profile%20(7).pdf?csf=1&web=1&e=b44wgo">Firm
+      Profile</A><A type="button" id="iepyi9"
+      href="https://aumyaaconsulting-my.sharepoint.com/:b:/r/personal/pranati_aumyaa_com/Documents/Survey%20report/survey%20report%202024-2025.pdf?csf=1&web=1&e=WE7hsu">Survey
+      Reports</A><A type="button" id="ihv3o9"
+      href="https://aumyaaconsulting-my.sharepoint.com/:b:/r/personal/pranati_aumyaa_com/Documents/Survey%20report/Vendor%20Risk%20Management%20Survey%20Report%202024.pdf?csf=1&web=1&e=ooNDkT">Other
+      Publications</A><A type="button" id="iy8m1p" href="https://">More Insights</A><label id="ix61du">Insights</label>
+  </div>
+  <div id="i0kgj4h"><label id="ieu5jpp">Our esteemed Clients</label></div>
+  <div id="ibayehh"><img id="ispsryr" src="/assets/logo 1.png" /><img id="irjuugg" src="/assets/HCLTech niva.png" /><img
+      id="i5wncmt" src="/assets/mazars.png" /></div>
+  <div id="ipb6w"><label id="i0j9e7">Explore Testimonials</label></div>
+  <div id="isazak"><label id="ifvbuf"><i id="i36arl">"Their consulting approach helped us identify key ESG gaps and
+        implement measures that significantly improved our sustainability metrics."<br /><br /><br /><b id="i1semn">-
+          Client, ESG Consulting Engagement</b></i></label><label id="i3v6go"><span></span><span id="iq1ivb"><span
+          id="ii6pri">“Aumyaa’s diverse team demonstrated a deep understanding of our complex business processes, designing and implementing a comprehensive SOD rule book for 40 applications.”
+
+        </span><span></span><span id="ijb37g">- VP - Applications, Largest Technology Company in India</span></i><span
+          id="i4usnu"></span></label><label id="ifvbuf-2"><i id="i36arl-2">"Aumyaa's expertise has strengthened our compliance posture and operational effective."<br /><br /><br />-Controller, Leading Manufacturing Company in India</i></label><label id="ifvbuf-2-2"><i id="i36arl-2-2">"Aumyaa's Proactive approach and technical expertise have been invaluable in improving our operational resilience and compliance readiness."<br /><br /><br />-Senior Manager, BFSI Sector</i></label><label id="ifvbuf-2-2-2"><i>"The ESG training conducted by Aumyaa Consulting Services was insightful and practical."<br /><br /><br />-Training Participant, ESG Awareness
+        Session</i></label><label id="ifvbuf-2-2-2-2"><i>"The ESG training conducted by Aumyaa Consulting Services was insightful and practical."<br /><br /><br />-Training Participant, ESG Awareness Session</i></label></div>
+  <div style="text-align: right; width: 100%; padding:1rem;">
+    <a href="https://wa.me/9818248133" class="quick-enquiry-btn" style="padding: 20px 25px; background: #000000; color: #fcd421; 
+                    text-decoration: none; font-weight: bold; 
+                    display: inline-flex; align-items: center; gap: 8px;
+                    border-radius: 30px;">
+      Chat With Us
+      <img src="/assets/image.png" alt="" style="width: 20px; height: 20px;">
+    </a>
+  </div>
+
+
+  <div id="i2pzr3">
+    <div id="i7dc7f">
+      <div id="izmg2c"><label id="ib35z9">Aumyaa Consulting Services LLP</label><label
+          id="ilouc1"><span></span><span></span><span id="iuwzhi">Our Certification Recognizes Quality and Competence
+          </span></label></div>
+      <div id="inrtqo"><img id="i4ybia" src="/assets/iso logo.png" /><img id="iqoq4a" src="/assets/soc2 logo.png" />
+      </div>
+    </div>
+    <div id="igyhsr"><label id="iay6rv">Services</label><A id="iim8q7" href="./business-consulting.html">Business
+        Consulting</A><A id="io3jp3" href="./technology-consulting.html">Technology Consulting</A><A id="imilgi"
+        href="./risk-advisory.html">Risk Advisory</A><A id="ix1lr8" href="./esg-consulting.html">ESG Consulting</A><A
+        id="iqizppq" href="./compliance-advisory.html">Compliance Service</A></div>
+    <div id="i9zvgj"><label id="isennh">Company</label><A id="ieoeej" href="./about-us.html">About Us</A><A id="i8d4dp"
+        href="./executive-coaching.html">Executive Coaching</A><A id="in8w8t" href="./careers.html">Career</A></div>
+    <div id="i67p9d"><label id="i58vdb">Contact Us</label><label id="i5f5j2"><span></span><span id="i5fx78">09818248133
+        </span></label><label id="i3e5sl"><span></span><span id="i4yle5">contact@aumyaa.com</span></label><label
+        id="i6lx4g"><span></span><span></span><A id="ids5a1" href="http://www.yuktiarora.in/">Blogs <span
+            id="ii2tge">↗</span></A></label><label id="i772px">Instagram <span id="ir0yty">↗</span></label><A
+        id="icx3ho" href="https://www.linkedin.com/in/aumyaagroup/">LinkedIn  <span id="ivklrg">↗</span></A></div>
+    <div id="i3k1k7"><label id="iacka6">Headquarter</label><label id="i7g2if"><span></span><span></span><span
+          id="ibab6v">Aumyaa consulting services LLP<br />Corporate office:<br />2414, 4th floor, Express trade tower 2,
+          B36 , Sector 132, Noida<br />Uttar Pradesh, India- 201301 <br /><br />10am—6pm
+        </span></label></div>
+  </div>
+  <div id="iahghj"><img id="i6k34g" src="/assets/white line.png" /></div>
+  <div id="iz79nj"><label id="iluz1k"><span></span><span></span><span id="it4cla">© 2025 Aumyaa Consulting Services. All
+        rights reserved.</span></label><img id="i7bo3o" src="/assets/tele.png" /><img id="ikgglf"
+      src="/assets/facebook.png" /><img id="i1vqsj" src="/assets/youtubve.png" /><img id="ieuwwl"
+      src="/assets/insta.png" /></div>
+  <script>
+    const container = document.getElementById("i1ko9");
+
+    let scrollAmount = 0;
+    let step = 1; // pixels per tick
+    let delay = 40; // ms per tick
+
+    function autoScroll() {
+      if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+        container.scrollLeft = 0; // reset to start
+      } else {
+        container.scrollLeft += step;
+      }
+    }
+    const clientTrail = document.getElementById("ibayehh");
+
+    step = 1;   // px per tick
+    delay = 40; // ms per tick
+
+    function autoScrollLogos() {
+      if (clientTrail.scrollLeft >= clientTrail.scrollWidth - clientTrail.clientWidth) {
+        clientTrail.scrollLeft = 0; // reset to start
+      } else {
+        clientTrail.scrollLeft += step;
+      }
+    }
+
+    setInterval(autoScroll, delay);
+    delay = 20; // ms per tick
+    setInterval(autoScrollLogos, delay);
+
+    const testimonials = document.getElementById("isazak");
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    testimonials.addEventListener("mousedown", (e) => {
+      isDown = true;
+      testimonials.classList.add("active");
+      startX = e.pageX - testimonials.offsetLeft;
+      scrollLeft = testimonials.scrollLeft;
+    });
+
+    testimonials.addEventListener("mouseleave", () => {
+      isDown = false;
+      testimonials.classList.remove("active");
+    });
+
+    testimonials.addEventListener("mouseup", () => {
+      isDown = false;
+      testimonials.classList.remove("active");
+    });
+
+    testimonials.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - testimonials.offsetLeft;
+      const walk = (x - startX) * 2; // scroll speed multiplier
+      testimonials.scrollLeft = scrollLeft - walk;
+    });
+
+
+  </script>
+
+</body>
+
+</html>
