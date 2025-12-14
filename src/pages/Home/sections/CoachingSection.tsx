@@ -1,4 +1,5 @@
 import { ChevronRight } from 'lucide-react';
+import {Link} from "react-router-dom";
 
 export function CoachingSection() {
     return (
@@ -59,10 +60,10 @@ export function CoachingSection() {
                 </div>
               </div>
               
-              <button style={{background:"#fcd421"}} className=" bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-colors text-sm">
+              <Link to="/executive-coaching" style={{background:"#fcd421"}} className=" bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-colors text-sm">
                   View all details
                   <ChevronRight className="w-5 h-5" />
-                </button>
+                </Link>
               </div>
             </div>
             
@@ -130,10 +131,10 @@ export function CoachingSection() {
               
               <p className="font-bold text-xs mb-4 underline">Click Here to Get Started</p>
               
-              <button style={{background:"#fcd421"}} className="text-black bg-[#fcd421] text-black font-semibold px-6 py-3 rounded-full flex items-center gap-2 transition-colors text-sm">
+              <Link to="/executive-coaching" style={{background:"#fcd421"}} className="text-black bg-[#fcd421] text-black font-semibold px-6 py-3 rounded-full flex items-center gap-2 transition-colors text-sm">
                   View all details
                   <ChevronRight className="w-5 h-5" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,5 +1,12 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 // Footer Component
 export const Footer: React.FC = () => {
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return (
     <footer className="bg-yellow-400 py-8 md:py-12 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
@@ -22,11 +29,11 @@ export const Footer: React.FC = () => {
             <div>
             <h4 className="font-bold text-lg mb-3 md:mb-4 text-black" style={{ fontFamily: 'Days One, sans-serif' }}>Services</h4>
               <ul className="space-y-2 text-sm">
-              <li><a href="#" style={{ color: '#000000' }} className="hover:underline">Business Consulting</a></li>
-              <li><a href="#" style={{ color: '#000000' }} className="hover:underline">Technology Consulting</a></li>
-              <li><a href="#" style={{ color: '#000000' }} className="hover:underline">Risk Advisory</a></li>
-              <li><a href="#" style={{ color: '#000000' }} className="hover:underline">ESG Consulting</a></li>
-              <li><a href="#" style={{ color: '#000000' }} className="hover:underline">Compliance Support Solutions</a></li>
+              <li><Link to="/consulting/business-consulting" onClick={scrollToTop} style={{ color: '#000000' }} className="hover:underline">Business Consulting</Link></li>
+              <li><Link to="/consulting/tech-consulting" onClick={scrollToTop} style={{ color: '#000000' }} className="hover:underline">Technology Consulting</Link></li>
+              <li><Link to="/consulting/risk-consulting" onClick={scrollToTop} style={{ color: '#000000' }} className="hover:underline">Risk Advisory</Link></li>
+              <li><Link to="/consulting/esg-consulting" onClick={scrollToTop} style={{ color: '#000000' }} className="hover:underline">ESG Consulting</Link></li>
+              <li><Link to="/consulting/compliance-services" onClick={scrollToTop} style={{ color: '#000000' }} className="hover:underline">Compliance Support Solutions</Link></li>
               </ul>
             </div>
             
@@ -34,9 +41,9 @@ export const Footer: React.FC = () => {
             <div>
             <h4 className="font-bold text-lg mb-3 md:mb-4 text-black" style={{ fontFamily: 'Days One, sans-serif' }}>Company</h4>
               <ul className="space-y-2 text-sm">
-              <li><a href="#" style={{ color: '#000000' }} className="hover:underline">About Us</a></li>
-              <li><a href="#" style={{ color: '#000000' }} className="hover:underline">Executive Coaching</a></li>
-              <li><a href="#" style={{ color: '#000000' }} className="hover:underline">Career</a></li>
+              <li><Link to="/about" onClick={scrollToTop} style={{ color: '#000000' }} className="hover:underline">About Us</Link></li>
+              <li><Link to="/executive-coaching" onClick={scrollToTop} style={{ color: '#000000' }} className="hover:underline">Executive Coaching</Link></li>
+              <li><Link to="/careers" onClick={scrollToTop} style={{ color: '#000000' }} className="hover:underline">Career</Link></li>
               </ul>
             </div>
             
@@ -47,8 +54,8 @@ export const Footer: React.FC = () => {
               <li style={{ color: '#000000' }}>01204544295</li>
               <li><a style={{ color: '#000000' }} href="mailto:contact@aumyaa.com" className="hover:underline break-all">contact@aumyaa.com</a></li>
               <li><a style={{ color: '#000000' }} href="#" className="hover:underline">Blogs ↗</a></li>
-              <li><a style={{ color: '#000000' }} href="#" className="hover:underline">Instagram ↗</a></li>
-              <li><a style={{ color: '#000000' }} href="#" className="hover:underline">LinkedIn ↗</a></li>
+              <li><a style={{ color: '#000000' }} href="https://www.instagram.com/aumyaa_training" className="hover:underline">Instagram ↗</a></li>
+              <li><a style={{ color: '#000000' }} href="https://www.linkedin.com/company/aumyaaconsultingservicesllp/" className="hover:underline">LinkedIn ↗</a></li>
               </ul>
             </div>
             
