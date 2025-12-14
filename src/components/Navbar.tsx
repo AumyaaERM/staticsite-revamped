@@ -7,8 +7,6 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const [showConsultingDropdown, setShowConsultingDropdown] = useState(false);
   const [showCoachingDropdown, setShowCoachingDropdown] = useState(false);
-  const dropdownTimerRef = useRef<number | null>(null);
-
   const timer1 = useRef<number | null>(null);
   const timer2 = useRef<number | null>(null);
 

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Phone } from 'lucide-react';
 import { Footer } from '../../components/Footer';
 import { Navbar } from '../../components/Navbar';
 import { TestimonialsSection } from '../../TestimonialsSection';

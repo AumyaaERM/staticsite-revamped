@@ -1,4 +1,4 @@
-import { Download } from 'lucide-react';
+
 // Insights and Downloads Section
 export const InsightsDownloads: React.FC = () => {
   return (
