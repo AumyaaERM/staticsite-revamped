@@ -26,9 +26,9 @@ export const CoachingAdvantageSection: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white py-16 px-8 md:px-12">
+    <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Left Side - Book Cover */}
           <div className="flex items-start justify-center lg:justify-start">
             <div className="relative max-w-md">
@@ -43,7 +43,7 @@ export const CoachingAdvantageSection: React.FC = () => {
           {/* Right Side - Title, Subtitle, Key Insights, Button */}
           <div>
             {/* Title */}
-            <h2 className="text-[36px] md:text-[48px] font-bold mb-2" style={{
+            <h2 className="text-[24px] sm:text-[32px] md:text-[48px] font-bold mb-2" style={{
               fontFamily: 'Inter, sans-serif',
               lineHeight: '1.2'
             }}>

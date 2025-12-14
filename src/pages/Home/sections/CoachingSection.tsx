@@ -2,17 +2,17 @@ import { ChevronRight } from 'lucide-react';
 
 export function CoachingSection() {
   return (
-    <div className="bg-[#fafafa] py-16 px-4 md:px-12">
+    <div className="bg-[#fafafa] py-10 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 h-[650px] lg:grid-cols-2 gap-8 text-black">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 text-black">
           {/* Learning Academy Card */}
-          <div className="relative">
+          <div className="relative min-h-[500px] md:min-h-[650px]">
             <img 
               src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" 
               alt="Learning Academy"
-              className="w-full h-[350px] object-cover"
+              className="w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover"
             />
-            <div className="absolute bottom-8 left-8 right-8 bg-white rounded-3xl shadow-2xl p-8">
+            <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 md:left-8 right-4 sm:right-6 md:right-8 bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8">
               <div className="flex items-center gap-2 mb-3">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -22,7 +22,7 @@ export function CoachingSection() {
                 <span className="font-semibold text-sm">Skill Up</span>
               </div>
               
-              <h3 className="text-3xl font-bold mb-3" style={{ fontFamily: 'Days One, sans-serif' }}>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3" style={{ fontFamily: 'Days One, sans-serif' }}>
                 Aumyaa Learning Academy
               </h3>
               
@@ -67,13 +67,13 @@ export function CoachingSection() {
           </div>
           
           {/* Executive Coaching Card */}
-          <div className="relative">
+          <div className="relative min-h-[500px] md:min-h-[650px]">
             <img 
               src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=800&h=600&fit=crop" 
               alt="Executive Coaching"
-              className="w-full h-[350px] object-cover "
+              className="w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover"
             />
-            <div className="absolute bottom-8 left-8 right-8 bg-white rounded-3xl shadow-2xl p-8">
+            <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 md:left-8 right-4 sm:right-6 md:right-8 bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8">
               <div className="flex items-center gap-2 mb-3">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -83,7 +83,7 @@ export function CoachingSection() {
                 <span className="font-semibold text-sm">TRANSFORMATIVE TRANSITIONS</span>
               </div>
               
-              <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Days One, sans-serif' }}>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2" style={{ fontFamily: 'Days One, sans-serif' }}>
                 Executive Coaching
               </h3>
               

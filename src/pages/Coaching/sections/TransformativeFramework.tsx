@@ -24,10 +24,10 @@ export const TransformativeFramework: React.FC = () => {
   return (
     <div style={{ background: '#FFF9E6' }}>
       {/* Framework Section */}
-      <div className="py-16 px-8 md:px-12">
+      <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <h2 className="text-[40px] md:text-[48px] leading-tight font-bold text-center mb-4" style={{
+          <h2 className="text-[24px] sm:text-[32px] md:text-[48px] leading-tight font-bold text-center mb-3 md:mb-4" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000'
           }}>
@@ -35,7 +35,7 @@ export const TransformativeFramework: React.FC = () => {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-[16px] md:text-[18px] text-center mb-12 max-w-4xl mx-auto" style={{
+          <p className="text-[14px] sm:text-[16px] md:text-[18px] text-center mb-8 md:mb-12 max-w-4xl mx-auto" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000',
             lineHeight: '1.6'
@@ -44,29 +44,31 @@ export const TransformativeFramework: React.FC = () => {
           </p>
 
           {/* Three Pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
             {pillars.map((pillar, index) => (
               <div 
                 key={index}
-                className="rounded-lg p-8 text-left shadow-md"
+                className="rounded-lg p-5 sm:p-6 md:p-8 text-left shadow-md"
                 style={{
                   background: '#FFFFFF'
                 }}
               >
-                <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center" style={{
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl mb-4 md:mb-6 flex items-center justify-center" style={{
                   background: '#FFF4CC'
                 }}>
-                  {pillar.icon}
+                  <div className="scale-75 md:scale-100">
+                    {pillar.icon}
+                  </div>
                 </div>
 
-                <h3 className="text-[24px] font-bold mb-3" style={{
+                <h3 className="text-[18px] sm:text-[20px] md:text-[24px] font-bold mb-2 md:mb-3" style={{
                   fontFamily: 'Inter, sans-serif',
                   color: '#000000'
                 }}>
                   {pillar.title}
                 </h3>
 
-                <p className="text-[15px] leading-relaxed" style={{
+                <p className="text-[13px] md:text-[15px] leading-relaxed" style={{
                   fontFamily: 'Inter, sans-serif',
                   color: '#000000'
                 }}>
@@ -79,18 +81,18 @@ export const TransformativeFramework: React.FC = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="mx-8 md:mx-12 pb-16">
-        <div className="max-w-7xl mx-auto rounded-2xl p-12 text-center" style={{
+      <div className="mx-4 sm:mx-6 md:mx-12 pb-10 md:pb-16">
+        <div className="max-w-7xl mx-auto rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-12 text-center" style={{
           background: '#F5C542'
         }}>
-          <h2 className="text-[32px] md:text-[40px] font-bold mb-4" style={{
+          <h2 className="text-[22px] sm:text-[28px] md:text-[40px] font-bold mb-3 md:mb-4" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000'
           }}>
             Ready to Transform Your Leadership Journey?
           </h2>
 
-          <p className="text-[16px] md:text-[18px] mb-8 max-w-3xl mx-auto" style={{
+          <p className="text-[14px] sm:text-[16px] md:text-[18px] mb-6 md:mb-8 max-w-3xl mx-auto" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000'
           }}>
@@ -99,7 +101,7 @@ export const TransformativeFramework: React.FC = () => {
 
           <Link 
             to="/contact"
-            className="inline-block px-8 py-4 rounded-lg text-[16px] font-semibold transition-all hover:scale-105" 
+            className="inline-block px-6 md:px-8 py-3 md:py-4 rounded-lg text-[14px] md:text-[16px] font-semibold transition-all hover:scale-105" 
             style={{
               fontFamily: 'Inter, sans-serif',
               background: '#FFF8E1',

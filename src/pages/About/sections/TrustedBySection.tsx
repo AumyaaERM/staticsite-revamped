@@ -35,9 +35,9 @@ export const TrustedBySection: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white py-16 px-12">
+    <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-[48px] leading-[58px] text-center mb-16 capitalize tracking-[0.06em]" style={{
+        <h2 className="text-[24px] sm:text-[32px] md:text-[48px] leading-[130%] md:leading-[58px] text-center mb-8 md:mb-16 capitalize tracking-[0.04em] md:tracking-[0.06em]" style={{
           fontFamily: 'Inter, sans-serif',
           fontWeight: 700,
           color: '#000000'
@@ -65,7 +65,7 @@ export const TrustedBySection: React.FC = () => {
                 }}>
                   {industry.title}
                 </h3>
-                <p className="text-[15px] leading-[122%] mb-4 text-justify tracking-[0.01em]" style={{
+                <p className="text-[13px] md:text-[15px] leading-[140%] md:leading-[122%] mb-3 md:mb-4 text-justify tracking-[0.01em]" style={{
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 400,
                   color: '#000000'
@@ -73,12 +73,12 @@ export const TrustedBySection: React.FC = () => {
                   {industry.description}
                 </p>
               </div>
-              <div className="px-6 pb-6">
+              <div className="px-4 md:px-6 pb-4 md:pb-6">
                 <div className="overflow-hidden rounded-[5px]">
                   <img 
                     src={industry.image} 
                     alt={industry.title}
-                    className="w-full h-[214px] object-cover"
+                    className="w-full h-[160px] sm:h-[180px] md:h-[214px] object-cover"
                   />
                 </div>
               </div>

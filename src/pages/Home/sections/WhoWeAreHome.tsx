@@ -2,12 +2,12 @@ import React from 'react';
 
 export const WhoWeAreHome: React.FC = () => {
   return (
-    <div className="bg-white py-16 px-4 md:px-12">
+    <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-0 items-center mb-16">
-          <div className="mr-[5%] text-center md:text-left">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center mb-10 md:mb-16">
+          <div className="md:mr-[5%] text-center md:text-left">
             <h2
-              className="text-4xl md:text-5xl font-bold mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6"
               style={{ fontFamily: 'Days One, sans-serif' }}
             >
               <span className="text-[#FCD421]">Who</span>{' '}
@@ -16,7 +16,7 @@ export const WhoWeAreHome: React.FC = () => {
           </div>
 
           <div className="flex-1">
-            <p className="text-gray-700 text-xl leading-relaxed text-center md:text-left">
+            <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-center md:text-left">
               We are a team of seasoned professionals from Fortune 100 and Big 4 firms, dedicated to
               driving business success. We specialize in Business Consulting, Technology Consulting, Risk
               Advisory, and ESG, empowering organizations to navigate challenges, drive transformation, and
@@ -25,21 +25,21 @@ export const WhoWeAreHome: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_0.7fr] gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_0.7fr] gap-6">
         <div className="vision-tile bg-[#FCD421] rounded-3xl overflow-hidden relative flex flex-col h-full">
-            <div className="bg-[#FCD421] px-6 py-4 flex-shrink-0">
+            <div className="bg-[#FCD421] px-4 md:px-6 py-3 md:py-4 flex-shrink-0">
               <h3 
               style={{ fontFamily: 'Days One, sans-serif' }}
-              className="text-2xl font-bold text-center text-black">Vision</h3>
+              className="text-xl md:text-2xl font-bold text-center text-black">Vision</h3>
             </div>
-            <div className="relative flex-1 bg-white min-h-[256px]">
+            <div className="relative flex-1 bg-white min-h-[200px] md:min-h-[256px]">
               <img
                 src="/images/home/vision.jpg"
                 alt="Vision"
                 className="forward-img absolute inset-0 w-full h-full object-cover"
               />
-              <div className="backward-img absolute inset-0 w-full h-full bg-white p-6 flex items-center justify-center">
-                <p className="font-bold text-xl text-black italic text-base leading-relaxed text-left">
+              <div className="backward-img absolute inset-0 w-full h-full bg-white p-4 md:p-6 flex items-center justify-center">
+                <p className="font-bold text-sm md:text-xl text-black italic leading-relaxed text-left">
                   Empowering our clients and professionals. by creating value with perfection in work through
                   collaboration of the best minds and technology.
                 </p>
@@ -48,19 +48,19 @@ export const WhoWeAreHome: React.FC = () => {
           </div>
 
           <div className="mission-tile bg-[#FCD421] rounded-3xl overflow-hidden relative flex flex-col h-full">
-            <div className="bg-[#FCD421] px-6 py-4 flex-shrink-0">
+            <div className="bg-[#FCD421] px-4 md:px-6 py-3 md:py-4 flex-shrink-0">
               <h3 
               style={{ fontFamily: 'Days One, sans-serif' }}
-              className="text-2xl font-bold text-center text-black">Mission</h3>
+              className="text-xl md:text-2xl font-bold text-center text-black">Mission</h3>
             </div>
-            <div className="relative flex-1 bg-white min-h-[256px]">
+            <div className="relative flex-1 bg-white min-h-[200px] md:min-h-[256px]">
               <img
                 src="/images/home/mission.jpg"
                 alt="Mission"
                 className="forward-img absolute inset-0 w-full h-full object-cover"
               />
-              <div className="backward-img absolute inset-0 w-full h-full bg-white p-6 flex items-center justify-center">
-                <p className="font-bold text-xl  text-black italic text-base leading-relaxed text-left">
+              <div className="backward-img absolute inset-0 w-full h-full bg-white p-4 md:p-6 flex items-center justify-center">
+                <p className="font-bold text-sm md:text-xl text-black italic leading-relaxed text-left">
                   To be the best in the field of consulting and training, delivering through niche knowledge,
                   technology, experience and customised methodologies.
                 </p>
@@ -68,11 +68,11 @@ export const WhoWeAreHome: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white border-2 border-[#FCD421] rounded-3xl overflow-hidden flex flex-col h-full">
-            <div className="bg-[#FCD421] px-6 py-4 flex-shrink-0">
-              <h3 className="text-2xl font-bold text-center text-black">What's New</h3>
+          <div className="bg-white border-2 border-[#FCD421] rounded-3xl overflow-hidden flex flex-col h-full sm:col-span-2 lg:col-span-1">
+            <div className="bg-[#FCD421] px-4 md:px-6 py-3 md:py-4 flex-shrink-0">
+              <h3 className="text-xl md:text-2xl font-bold text-center text-black">What's New</h3>
             </div>
-            <div className="p-6 flex-1 flex flex-col justify-start">
+            <div className="p-4 md:p-6 flex-1 flex flex-col justify-start">
               <h4 className="font-bold text-sm mb-3 text-black">
                 SEBI Releases BRSR core Assessment/ Assurance
               </h4>

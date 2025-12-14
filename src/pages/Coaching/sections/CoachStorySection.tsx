@@ -2,16 +2,16 @@ import React from 'react';
 
 export const CoachStorySection: React.FC = () => {
   return (
-    <div className="bg-white py-16 px-12">
+    <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-[48px] leading-tight font-bold text-center mb-12" style={{
+        <h2 className="text-[28px] sm:text-[36px] md:text-[48px] leading-tight font-bold text-center mb-8 md:mb-12" style={{
           fontFamily: 'Inter, sans-serif',
           color: '#000000'
         }}>
           The Story of Manjula Banerji
         </h2>
 
-        <div className="space-y-6 text-[18px] leading-relaxed text-justify" style={{
+        <div className="space-y-4 md:space-y-6 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed text-justify" style={{
           fontFamily: 'Inter, sans-serif',
           color: '#000000'
         }}>
