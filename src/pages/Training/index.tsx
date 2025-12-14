@@ -65,25 +65,25 @@ export const Training: React.FC = () => {
   };
 
   return (
-    <div className="bg-white py-16 px-8 md:px-12">
+    <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Training Card */}
-        <div className="rounded-3xl overflow-hidden mb-16" style={{
+        <div className="rounded-2xl md:rounded-3xl overflow-hidden mb-10 md:mb-16" style={{
           border: '2px solid #E5E7EB',
           background: '#FFFFFF'
         }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
             {/* Left Side - Image */}
-            <div className="relative p-6" style={{ minHeight: '500px' }}>
+            <div className="relative p-4 md:p-6" style={{ minHeight: '280px' }}>
               <img 
                 src="/images/training/training-session.png"
                 alt="Training Session"
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-xl md:rounded-2xl"
               />
             </div>
 
             {/* Right Side - Content */}
-            <div className="p-8 md:p-12 flex flex-col justify-center">
+            <div className="p-5 sm:p-8 md:p-12 flex flex-col justify-center">
               {/* Header */}
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-6 flex items-center justify-center rounded bg-black">
@@ -98,7 +98,7 @@ export const Training: React.FC = () => {
               </div>
 
               {/* Title */}
-              <h1 className="text-[36px] md:text-[48px] leading-tight font-bold mb-4" style={{
+              <h1 className="text-[28px] sm:text-[36px] md:text-[48px] leading-tight font-bold mb-3 md:mb-4" style={{
                 fontFamily: 'Inter, sans-serif',
                 color: '#000000',
                 lineHeight: '1.2'
@@ -167,15 +167,15 @@ export const Training: React.FC = () => {
         </div>
 
         {/* Registration Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Left Side - Heading */}
           <div>
-            <h2 className="text-[44px] md:text-[52px] font-bold" style={{
+            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-bold" style={{
               fontFamily: 'Inter, sans-serif',
               color: '#000000',
               lineHeight: '1.15'
             }}>
-              Fill the form to register<br />
+              Fill the form to register<br className="hidden sm:block" />
               for the <span style={{ color: '#FCD421' }}>webinar</span>
             </h2>
           </div>

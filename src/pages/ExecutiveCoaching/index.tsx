@@ -81,11 +81,11 @@ export const ExecutiveCoaching: React.FC = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="py-16 px-8 md:px-12" style={{ background: '#FCD421' }}>
+      <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{ background: '#FCD421' }}>
         <div className="max-w-7xl mx-auto">
           {/* Badge */}
-          <div className="mb-8">
-            <span className="inline-block px-6 py-3 rounded-full text-[16px] font-semibold" style={{
+          <div className="mb-6 md:mb-8">
+            <span className="inline-block px-4 md:px-6 py-2 md:py-3 rounded-full text-[14px] md:text-[16px] font-semibold" style={{
               background: '#FFFFFF',
               fontFamily: 'Inter, sans-serif',
               color: '#000000'
@@ -96,7 +96,7 @@ export const ExecutiveCoaching: React.FC = () => {
 
           {/* Content */}
           <div className="max-w-4xl">
-            <h1 className="text-[56px] md:text-[72px] leading-tight font-bold mb-6" style={{
+            <h1 className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[72px] leading-tight font-bold mb-4 md:mb-6" style={{
               fontFamily: 'Inter, sans-serif',
               color: '#000000',
               lineHeight: '1.1'
@@ -104,7 +104,7 @@ export const ExecutiveCoaching: React.FC = () => {
               Executive Coaching
             </h1>
 
-            <h2 className="text-[32px] md:text-[40px] font-bold mb-6" style={{
+            <h2 className="text-[22px] sm:text-[28px] md:text-[40px] font-bold mb-4 md:mb-6" style={{
               fontFamily: 'Georgia, serif',
               color: '#000000',
               lineHeight: '1.3'
@@ -112,7 +112,7 @@ export const ExecutiveCoaching: React.FC = () => {
               Nurturing Leaders, Shaping Futures
             </h2>
 
-            <p className="text-[18px] md:text-[20px] leading-relaxed mb-8 max-w-3xl" style={{
+            <p className="text-[15px] sm:text-[18px] md:text-[20px] leading-relaxed mb-6 md:mb-8 max-w-3xl" style={{
               fontFamily: 'Inter, sans-serif',
               color: '#000000',
               lineHeight: '1.6'
@@ -122,12 +122,11 @@ export const ExecutiveCoaching: React.FC = () => {
 
             <Link 
               to="/contact"
-              className="px-8 py-4 rounded-xl transition-all hover:scale-105 hover:shadow-lg inline-block" 
+              className="px-6 md:px-8 py-3 md:py-4 rounded-xl transition-all hover:scale-105 hover:shadow-lg inline-block text-[16px] md:text-[18px]" 
               style={{
                 background: '#FFFFFF',
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 600,
-                fontSize: '18px',
                 color: '#000000',
                 textDecoration: 'none'
               }}
@@ -150,16 +149,16 @@ export const ExecutiveCoaching: React.FC = () => {
       </div>
 
       {/* Our Coaching Services */}
-      <div className="py-16 px-8 md:px-12" style={{ background: '#F9FAFB' }}>
+      <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{ background: '#F9FAFB' }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-[44px] md:text-[52px] font-bold text-center mb-4" style={{
+          <h2 className="text-[28px] sm:text-[36px] md:text-[52px] font-bold text-center mb-3 md:mb-4" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000'
           }}>
             Our Coaching Services
           </h2>
 
-          <p className="text-[17px] text-center mb-16 max-w-3xl mx-auto" style={{
+          <p className="text-[14px] sm:text-[16px] md:text-[17px] text-center mb-8 md:mb-16 max-w-3xl mx-auto" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000',
             lineHeight: '1.6'
@@ -167,7 +166,7 @@ export const ExecutiveCoaching: React.FC = () => {
             Comprehensive executive coaching programs tailored to your leadership development needs
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             {services.map((service, index) => (
               <div 
                 key={index}
@@ -204,10 +203,10 @@ export const ExecutiveCoaching: React.FC = () => {
       </div>
 
       {/* Meet Our Executive Coach */}
-      <div className="py-16 px-8 md:px-12 bg-white">
+      <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="rounded-3xl p-12 md:p-16" style={{
-            border: '4px solid #FCD421',
+          <div className="rounded-2xl md:rounded-3xl p-5 sm:p-8 md:p-12 lg:p-16" style={{
+            border: '3px md:4px solid #FCD421',
             background: '#FFFFFF'
           }}>
             <div className="mb-8">
@@ -316,16 +315,16 @@ export const ExecutiveCoaching: React.FC = () => {
       </div>
 
       {/* Our Programs */}
-      <div className="py-16 px-8 md:px-12" style={{ background: '#FAFAFA' }}>
+      <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{ background: '#FAFAFA' }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-[44px] md:text-[52px] font-bold text-center mb-4" style={{
+          <h2 className="text-[28px] sm:text-[36px] md:text-[52px] font-bold text-center mb-3 md:mb-4" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000'
           }}>
             Our Programs
           </h2>
 
-          <p className="text-[17px] text-center mb-12 max-w-3xl mx-auto" style={{
+          <p className="text-[14px] sm:text-[16px] md:text-[17px] text-center mb-8 md:mb-12 max-w-3xl mx-auto" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000',
             lineHeight: '1.6'
@@ -338,10 +337,10 @@ export const ExecutiveCoaching: React.FC = () => {
               <div 
                 key={index}
                 className="relative flex flex-col"
-                style={{ height: '800px' }}
+                style={{ minHeight: '500px' }}
               >
                 {/* Image */}
-                <div className="h-96 overflow-hidden rounded-t-3xl flex-shrink-0">
+                <div className="h-64 sm:h-80 md:h-96 overflow-hidden rounded-t-2xl md:rounded-t-3xl flex-shrink-0">
                   <img 
                     src={program.image}
                     alt={program.title}
@@ -351,14 +350,14 @@ export const ExecutiveCoaching: React.FC = () => {
 
                 {/* Overlapping Text Card */}
                 <div 
-                  className="relative -mt-20 mx-6 rounded-3xl p-8 hover:shadow-xl transition-shadow flex-grow"
+                  className="relative -mt-12 md:-mt-20 mx-3 sm:mx-4 md:mx-6 rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-8 hover:shadow-xl transition-shadow flex-grow"
                   style={{
                     background: '#FFFFFF',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                     border: '2px solid #FFF4CC'
                   }}
                 >
-                  <h3 className="text-[26px] md:text-[28px] font-bold mb-4" style={{
+                  <h3 className="text-[20px] sm:text-[24px] md:text-[28px] font-bold mb-3 md:mb-4" style={{
                     fontFamily: 'Georgia, serif',
                     color: '#000000',
                     lineHeight: '1.3'
@@ -366,7 +365,7 @@ export const ExecutiveCoaching: React.FC = () => {
                     {program.title}
                   </h3>
 
-                  <p className="text-[16px] leading-relaxed whitespace-pre-line" style={{
+                  <p className="text-[14px] md:text-[16px] leading-relaxed whitespace-pre-line" style={{
                     fontFamily: 'Inter, sans-serif',
                     color: '#000000',
                     lineHeight: '1.7',
@@ -382,20 +381,20 @@ export const ExecutiveCoaching: React.FC = () => {
       </div>
 
       {/* Testimonials */}
-      <div className="py-16 px-8 md:px-12" style={{
+      <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{
         background: 'url(/images/coaching/testimonials-bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}>
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-[48px] md:text-[56px] font-bold text-center mb-16" style={{
+          <h2 className="text-[32px] sm:text-[40px] md:text-[56px] font-bold text-center mb-8 md:mb-16" style={{
             fontFamily: 'Georgia, serif',
             color: '#FFFFFF'
           }}>
             Testimonials
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
@@ -458,12 +457,12 @@ export const ExecutiveCoaching: React.FC = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="py-16 px-8 md:px-12 bg-white">
+      <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             {/* Left Side - Text */}
-            <div className="flex-1">
-              <p className="text-[18px] md:text-[20px] mb-4" style={{
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-[15px] sm:text-[18px] md:text-[20px] mb-3 md:mb-4" style={{
                 fontFamily: 'Inter, sans-serif',
                 color: '#000000',
                 lineHeight: '1.5'
@@ -473,7 +472,7 @@ export const ExecutiveCoaching: React.FC = () => {
 
               <Link 
                 to="/contact"
-                className="inline-flex items-center gap-2 text-[18px]"
+                className="inline-flex items-center gap-2 text-[15px] md:text-[18px]"
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   color: '#E8A830',
@@ -489,13 +488,12 @@ export const ExecutiveCoaching: React.FC = () => {
             <div>
               <Link
                 to="/contact"
-                className="inline-block px-10 py-4 rounded-xl transition-all hover:scale-105"
+                className="inline-block px-6 md:px-10 py-3 md:py-4 rounded-xl transition-all hover:scale-105 text-[16px] md:text-[18px]"
                 style={{
                   border: '1px solid #FCD421',
                   background: '#FFFFFF',
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 600,
-                  fontSize: '18px',
                   color: '#000000',
                   textDecoration: 'none',
                   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)'

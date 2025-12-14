@@ -89,27 +89,28 @@ export const ServicesSection: React.FC = () => {
   }, []);
   
   return (
-    <div className="bg-white  overflow-x-hidden py-16 px-4 md:px-12 text-black">
+    <div className="bg-white overflow-x-hidden py-10 md:py-16 px-4 sm:px-6 md:px-12 text-black">
       <div className="max-w-7xl overflow-x-hidden mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
-        <p className="text-yellow-500 text-xl mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+        <p className="text-yellow-500 text-base sm:text-lg md:text-xl mb-8 md:mb-12">
           Explore how we help you navigate change and thrive
         </p>
 
         {/* CAROUSEL */}
-        <div   ref={carouselRef}
-   className="flex gap-6 overflow-x-hidden snap-x snap-mandatory pb-4 scrollbar-hide 
-   cursor-grab active:cursor-grabbing select-none"
->
+        <div ref={carouselRef}
+          className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide 
+          cursor-grab active:cursor-grabbing select-none items-stretch"
+        >
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="min-w-[85%] md:min-w-[45%] lg:min-w-[30%] bg-white rounded-2xl border-2 border-[#FCD421] 
-              overflow-hidden transition-shadow flex flex-col h-full snap-start"
+              className="min-w-[280px] sm:min-w-[320px] md:min-w-[45%] lg:min-w-[30%] bg-white rounded-2xl border-2 border-[#FCD421] 
+              overflow-hidden transition-shadow flex flex-col snap-start"
+              style={{ height: '520px' }}
             >
               {/* IMAGE */}
-              <div className="p-4">
-                <div className="relative h-48 min-h-[256px] rounded-xl overflow-hidden">
+              <div className="p-3 md:p-4 flex-shrink-0">
+                <div className="relative h-40 sm:h-48 md:h-52 rounded-xl overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -119,21 +120,21 @@ export const ServicesSection: React.FC = () => {
               </div>
 
               {/* TEXT + BUTTON */}
-              <div className="px-6 pb-3 flex flex-col justify-between flex-1">
-                <div className="flex flex-col gap-2">
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-sm text-gray-700 leading-relaxed mb-6">
+              <div className="px-4 md:px-6 pb-4 flex flex-col flex-1">
+                <div className="flex-1">
+                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{service.title}</h3>
+                  <p className="text-xs md:text-sm text-gray-700 leading-relaxed line-clamp-4">
                     {service.description}
                   </p>
                 </div>
 
                 <button
                   onClick={() => navigate(service.link)}
-                  style={{ background: '#FCD421', borderRadius: '40px', justifyContent: 'space-between' }}
-                  className="bg-[#FCD421] text-black font-semibold px-6 py-3 rounded-full items-center flex gap-2 hover:bg-yellow-500 transition-colors w-full justify-center"
+                  style={{ background: '#FCD421', borderRadius: '40px' }}
+                  className="bg-[#FCD421] text-black font-semibold px-4 md:px-6 py-2 md:py-3 rounded-full items-center flex gap-2 hover:bg-yellow-500 transition-colors w-full justify-center text-sm md:text-base mt-4"
                 >
                   <span className="text-black">View all details</span>
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
                 </button>
               </div>
             </div>

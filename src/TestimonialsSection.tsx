@@ -48,11 +48,11 @@ export const TestimonialsSection: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#fafafa] py-20">
-    <div className="max-w-7xl mx-auto px-4 md:px-12">
+    <div className="bg-[#fafafa] py-10 md:py-20">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
       {/* Header */}
       <h2
-        className="text-4xl md:text-5xl mb-10 font-bold text-center text-black"
+        className="text-3xl sm:text-4xl md:text-5xl mb-6 md:mb-10 font-bold text-center text-black"
         style={{ fontFamily: "Days One, sans-serif" }}
       >
         Explore Testimonials
@@ -101,28 +101,28 @@ export const TestimonialsSection: React.FC = () => {
           }
         `}
       </style>
-      <div className="flex gap-10 px-4 md:px-12 pb-8 min-w-max scrollbar-none">
+      <div className="flex gap-4 md:gap-10 px-4 md:px-12 pb-6 md:pb-8 min-w-max scrollbar-none">
         {testimonials.map((t, idx) => (
           <div
             key={idx}
             className="
-              w-[420px]
+              w-[280px] sm:w-[320px] md:w-[420px]
               flex-shrink-0
               snap-center
               bg-white
-              rounded-[28px]
-              p-10
+              rounded-[20px] md:rounded-[28px]
+              p-5 sm:p-6 md:p-10
             "
             style={{
               boxShadow:
                 "0px 20px 40px rgba(0, 0, 0, 0.06), 0px 2px 8px rgba(0, 0, 0, 0.04)",
             }}
           >
-            <p className="text-gray-600 italic leading-relaxed mb-8">
+            <p className="text-gray-600 italic leading-relaxed mb-4 md:mb-8 text-sm md:text-base">
               "{t.quote}"
             </p>
 
-            <p className="text-sm font-medium text-black">
+            <p className="text-xs md:text-sm font-medium text-black">
               – {t.author}
               {t.role && (
                 <span className="text-gray-500">, {t.role}</span>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface Slide {
   image: string;
@@ -10,7 +10,6 @@ interface Slide {
 }
 
 export const HeroSectionHome: React.FC = () => {
-  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides: Slide[] = [
@@ -18,25 +17,25 @@ export const HeroSectionHome: React.FC = () => {
       image: '/images/home/tc1.png',
       text: 'Tech That Transforms. Strategy That Scales',
       buttonText: 'Technology Consulting',
-      buttonLink: '/consulting/technology'
+      buttonLink: '/consulting/tech-consulting'
     },
     {
       image: '/images/home/attachment (1) 3-1.svg',
       text: 'Navigate Risk with Foresight and Precision',
       buttonText: 'Risk Advisory',
-      buttonLink: '/consulting/risk'
+      buttonLink: '/consulting/risk-consulting'
     },
     {
       image: '/images/home/bc1.png',
       text: 'Strategies That Spark Transformation',
       buttonText: 'Business Consulting',
-      buttonLink: '/consulting/business'
+      buttonLink: '/consulting/business-consulting'
     },
     {
       image: '/images/home/esg1.png',
       text: 'Accelerating Growth with Purpose and Responsibility',
       buttonText: 'ESG Consulting',
-      buttonLink: '/consulting/esg'
+      buttonLink: '/consulting/esg-consulting'
     }
   ];
 
@@ -48,7 +47,7 @@ export const HeroSectionHome: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative h-[600px] overflow-hidden relative">
+    <div className="relative h-[350px] sm:h-[450px] md:h-[600px] overflow-hidden relative">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -88,22 +87,21 @@ export const HeroSectionHome: React.FC = () => {
         </a>
       </div>
 
-      <div className="absolute bottom-8 left-0 right-8 z-10">
-        <div className="flex items-end justify-between gap-4">
+      <div className="absolute bottom-4 md:bottom-8 left-0 right-4 md:right-8 z-10">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-end justify-between gap-2 md:gap-4">
           <label style={{ fontFamily: 'Days One, sans-serif' }}
-            className="bg-[#FCD421] text-black font-bold text-2xl w-full md:text-3xl px-6 py-4 rounded-r-2xl inline-block">
+            className="bg-[#FCD421] text-black font-bold text-base sm:text-xl md:text-2xl lg:text-3xl w-full px-4 sm:px-6 py-3 md:py-4 rounded-r-xl md:rounded-r-2xl inline-block">
             {slides[currentSlide].text}
           </label>
-          <a
-            style={{ fontFamily: 'Days One, sans-serif', color: "black" }}
-            onClick={() => navigate(slides[currentSlide].buttonLink)}
+          <Link
+            to={slides[currentSlide].buttonLink}
+            style={{ fontFamily: 'Days One, sans-serif', color: "black", textDecoration: 'none' }}
             className="bg-[#FCD421] flex items-center gap-2 whitespace-nowrap text-black font-bold 
-             text-2xl md:text-3xl px-6 py-4 rounded-2xl inline-flex"
+             text-sm sm:text-lg md:text-2xl lg:text-3xl px-4 sm:px-6 py-3 md:py-4 rounded-xl md:rounded-2xl inline-flex justify-center cursor-pointer"
           >
             <span>{slides[currentSlide].buttonText}</span>
-            <ArrowRight className="w-5 h-5" />
-          </a>
-
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+          </Link>
         </div>
       </div>
     </div>

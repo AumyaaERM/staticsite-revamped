@@ -15,12 +15,12 @@ export const CoachingServicesSection: React.FC = () => {
   ];
 
   return (
-    <div className="py-16 px-8 md:px-12" style={{ background: '#FFFFFF' }}>
-      <div className="max-w-7xl mx-auto rounded-2xl py-12 px-8 md:px-12" style={{ background: '#F5C542' }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{ background: '#FFFFFF' }}>
+      <div className="max-w-7xl mx-auto rounded-xl md:rounded-2xl py-8 md:py-12 px-5 sm:px-8 md:px-12" style={{ background: '#F5C542' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Left Side - Coaching Services */}
           <div>
-            <h2 className="text-[32px] md:text-[40px] leading-tight font-bold mb-8" style={{
+            <h2 className="text-[24px] sm:text-[32px] md:text-[40px] leading-tight font-bold mb-6 md:mb-8" style={{
               fontFamily: 'Inter, sans-serif',
               color: '#000000'
             }}>
@@ -48,7 +48,7 @@ export const CoachingServicesSection: React.FC = () => {
 
           {/* Right Side - Connect Section */}
           <div className="relative">
-            <h2 className="text-[32px] md:text-[40px] leading-tight font-bold mb-6" style={{
+            <h2 className="text-[24px] sm:text-[32px] md:text-[40px] leading-tight font-bold mb-4 md:mb-6" style={{
               fontFamily: 'Inter, sans-serif',
               color: '#000000'
             }}>
