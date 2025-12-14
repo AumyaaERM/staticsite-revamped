@@ -54,14 +54,14 @@ export const HeroSectionHome: React.FC = () => {
           className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
         >
-          <img
+          <img 
             src={slide.image}
             alt={slide.text}
             className="w-full h-full object-cover"
           />
         </div>
       ))}
-
+        
       <div className="absolute inset-0 bg-black/30" />
 
       <div className="absolute top-0 right-0 flex items-center gap-3 z-10">
@@ -85,7 +85,7 @@ export const HeroSectionHome: React.FC = () => {
         >
           Quick Enquiry
         </a>
-      </div>
+          </div>
 
       <div className="absolute bottom-4 md:bottom-8 left-0 right-4 md:right-8 z-10">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-end justify-between gap-2 md:gap-4">
@@ -103,7 +103,7 @@ export const HeroSectionHome: React.FC = () => {
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
           </Link>
         </div>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };

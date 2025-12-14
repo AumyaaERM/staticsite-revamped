@@ -1,7 +1,7 @@
 import React from "react";
 
 export const ClientsSection: React.FC = () => {
-  return (
+    return (
     <div className="bg-white py-10 md:py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <h2
@@ -47,6 +47,7 @@ export const ClientsSection: React.FC = () => {
           }
         }
       `}</style>
-    </div>
-  );
-};
+      </div>
+    );
+  };
+  

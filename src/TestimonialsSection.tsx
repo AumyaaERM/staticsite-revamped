@@ -47,7 +47,7 @@ export const TestimonialsSection: React.FC = () => {
     },
   ];
 
-  return (
+    return (
     <div className="bg-[#fafafa] py-10 md:py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
       {/* Header */}
@@ -120,7 +120,7 @@ export const TestimonialsSection: React.FC = () => {
           >
             <p className="text-gray-600 italic leading-relaxed mb-4 md:mb-8 text-sm md:text-base">
               "{t.quote}"
-            </p>
+              </p>
 
             <p className="text-xs md:text-sm font-medium text-black">
               – {t.author}
@@ -132,7 +132,7 @@ export const TestimonialsSection: React.FC = () => {
         ))}
       </div>
     </div>
-    </div>
-    </div>
-  );
-};
+        </div>
+      </div>
+    );
+  };

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ServiceCardProps {
   title: string;
@@ -101,12 +102,13 @@ export const ServiceCard = ({
               </ul>
             </>
           )}
-          <button
-            className="mt-8 self-start bg-[#FCD421] text-black font-semibold px-6 py-3 rounded-full transition hover:bg-black hover:text-white"
-            style={{ background: '#FCD421' }}
+          <Link
+            to="/contact"
+            className="mt-8 self-start bg-[#FCD421] font-semibold px-6 py-3 rounded-full transition hover:bg-black hover:text-white no-underline"
+            style={{ background: '#FCD421', color: '#000000' }}
           >
             Connect with us
-          </button>
+          </Link>
         </div>
       </div>
     </article>

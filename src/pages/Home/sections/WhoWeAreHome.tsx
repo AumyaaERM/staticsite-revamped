@@ -14,7 +14,7 @@ export const WhoWeAreHome: React.FC = () => {
               <span className="text-black">We Are</span>
             </h2>
           </div>
-
+          
           <div className="flex-1">
             <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-center md:text-left">
               We are a team of seasoned professionals from Fortune 100 and Big 4 firms, dedicated to
@@ -24,7 +24,7 @@ export const WhoWeAreHome: React.FC = () => {
             </p>
           </div>
         </div>
-
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_0.7fr] gap-6">
         <div className="vision-tile bg-[#FCD421] rounded-3xl overflow-hidden relative flex flex-col h-full">
             <div className="bg-[#FCD421] px-4 md:px-6 py-3 md:py-4 flex-shrink-0">
@@ -33,11 +33,11 @@ export const WhoWeAreHome: React.FC = () => {
               className="text-xl md:text-2xl font-bold text-center text-black">Vision</h3>
             </div>
             <div className="relative flex-1 bg-white min-h-[200px] md:min-h-[256px]">
-              <img
+            <img 
                 src="/images/home/vision.jpg"
-                alt="Vision"
+              alt="Vision"
                 className="forward-img absolute inset-0 w-full h-full object-cover"
-              />
+            />
               <div className="backward-img absolute inset-0 w-full h-full bg-white p-4 md:p-6 flex items-center justify-center">
                 <p className="font-bold text-sm md:text-xl text-black italic leading-relaxed text-left">
                   Empowering our clients and professionals. by creating value with perfection in work through
@@ -46,7 +46,7 @@ export const WhoWeAreHome: React.FC = () => {
               </div>
             </div>
           </div>
-
+          
           <div className="mission-tile bg-[#FCD421] rounded-3xl overflow-hidden relative flex flex-col h-full">
             <div className="bg-[#FCD421] px-4 md:px-6 py-3 md:py-4 flex-shrink-0">
               <h3 
@@ -54,11 +54,11 @@ export const WhoWeAreHome: React.FC = () => {
               className="text-xl md:text-2xl font-bold text-center text-black">Mission</h3>
             </div>
             <div className="relative flex-1 bg-white min-h-[200px] md:min-h-[256px]">
-              <img
+            <img 
                 src="/images/home/mission.jpg"
-                alt="Mission"
+              alt="Mission"
                 className="forward-img absolute inset-0 w-full h-full object-cover"
-              />
+            />
               <div className="backward-img absolute inset-0 w-full h-full bg-white p-4 md:p-6 flex items-center justify-center">
                 <p className="font-bold text-sm md:text-xl text-black italic leading-relaxed text-left">
                   To be the best in the field of consulting and training, delivering through niche knowledge,
@@ -67,7 +67,7 @@ export const WhoWeAreHome: React.FC = () => {
               </div>
             </div>
           </div>
-
+          
           <div className="bg-white border-2 border-[#FCD421] rounded-3xl overflow-hidden flex flex-col h-full sm:col-span-2 lg:col-span-1">
             <div className="bg-[#FCD421] px-4 md:px-6 py-3 md:py-4 flex-shrink-0">
               <h3 className="text-xl md:text-2xl font-bold text-center text-black">What's New</h3>

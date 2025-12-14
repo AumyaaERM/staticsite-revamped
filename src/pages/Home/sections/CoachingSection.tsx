@@ -1,17 +1,17 @@
 import { ChevronRight } from 'lucide-react';
 
 export function CoachingSection() {
-  return (
+    return (
     <div className="bg-[#fafafa] py-10 md:py-16 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 text-black">
           {/* Learning Academy Card */}
           <div className="relative min-h-[500px] md:min-h-[650px]">
-            <img 
+              <img 
               src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" 
-              alt="Learning Academy"
+                alt="Learning Academy"
               className="w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover"
-            />
+              />
             <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 md:left-8 right-4 sm:right-6 md:right-8 bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8">
               <div className="flex items-center gap-2 mb-3">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -44,13 +44,13 @@ export function CoachingSection() {
                   <p className="text-xs">
                     <strong>Hands-On Learning</strong> – Experience real-world simulations and case studies.
                   </p>
-                </div>
+                  </div>
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-lg flex-shrink-0">💎</span>
                   <p className="text-xs">
                     <strong>Certified Excellence</strong> – Earn globally recognized industry credentials.
                   </p>
-                </div>
+                  </div>
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-lg flex-shrink-0">💎</span>
                   <p className="text-xs">
@@ -60,19 +60,19 @@ export function CoachingSection() {
               </div>
               
               <button style={{background:"#fcd421"}} className=" bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-colors text-sm">
-                View all details
-                <ChevronRight className="w-5 h-5" />
-              </button>
+                  View all details
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
             </div>
-          </div>
-          
+            
           {/* Executive Coaching Card */}
           <div className="relative min-h-[500px] md:min-h-[650px]">
-            <img 
+              <img 
               src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=800&h=600&fit=crop" 
-              alt="Executive Coaching"
+                alt="Executive Coaching"
               className="w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover"
-            />
+              />
             <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 md:left-8 right-4 sm:right-6 md:right-8 bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8">
               <div className="flex items-center gap-2 mb-3">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -107,13 +107,13 @@ export function CoachingSection() {
                   <p className="text-xs">
                     <strong>Exponential Growth</strong> – Propel their careers to new heights
                   </p>
-                </div>
+                  </div>
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-lg flex-shrink-0">💎</span>
                   <p className="text-xs">
                     <strong>High-Value Deals</strong> – Master the art of impactful negotiations
                   </p>
-                </div>
+                  </div>
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-lg flex-shrink-0">💎</span>
                   <p className="text-xs">
@@ -125,19 +125,19 @@ export function CoachingSection() {
               <p className="text-xs italic mb-3">Your Search Ends Here!</p>
               
                 <p className="text-[#fcd421] text-xs font-semibold mb-3">
-                Grow your senior professionals' productivity by 2X in the next 90 days.
-              </p>
+                  Grow your senior professionals' productivity by 2X in the next 90 days.
+                </p>
               
               <p className="font-bold text-xs mb-4 underline">Click Here to Get Started</p>
               
               <button style={{background:"#fcd421"}} className="text-black bg-[#fcd421] text-black font-semibold px-6 py-3 rounded-full flex items-center gap-2 transition-colors text-sm">
-                View all details
-                <ChevronRight className="w-5 h-5" />
-              </button>
+                  View all details
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
 }

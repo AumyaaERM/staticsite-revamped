@@ -28,7 +28,7 @@ export const Navbar: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearchResults, setShowSearchResults] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
-  
+
   const timer1 = useRef<number | null>(null);
   const timer2 = useRef<number | null>(null);
   
@@ -91,7 +91,7 @@ export const Navbar: React.FC = () => {
     fontWeight: 400,
     color: '#191600'
   };
-
+  
   return (
     <nav className="px-4 md:px-6 lg:px-8 relative" style={{ background: '#FCD421' }}>
       <div className="w-full flex items-end justify-between py-1">
@@ -101,9 +101,9 @@ export const Navbar: React.FC = () => {
             background: '#FFFFFF',
             marginBottom: '-10px'
           }}>
-            <img
+            <img 
               src="/images/logo.png"
-              alt="Aumyaa Logo"
+              alt="Aumyaa Logo" 
               className="h-8 md:h-10"
             />
             <div className="text-xl md:text-l font-bold leading-none" style={{
@@ -115,7 +115,7 @@ export const Navbar: React.FC = () => {
             </div>
           </Link>
         </div>
-
+        
         {/* Mobile Menu Button */}
         <button
           className="lg:hidden p-2 rounded-lg hover:bg-yellow-500 transition-colors self-center"
@@ -153,7 +153,7 @@ export const Navbar: React.FC = () => {
           </Link>
           
           {/* CONSULTING SERVICES - Desktop */}
-          <div
+            <div
             className="relative text-black"
             onMouseEnter={() => open(setShowConsultingDropdown, timer1)}
             onMouseLeave={() => close(setShowConsultingDropdown, timer1)}
@@ -290,7 +290,7 @@ export const Navbar: React.FC = () => {
             CONTACT US
           </Link>
         </div>
-
+          
         {/* Search Box - Desktop */}
         <div className="hidden xl:block relative flex-shrink-0 self-center" ref={searchRef}>
           <div className="flex items-center gap-2 rounded-[70px] px-4 py-2" style={{

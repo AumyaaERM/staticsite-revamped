@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer';
 import { ServiceCard } from './components/ServiceCard';
@@ -211,9 +212,9 @@ export const ComplianceServices: React.FC = () => (
         risks, and maintains the highest standards of compliance across all operations
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button  className="bg-black text-[#f5c000] px-8 py-3 rounded-[18px] font-semibold flex items-center gap-3 shadow-[0_12px_24px_rgba(0,0,0,0.25)]">
+        <Link to="/contact" className="bg-white px-8 py-3 rounded-[18px] font-semibold flex items-center gap-3 shadow-[0_12px_24px_rgba(0,0,0,0.25)] no-underline hover:opacity-90" style={{ color: '#f5c000' }}>
           Schedule Consultation <Phone className="h-5 w-5 text-[#fcd421]" />
-        </button>
+        </Link>
         <button className="bg-white text-[#f5c000] px-8 py-3 rounded-[18px] font-semibold shadow-[0_12px_24px_rgba(255,255,255,0.6)] border border-white flex items-center gap-3">
           Download Compliance Guide
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#f5c000">
