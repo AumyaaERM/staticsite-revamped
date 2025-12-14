@@ -51,7 +51,7 @@ export const InFocusSection: React.FC = () => {
               </p>
 
               <a
-                href="https://www.youtube.com/@aumy"
+                href="https://youtu.be/a081_W5U_SY?si=qwJbzgzxMhmMgh36"
                 style={{color:"white", fontWeight:"bold"}}
                 className="bg-black text-white font-bold px-6 md:px-10 py-3 md:py-4 w-fit hover:bg-gray-800 transition-colors text-sm md:text-lg rounded"
               >

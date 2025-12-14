@@ -11,35 +11,35 @@ export const ServicesSection: React.FC = () => {
       description:
         "Aumyaa's Business Consulting services enhance performance through customer journey mapping, program and project management, operational excellence, and vendor management.",
       image: '/images/home/servoice1.png',
-      link: '/consulting/business'
+      link: '/consulting/business-consulting'
     },
     {
       title: 'Technology Consulting',
       description:
         "Aumyaa's technology Consulting Services enhance business performance through process optimization, automation, IT strategy development, data management, digital transformation, and enterprise collaboration.",
       image: '/images/home/service2.png',
-      link: '/consulting/technology'
+      link: '/consulting/tech-consulting'
     },
     {
       title: 'Risk Advisory',
       description:
         "Aumyaa's Risk Advisory services help businesses manage uncertainty, enhance resilience, and create value through optimized internal controls, business continuity planning, and continuous control monitoring.",
       image: '/images/home/service3.png',
-      link: '/consulting/risk'
+      link: '/consulting/risk-consulting'
     },
     {
       title: 'ESG Consulting',
       description:
         "Aumyaa's ESG Consulting services assist organizations in integrating effective Environmental, Social, and Governance (ESG) practices to enhance operational efficiency, sustainable value creation, and strengthen stakeholder relationships.",
       image: '/images/home/service4.png',
-      link: '/consulting/esg'
+      link: '/consulting/esg-consulting'
     },
     {
       title: 'Compliance Support Solutions',
       description:
         "Aumyaa’s Compliance services support organizations in building strong compliance frameworks, reducing regulatory risks, and staying aligned with evolving laws. We help drive ethical practices and operational integrity, enabling confident and compliant business growth.",
       image: '/images/home/service5.png',
-      link: '/consulting/compliance'
+      link: '/consulting/compliance-services'
     }
   ];
   const carouselRef = useRef(null);

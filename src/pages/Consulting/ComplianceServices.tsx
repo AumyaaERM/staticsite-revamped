@@ -211,7 +211,7 @@ export const ComplianceServices: React.FC = () => (
         risks, and maintains the highest standards of compliance across all operations
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button className="bg-black text-white px-8 py-3 rounded-[18px] font-semibold flex items-center gap-3 shadow-[0_12px_24px_rgba(0,0,0,0.25)]">
+        <button  className="bg-black text-[#f5c000] px-8 py-3 rounded-[18px] font-semibold flex items-center gap-3 shadow-[0_12px_24px_rgba(0,0,0,0.25)]">
           Schedule Consultation <Phone className="h-5 w-5 text-[#fcd421]" />
         </button>
         <button className="bg-white text-[#f5c000] px-8 py-3 rounded-[18px] font-semibold shadow-[0_12px_24px_rgba(255,255,255,0.6)] border border-white flex items-center gap-3">
