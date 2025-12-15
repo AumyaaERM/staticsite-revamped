@@ -77,14 +77,14 @@ export const HeroSectionHome: React.FC = () => {
             className="w-full h-full object-contain"
           />
         </a>
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           style={{ fontFamily: 'Days One, sans-serif', textDecoration: 'none', color: "black" }}
 
           className=" py-[10px] px-[15px] bg-[#fcd421] text-black no-underline font-bold flex items-center justify-center text-center"
         >
           Quick Enquiry
-        </a>
+        </Link>
           </div>
 
       <div className="absolute bottom-4 md:bottom-8 left-0 right-4 md:right-8 z-10">
