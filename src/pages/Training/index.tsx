@@ -14,10 +14,57 @@ export const Training: React.FC = () => {
   });
 
   const [banner, setBanner] = useState({ show: false, message: '', type: '' });
+  const [errors, setErrors] = useState({ phoneNumber: '', email: '' });
+
+  // Validation functions
+  const validatePhoneNumber = (phone: string): boolean => {
+    // Allow only digits, spaces, +, -, () and minimum 10 digits
+    const phoneRegex = /^[\d\s+\-()]+$/;
+    const digitsOnly = phone.replace(/\D/g, '');
+    return phoneRegex.test(phone) && digitsOnly.length >= 10;
+  };
+
+  const validateEmail = (email: string): boolean => {
+    // Email should be valid format and end with .com
+    const emailRegex = /^[^\s@]+@[^\s@]+\.com$/i;
+    return emailRegex.test(email);
+  };
+
+  const handlePhoneChange = (value: string) => {
+    setFormData({ ...formData, phoneNumber: value });
+    if (value && !validatePhoneNumber(value)) {
+      setErrors(prev => ({ ...prev, phoneNumber: 'Please enter a valid phone number (minimum 10 digits)' }));
+    } else {
+      setErrors(prev => ({ ...prev, phoneNumber: '' }));
+    }
+  };
+
+  const handleEmailChange = (value: string) => {
+    setFormData({ ...formData, email: value });
+    if (value && !validateEmail(value)) {
+      setErrors(prev => ({ ...prev, email: 'Please enter a valid email ending with .com' }));
+    } else {
+      setErrors(prev => ({ ...prev, email: '' }));
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setBanner({ show: false, message: '', type: '' });
+
+    // Validate phone number
+    if (!validatePhoneNumber(formData.phoneNumber)) {
+      setBanner({ show: true, message: '❌ Please enter a valid phone number (minimum 10 digits).', type: 'error' });
+      setTimeout(() => setBanner({ show: false, message: '', type: '' }), 5000);
+      return;
+    }
+
+    // Validate email
+    if (!validateEmail(formData.email)) {
+      setBanner({ show: true, message: '❌ Please enter a valid email address ending with .com', type: 'error' });
+      setTimeout(() => setBanner({ show: false, message: '', type: '' }), 5000);
+      return;
+    }
 
     // Create FormData for Google Forms submission
     const formDataToSubmit = new FormData();
@@ -199,37 +246,51 @@ export const Training: React.FC = () => {
                 }}
               />
 
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-6 py-4 rounded-xl text-[16px] focus:outline-none focus:border-gray-300 placeholder-gray-500"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  background: '#F9FAFB',
-                  border: '1px solid #E5E7EB',
-                  color: '#000000'
-                }}
-              />
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={(e) => handleEmailChange(e.target.value)}
+                  required
+                  className="w-full px-6 py-4 rounded-xl text-[16px] focus:outline-none placeholder-gray-500"
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    background: '#F9FAFB',
+                    border: errors.email ? '2px solid #f87171' : '1px solid #E5E7EB',
+                    color: '#000000'
+                  }}
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-xs mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    {errors.email}
+                  </p>
+                )}
+              </div>
 
-              <input
-                type="tel"
-                name="phoneNumber"
-                placeholder="Phone Number"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                required
-                className="w-full px-6 py-4 rounded-xl text-[16px] focus:outline-none focus:border-gray-300 placeholder-gray-500"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  background: '#F9FAFB',
-                  border: '1px solid #E5E7EB',
-                  color: '#000000'
-                }}
-              />
+              <div>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  value={formData.phoneNumber}
+                  onChange={(e) => handlePhoneChange(e.target.value)}
+                  required
+                  className="w-full px-6 py-4 rounded-xl text-[16px] focus:outline-none placeholder-gray-500"
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    background: '#F9FAFB',
+                    border: errors.phoneNumber ? '2px solid #f87171' : '1px solid #E5E7EB',
+                    color: '#000000'
+                  }}
+                />
+                {errors.phoneNumber && (
+                  <p className="text-red-500 text-xs mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    {errors.phoneNumber}
+                  </p>
+                )}
+              </div>
 
               <input
                 type="text"

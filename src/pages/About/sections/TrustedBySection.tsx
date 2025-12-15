@@ -38,18 +38,18 @@ export const TrustedBySection: React.FC = () => {
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-[24px] sm:text-[32px] md:text-[48px] leading-[130%] md:leading-[58px] text-center mb-8 md:mb-16 capitalize tracking-[0.04em] md:tracking-[0.06em]" style={{
-          fontFamily: 'Inter, sans-serif',
-          fontWeight: 700,
+          fontFamily: 'Days One, sans-serif',
+          fontWeight: 400,
           color: '#000000'
         }}>
           Aumyaa trusted by <span style={{ color: '#000000' }}>businesses worldwide</span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
           {industries.map((industry, index) => (
             <div 
               key={index} 
-              className="rounded-[5px] overflow-hidden"
+              className="rounded-[5px] overflow-hidden flex flex-col"
               style={{
                 background: 'rgba(255, 255, 255, 0.8)',
                 border: '1px solid rgba(242, 213, 27, 0.2)',
@@ -57,7 +57,7 @@ export const TrustedBySection: React.FC = () => {
                 backdropFilter: 'blur(2px)'
               }}
             >
-              <div className="p-6">
+              <div className="p-6 flex-shrink-0">
                 <h3 className="text-[20px] leading-[122%] mb-4 text-justify tracking-[0.01em]" style={{
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 600,
@@ -73,14 +73,13 @@ export const TrustedBySection: React.FC = () => {
                   {industry.description}
                 </p>
               </div>
-              <div className="px-4 md:px-6 pb-4 md:pb-6">
-                <div className="overflow-hidden rounded-[5px]">
-                  <img 
-                    src={industry.image} 
-                    alt={industry.title}
-                    className="w-full h-[160px] sm:h-[180px] md:h-[214px] object-cover"
-                  />
-                </div>
+              <div className="px-4 md:px-6 pb-4 md:pb-6 flex-1 flex flex-col min-h-0">
+                <img 
+                  src={industry.image} 
+                  alt={industry.title}
+                  className="w-full flex-1 object-cover rounded-[5px]"
+                  style={{ minHeight: '180px' }}
+                />
               </div>
             </div>
           ))}

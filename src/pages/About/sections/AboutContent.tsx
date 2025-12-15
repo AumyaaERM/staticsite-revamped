@@ -13,7 +13,7 @@ export const AboutContent: React.FC = () => {
         </h2>
         
         <div className="space-y-4 md:space-y-6 text-justify" style={{
-          fontFamily: 'Inria Serif, serif',
+          fontFamily: 'Inter, sans-serif',
           letterSpacing: '-0.01em',
           color: '#000000'
         }}>

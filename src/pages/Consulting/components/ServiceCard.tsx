@@ -73,15 +73,13 @@ export const ServiceCard = ({
         className={`flex flex-col md:flex-row ${isImageRight ? 'md:flex-row-reverse' : ''} items-stretch gap-2`}
       >
         <div
-          className={`md:w-1/2 bg-white flex items-center justify-center p-6 md:p-8 transition-all duration-700 ease-out ${imageAnimationClasses}`}
+          className={`md:w-1/2 bg-white p-4 md:p-6 flex transition-all duration-700 ease-out ${imageAnimationClasses}`}
         >
-          <div className="w-full h-full rounded-3xl bg-[#f7f5ef] overflow-hidden shadow-inner">
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-full object-cover rounded-[24px] min-h-[260px]"
-            />
-          </div>
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-auto md:h-full object-cover min-h-[280px] rounded-2xl flex-1"
+          />
         </div>
         <div
           className={`md:w-1/2 p-8 flex flex-col transition-all duration-700 ease-out ${contentAnimationClasses} ${

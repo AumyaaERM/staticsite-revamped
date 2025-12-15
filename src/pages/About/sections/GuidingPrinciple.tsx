@@ -5,8 +5,8 @@ export const GuidingPrinciple: React.FC = () => {
     <div className="bg-white py-6 md:py-8 px-4 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-[20px] sm:text-[26px] md:text-[32px] leading-[130%] md:leading-[20px] uppercase tracking-[0.04em] mb-6 md:mb-0" style={{
-          fontFamily: 'Be Vietnam Pro, sans-serif',
-          fontWeight: 700
+          fontFamily: 'Days One, sans-serif',
+          fontWeight: 400
         }}>
           <span style={{ color: '#000000' }}>Our </span>
           <span style={{ color: '#FCD421' }}>Guiding principle</span>

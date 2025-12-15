@@ -81,7 +81,7 @@ export const HeroSectionHome: React.FC = () => {
           to="/contact"
           style={{ fontFamily: 'Days One, sans-serif', textDecoration: 'none', color: "black" }}
 
-          className=" py-[10px] px-[15px] bg-[#fcd421] text-black no-underline font-bold flex items-center justify-center text-center"
+          className="py-[10px] px-[15px] bg-[#fcd421] text-black no-underline font-bold flex items-center justify-center text-center"
         >
           Quick Enquiry
         </Link>

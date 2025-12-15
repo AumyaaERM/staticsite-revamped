@@ -47,8 +47,8 @@ export const LeadersSection: React.FC = () => {
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-[28px] sm:text-[36px] md:text-[48px] leading-[130%] md:leading-[58px] mb-8 md:mb-12 capitalize tracking-[0.04em] md:tracking-[0.06em]" style={{
-          fontFamily: 'Inter, sans-serif',
-          fontWeight: 700,
+          fontFamily: 'Days One, sans-serif',
+          fontWeight: 400,
           color: '#000000'
         }}>
           Our <span style={{ color: '#000000' }}>Leaders</span>
@@ -117,7 +117,7 @@ export const LeadersSection: React.FC = () => {
                       }}
                     >
                       <span className="text-[14px] md:text-[18px] leading-[150%] text-center" style={{
-                        fontFamily: 'Be Vietnam Pro, sans-serif',
+                        fontFamily: 'Inter, sans-serif',
                         fontWeight: 500,
                         color: '#FFFFFF'
                       }}>
@@ -197,7 +197,7 @@ export const LeadersSection: React.FC = () => {
                       }}
                     >
                       <span className="text-[14px] md:text-[18px] leading-[150%] text-center" style={{
-                        fontFamily: 'Be Vietnam Pro, sans-serif',
+                        fontFamily: 'Inter, sans-serif',
                         fontWeight: 500,
                         color: '#000000'
                       }}>

@@ -13,6 +13,39 @@ export const ContactFormSection: React.FC = () => {
 
   const [showOtherInput, setShowOtherInput] = useState(false);
   const [banner, setBanner] = useState({ show: false, message: '', type: '' });
+  const [errors, setErrors] = useState({ phoneNumber: '', emailAddress: '' });
+
+  // Validation functions
+  const validatePhoneNumber = (phone: string): boolean => {
+    // Allow only digits, spaces, +, -, () and minimum 10 digits
+    const phoneRegex = /^[\d\s+\-()]+$/;
+    const digitsOnly = phone.replace(/\D/g, '');
+    return phoneRegex.test(phone) && digitsOnly.length >= 10;
+  };
+
+  const validateEmail = (email: string): boolean => {
+    // Email should be valid format and end with .com
+    const emailRegex = /^[^\s@]+@[^\s@]+\.com$/i;
+    return emailRegex.test(email);
+  };
+
+  const handlePhoneChange = (value: string) => {
+    setFormData({ ...formData, phoneNumber: value });
+    if (value && !validatePhoneNumber(value)) {
+      setErrors(prev => ({ ...prev, phoneNumber: 'Please enter a valid phone number (minimum 10 digits)' }));
+    } else {
+      setErrors(prev => ({ ...prev, phoneNumber: '' }));
+    }
+  };
+
+  const handleEmailChange = (value: string) => {
+    setFormData({ ...formData, emailAddress: value });
+    if (value && !validateEmail(value)) {
+      setErrors(prev => ({ ...prev, emailAddress: 'Please enter a valid email ending with .com' }));
+    } else {
+      setErrors(prev => ({ ...prev, emailAddress: '' }));
+    }
+  };
 
   const handleServiceChange = (service: string) => {
     setFormData(prev => ({
@@ -26,6 +59,20 @@ export const ContactFormSection: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setBanner({ show: false, message: '', type: '' });
+
+    // Validate phone number
+    if (!validatePhoneNumber(formData.phoneNumber)) {
+      setBanner({ show: true, message: '❌ Please enter a valid phone number (minimum 10 digits).', type: 'error' });
+      setTimeout(() => setBanner({ show: false, message: '', type: '' }), 5000);
+      return;
+    }
+
+    // Validate email
+    if (!validateEmail(formData.emailAddress)) {
+      setBanner({ show: true, message: '❌ Please enter a valid email address ending with .com', type: 'error' });
+      setTimeout(() => setBanner({ show: false, message: '', type: '' }), 5000);
+      return;
+    }
 
     // Create FormData for Google Forms submission
     const formDataToSubmit = new FormData();
@@ -136,34 +183,48 @@ export const ContactFormSection: React.FC = () => {
               />
 
               {/* Phone Number */}
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                value={formData.phoneNumber}
-                onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
-                className="w-full px-6 py-4 bg-gray-50 border-0 rounded-lg text-[16px] outline-none focus:ring-2 focus:ring-yellow-400 placeholder-gray-500"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: 400,
-                  color: '#000000'
-                }}
-                required
-              />
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  value={formData.phoneNumber}
+                  onChange={(e) => handlePhoneChange(e.target.value)}
+                  className={`w-full px-6 py-4 bg-gray-50 border-2 rounded-lg text-[16px] outline-none focus:ring-2 focus:ring-yellow-400 placeholder-gray-500 ${errors.phoneNumber ? 'border-red-400' : 'border-transparent'}`}
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 400,
+                    color: '#000000'
+                  }}
+                  required
+                />
+                {errors.phoneNumber && (
+                  <p className="text-red-500 text-xs mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    {errors.phoneNumber}
+                  </p>
+                )}
+              </div>
 
               {/* Email Address */}
-              <input
-                type="email"
-                placeholder="Email Address"
-                value={formData.emailAddress}
-                onChange={(e) => setFormData({ ...formData, emailAddress: e.target.value })}
-                className="w-full px-6 py-4 bg-gray-50 border-0 rounded-lg text-[16px] outline-none focus:ring-2 focus:ring-yellow-400 placeholder-gray-500"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: 400,
-                  color: '#000000'
-                }}
-                required
-              />
+              <div>
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  value={formData.emailAddress}
+                  onChange={(e) => handleEmailChange(e.target.value)}
+                  className={`w-full px-6 py-4 bg-gray-50 border-2 rounded-lg text-[16px] outline-none focus:ring-2 focus:ring-yellow-400 placeholder-gray-500 ${errors.emailAddress ? 'border-red-400' : 'border-transparent'}`}
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontWeight: 400,
+                    color: '#000000'
+                  }}
+                  required
+                />
+                {errors.emailAddress && (
+                  <p className="text-red-500 text-xs mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    {errors.emailAddress}
+                  </p>
+                )}
+              </div>
 
               {/* Services Radio Buttons */}
               <div className="space-y-8 py-4">
