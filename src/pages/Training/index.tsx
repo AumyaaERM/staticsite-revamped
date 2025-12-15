@@ -180,7 +180,7 @@ export const Training: React.FC = () => {
                       fontFamily: 'Inter, sans-serif',
                       color: '#000000'
                     }}>
-                      TO :
+                      FROM :
                     </span>
                     <span className="text-[14px]" style={{
                       fontFamily: 'Inter, sans-serif',
@@ -189,7 +189,6 @@ export const Training: React.FC = () => {
                       23rd September 2024
                     </span>
                   </div>
-
                   <div className="flex items-center gap-2 px-4 py-2 rounded-lg" style={{
                     background: '#F9FAFB',
                     border: '1px solid #E5E7EB'
@@ -198,7 +197,7 @@ export const Training: React.FC = () => {
                       fontFamily: 'Inter, sans-serif',
                       color: '#000000'
                     }}>
-                      FROM :
+                      TO :
                     </span>
                     <span className="text-[14px]" style={{
                       fontFamily: 'Inter, sans-serif',
@@ -207,6 +206,8 @@ export const Training: React.FC = () => {
                       28th September 2024
                     </span>
                   </div>
+
+
                 </div>
               </div>
             </div>
@@ -222,8 +223,8 @@ export const Training: React.FC = () => {
               color: '#000000',
               lineHeight: '1.15'
             }}>
-              Fill the form to register<br className="hidden sm:block" />
-              for the <span style={{ color: '#FCD421' }}>webinar</span>
+              Fill the form to register<br className="hidden sm:block"/>
+              for the <span style={{color: '#FCD421'}}>webinar</span>
             </h2>
           </div>
 

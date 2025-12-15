@@ -65,7 +65,7 @@ export const InsightsDownloads: React.FC = () => {
           
         <div className="space-y-3 md:space-y-4">
           <a 
-            href="https://aumyaaconsulting-my.sharepoint.com/:f:/g/personal/pranati_aumyaa_com/IgD0vfrFwM8ERb5CE7Xkgg7iAa2fgwvigxoLB1lDNtLEMgA?e=DzdqdG"
+            href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/NewsLetter/JULY%20NEWSLETTER%202024.pdf?CT=1765799086359&OR=ItemsView"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-white text-[#fcd421] font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
@@ -79,7 +79,7 @@ export const InsightsDownloads: React.FC = () => {
           </a>
             
           <a 
-            href="https://aumyaaconsulting-my.sharepoint.com/:f:/g/personal/pranati_aumyaa_com/IgA1ox5YHp7mSpyCDX6M15QFATbtlltOtOQlx4p1pEO_8RU?e=bZIajW"
+            href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/Profile%20downloads/Aumyaa%20Profile_2025%20(2).pdf?CT=1765799149057&OR=ItemsView"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-white text-[#fcd421] font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
