@@ -32,11 +32,20 @@ export function CoreValues() {
           />
         ))}
       </div>
-      <img 
-        src="/images/home/core values.png" 
-        alt="Core Values"
-        className="block absolute w-[15%] ml-[43%] top-0"
-      />
+      {/* Core Values circle with dotted border */}
+      <div 
+        className="absolute w-[18%] ml-[41%] top-1/2 -translate-y-1/2 aspect-square rounded-full flex items-center justify-center"
+        style={{
+          border: '3px dotted #C9A800',
+          padding: '8px'
+        }}
+      >
+        <img 
+          src="/images/home/core values.png"
+          alt="Core Values"
+          className="w-full h-full object-contain rounded-full"
+        />
+      </div>
     </div>
   );
 }

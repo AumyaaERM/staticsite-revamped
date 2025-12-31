@@ -36,6 +36,17 @@ export const LeadersSection: React.FC = () => {
       expertise: "1000+ hours of coaching, Mentored numerous professionals.",
       experience: "40+ Years",
       memberships: ""
+    },
+    {
+      name: "Ayushi Aggarwal",
+      title: "Associate Partner",
+      image: "/images/about/ayushi.png",
+      credentials: "CS, LLB, B.com (h), Certificate Course on  FICCI, RBI Compliance Program, IRDAI- Application of AI",
+      email: "ayushi.aggarwal@gmail.com",
+      linkedin: "https://www.linkedin.com/in/ayushi-aggarwal-09bb96116",
+      expertise: "Experienced compliance and legal professional in the financial services industry with strong expertise in regulatory compliance, corporate governance, internal controls, audit management, and risk oversight.",
+      experience: "Over 10 years",
+      memberships: ""
     }
   ];
 
@@ -51,7 +62,7 @@ export const LeadersSection: React.FC = () => {
           fontWeight: 400,
           color: '#000000'
         }}>
-          Our <span style={{ color: '#000000' }}>Leaders</span>
+          Our <span style={{ color: '#FCD421' }}>Leaders</span>
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

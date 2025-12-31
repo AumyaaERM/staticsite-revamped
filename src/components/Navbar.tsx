@@ -94,9 +94,9 @@ export const Navbar: React.FC = () => {
   
   return (
     <nav className="px-4 md:px-6 lg:px-8 relative" style={{ background: '#FCD421' }}>
-      <div className="w-full flex items-end justify-between py-1">
+      <div className="w-full flex items-end justify-between py-2">
         {/* Logo */}
-        <div className="flex items-end flex-shrink-0">
+        <div className="flex items-end flex-shrink-0 mr-2 lg:mr-4 xl:mr-6">
           <Link to="/" className="flex flex-col items-center rounded-t-[6px] px-2 py-1" style={{
             background: '#FFFFFF',
             marginBottom: '-10px'
@@ -130,10 +130,10 @@ export const Navbar: React.FC = () => {
         </button>
 
         {/* Desktop Navigation - Centered */}
-        <div className="hidden lg:flex flex-1 items-end justify-center gap-8 xl:gap-12">
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-3 lg:gap-4 xl:gap-6 2xl:gap-10">
           <Link 
             to="/" 
-            className="text-[14px] xl:text-[16px] leading-[140%] uppercase pb-1"
+            className="text-[12px] lg:text-[13px] xl:text-[16px] leading-[140%] uppercase pb-1 whitespace-nowrap"
             style={{
               ...navLinkStyle,
               borderBottom: location.pathname === '/' ? '2px solid #000000' : 'none'
@@ -143,7 +143,7 @@ export const Navbar: React.FC = () => {
           </Link>
           <Link 
             to="/about" 
-            className="text-[14px] xl:text-[16px] leading-[140%] uppercase pb-1"
+            className="text-[12px] lg:text-[13px] xl:text-[16px] leading-[140%] uppercase pb-1 whitespace-nowrap"
             style={{
               ...navLinkStyle,
               borderBottom: location.pathname === '/about' ? '2px solid #000000' : 'none'
@@ -159,7 +159,7 @@ export const Navbar: React.FC = () => {
             onMouseLeave={() => close(setShowConsultingDropdown, timer1)}
           >
             <div
-              className="text-[14px] xl:text-[16px] uppercase pb-1 cursor-pointer whitespace-nowrap"
+              className="text-[12px] lg:text-[13px] xl:text-[16px] uppercase pb-1 cursor-pointer whitespace-nowrap"
               style={{
                 fontFamily: 'Days One',
                 borderBottom: location.pathname.startsWith('/consulting') ? '2px solid black' : 'none'
@@ -212,13 +212,13 @@ export const Navbar: React.FC = () => {
             onMouseLeave={() => close(setShowCoachingDropdown, timer2)}
           >
             <div
-              className="text-[14px] xl:text-[16px] uppercase pb-1 cursor-pointer text-center leading-tight"
+              className="text-[12px] lg:text-[13px] xl:text-[16px] uppercase pb-1 cursor-pointer whitespace-nowrap"
               style={{
                 fontFamily: 'Days One',
                 borderBottom: location.pathname.startsWith('/coaching') || location.pathname === '/executive-coaching' || location.pathname === '/training' ? '2px solid black' : 'none'
               }}
             >
-              COACHING &<br/>WORKSHOP
+              COACHING & WORKSHOP
             </div>
 
             {showCoachingDropdown && (
@@ -271,7 +271,7 @@ export const Navbar: React.FC = () => {
 
           <Link 
             to="/careers" 
-            className="text-[14px] xl:text-[16px] leading-[140%] uppercase pb-1"
+            className="text-[12px] lg:text-[13px] xl:text-[16px] leading-[140%] uppercase pb-1 whitespace-nowrap"
             style={{
               ...navLinkStyle,
               borderBottom: location.pathname === '/careers' ? '2px solid #000000' : 'none'
@@ -281,7 +281,7 @@ export const Navbar: React.FC = () => {
           </Link>
           <Link 
             to="/contact" 
-            className="text-[14px] xl:text-[16px] leading-[140%] uppercase pb-1"
+            className="text-[12px] lg:text-[13px] xl:text-[16px] leading-[140%] uppercase pb-1 whitespace-nowrap"
             style={{
               ...navLinkStyle,
               borderBottom: location.pathname === '/contact' ? '2px solid #000000' : 'none'
@@ -292,12 +292,12 @@ export const Navbar: React.FC = () => {
         </div>
           
         {/* Search Box - Desktop */}
-        <div className="hidden xl:block relative flex-shrink-0 self-center" ref={searchRef}>
-          <div className="flex items-center gap-2 rounded-[70px] px-4 py-2" style={{
+        <div className="hidden lg:flex items-end relative flex-shrink-0 ml-2 pb-1" ref={searchRef}>
+          <div className="flex items-center gap-1.5 rounded-[70px] px-2.5 py-1.5 bg-white/30" style={{
             border: '1px solid rgba(25, 22, 0, 0.12)',
             borderRadius: '70px'
           }}>
-            <Search className="w-4 h-4" style={{ color: '#191600' }} />
+            <Search className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#191600' }} />
             <input 
               type="text" 
               placeholder="Search services..." 
@@ -307,7 +307,7 @@ export const Navbar: React.FC = () => {
                 setShowSearchResults(e.target.value.trim().length > 0);
               }}
               onFocus={() => searchQuery.trim() && setShowSearchResults(true)}
-              className="bg-transparent border-none outline-none w-56 text-[14px] leading-[140%] tracking-[0.01em]"
+              className="bg-transparent border-none outline-none w-24 lg:w-28 xl:w-32 2xl:w-40 text-[11px] lg:text-[12px] xl:text-[13px] leading-[140%] tracking-[0.01em]"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 400,
@@ -363,17 +363,17 @@ export const Navbar: React.FC = () => {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 top-0 z-40 bg-black/50"
+          className="lg:hidden fixed inset-0 z-40 bg-black/50"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
       {/* Mobile Menu Panel */}
       <div 
-        className={`lg:hidden absolute top-full left-0 right-0 z-50 transform transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`lg:hidden fixed left-0 right-0 z-50 transform transition-all duration-300 ease-in-out ${
+          mobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
         }`}
-        style={{ background: '#FCD421', maxHeight: 'calc(100vh - 60px)', overflowY: 'auto' }}
+        style={{ background: '#FCD421', maxHeight: 'calc(100vh - 80px)', overflowY: 'auto', top: '70px' }}
       >
         <div className="px-6 py-4 space-y-1">
           {/* Search Box - Mobile */}

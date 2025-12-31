@@ -104,37 +104,33 @@ export const ServicesSection: React.FC = () => {
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="min-w-[280px] sm:min-w-[320px] md:min-w-[45%] lg:min-w-[30%] bg-white rounded-2xl border-2 border-[#FCD421] 
-              overflow-hidden transition-shadow flex flex-col snap-start"
-              style={{ height: '520px' }}
+              className="min-w-[320px] sm:min-w-[340px] md:min-w-[360px] lg:min-w-[320px] bg-white rounded-2xl border-2 border-[#FCD421] 
+              overflow-hidden transition-shadow snap-start flex flex-col p-4"
             >
               {/* IMAGE */}
-              <div className="p-3 md:p-4 flex-shrink-0">
-                <div className="relative h-40 sm:h-48 md:h-52 rounded-xl overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-[160px] object-cover rounded-xl flex-shrink-0"
+              />
 
-              {/* TEXT + BUTTON */}
-              <div className="px-4 md:px-6 pb-4 flex flex-col flex-1">
-                <div className="flex-1">
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{service.title}</h3>
-                  <p className="text-xs md:text-sm text-gray-700 leading-relaxed line-clamp-4">
-                    {service.description}
-                  </p>
-                </div>
+              {/* TEXT CONTENT */}
+              <div className="pt-4 flex-1 flex flex-col">
+                <h3 className="text-lg font-bold">{service.title}</h3>
+                <p className="text-sm text-gray-700 leading-relaxed text-justify mt-2 mb-4">
+                  {service.description}
+                </p>
 
+                {/* BUTTON - pushed to bottom for alignment */}
                 <button
                   onClick={() => navigate(service.link)}
-                  style={{ background: '#FCD421', borderRadius: '40px' }}
-                  className="bg-[#FCD421] text-black font-semibold px-4 md:px-6 py-2 md:py-3 rounded-full items-center flex gap-2 hover:bg-yellow-500 transition-colors w-full justify-center text-sm md:text-base mt-4"
+                  style={{ backgroundColor: '#FCD421', borderRadius: '9999px' }}
+                  className="text-black font-semibold pl-6 pr-2 py-2.5 items-center flex justify-between hover:brightness-95 transition-all w-full text-sm mt-auto"
                 >
-                  <span className="text-black">View all details</span>
-                  <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+                  <span>View all details</span>
+                  <span className="bg-white rounded-full p-2 flex items-center justify-center shadow-sm">
+                    <ChevronRight className="w-5 h-5 text-black" />
+                  </span>
                 </button>
               </div>
             </div>

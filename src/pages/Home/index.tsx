@@ -15,7 +15,7 @@ import { WhoWeAreHome } from './sections/WhoWeAreHome';
 const ChatButton: React.FC = () => {
   return (
     <div className="w-full flex justify-end py-4 mr-10 pr-40  ">
-    <a href="https://wa.me/9818248133" target="_blank" rel="noopener noreferrer" className="float-right bottom-8 right-8 bg-white text-[#FFD700] font-bold px-8 py-4 rounded-full flex items-center gap-3 shadow-[0_8px_0_0_#FFD700] hover:shadow-[0_10px_0_0_#FFD700] hover:translate-y-[-2px] transition-all z-50">
+    <a href="https://wa.me/9818248133" target="_blank" rel="noopener noreferrer" style={{ color: '#FFD700' }} className="float-right bottom-8 right-8 bg-black font-bold px-8 py-4 rounded-full flex items-center gap-3 shadow-[0_8px_0_0_#FFD700] hover:shadow-[0_10px_0_0_#FFD700] hover:translate-y-[-2px] transition-all z-50 no-underline">
       Chat With Us
       <div className="bg-[#FFD700] rounded-full p-2">
         <svg className="w-6 h-6" fill="#1a1a1a" viewBox="0 0 24 24">

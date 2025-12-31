@@ -47,19 +47,19 @@ export const HeroSectionHome: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative h-[350px] sm:h-[450px] md:h-[600px] overflow-hidden relative">
+    <div className="relative w-full overflow-hidden" style={{ height: '600px' }}>
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+          className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
-        >
-          <img 
-            src={slide.image}
-            alt={slide.text}
-            className="w-full h-full object-cover"
-          />
-        </div>
+          style={{
+            backgroundImage: `url(${slide.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
       ))}
         
       <div className="absolute inset-0 bg-black/30" />
