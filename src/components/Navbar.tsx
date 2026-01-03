@@ -109,7 +109,8 @@ export const Navbar: React.FC = () => {
             <div className="text-xl md:text-l font-bold leading-none" style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 700,
-              letterSpacing: '0.05em'
+              letterSpacing: '0.05em',
+              marginTop: '-8px'
             }}>
               <span style={{ color: '#000000' }}>AUMYAA</span>
             </div>
