@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
         <div className="hidden lg:flex flex-1 items-center justify-center gap-3 lg:gap-4 xl:gap-6 2xl:gap-10">
           <Link 
             to="/" 
-            className="text-[12px] lg:text-[13px] xl:text-[16px] leading-[140%] uppercase pb-1 whitespace-nowrap"
+            className="text-[11px] lg:text-[12px] xl:text-[14px] leading-[140%] uppercase pb-1 whitespace-nowrap"
             style={{
               ...navLinkStyle,
               borderBottom: location.pathname === '/' ? '2px solid #000000' : 'none'
@@ -143,7 +143,7 @@ export const Navbar: React.FC = () => {
           </Link>
           <Link 
             to="/about" 
-            className="text-[12px] lg:text-[13px] xl:text-[16px] leading-[140%] uppercase pb-1 whitespace-nowrap"
+            className="text-[11px] lg:text-[12px] xl:text-[14px] leading-[140%] uppercase pb-1 whitespace-nowrap"
             style={{
               ...navLinkStyle,
               borderBottom: location.pathname === '/about' ? '2px solid #000000' : 'none'
@@ -159,7 +159,7 @@ export const Navbar: React.FC = () => {
             onMouseLeave={() => close(setShowConsultingDropdown, timer1)}
           >
             <div
-              className="text-[12px] lg:text-[13px] xl:text-[16px] uppercase pb-1 cursor-pointer whitespace-nowrap"
+              className="text-[11px] lg:text-[12px] xl:text-[14px] uppercase pb-1 cursor-pointer whitespace-nowrap"
               style={{
                 fontFamily: 'Days One',
                 borderBottom: location.pathname.startsWith('/consulting') ? '2px solid black' : 'none'
@@ -212,7 +212,7 @@ export const Navbar: React.FC = () => {
             onMouseLeave={() => close(setShowCoachingDropdown, timer2)}
           >
             <div
-              className="text-[12px] lg:text-[13px] xl:text-[16px] uppercase pb-1 cursor-pointer whitespace-nowrap"
+              className="text-[11px] lg:text-[12px] xl:text-[14px] uppercase pb-1 cursor-pointer whitespace-nowrap"
               style={{
                 fontFamily: 'Days One',
                 borderBottom: location.pathname.startsWith('/coaching') || location.pathname === '/executive-coaching' || location.pathname === '/training' ? '2px solid black' : 'none'
@@ -271,7 +271,7 @@ export const Navbar: React.FC = () => {
 
           <Link 
             to="/careers" 
-            className="text-[12px] lg:text-[13px] xl:text-[16px] leading-[140%] uppercase pb-1 whitespace-nowrap"
+            className="text-[11px] lg:text-[12px] xl:text-[14px] leading-[140%] uppercase pb-1 whitespace-nowrap"
             style={{
               ...navLinkStyle,
               borderBottom: location.pathname === '/careers' ? '2px solid #000000' : 'none'
@@ -281,7 +281,7 @@ export const Navbar: React.FC = () => {
           </Link>
           <Link 
             to="/contact" 
-            className="text-[12px] lg:text-[13px] xl:text-[16px] leading-[140%] uppercase pb-1 whitespace-nowrap"
+            className="text-[11px] lg:text-[12px] xl:text-[14px] leading-[140%] uppercase pb-1 whitespace-nowrap"
             style={{
               ...navLinkStyle,
               borderBottom: location.pathname === '/contact' ? '2px solid #000000' : 'none'

@@ -90,14 +90,14 @@ export const HeroSectionHome: React.FC = () => {
       <div className="absolute bottom-4 md:bottom-8 left-0 right-4 md:right-8 z-10">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-end justify-between gap-2 md:gap-4">
           <label style={{ fontFamily: 'Days One, sans-serif' }}
-            className="bg-[#FCD421] text-black font-bold text-base sm:text-xl md:text-2xl lg:text-3xl w-full px-4 sm:px-6 py-3 md:py-4 rounded-r-xl md:rounded-r-2xl inline-block">
+            className="bg-[#FCD421] text-black font-bold text-sm sm:text-lg md:text-xl lg:text-2xl w-full px-4 sm:px-6 py-3 md:py-4 rounded-r-xl md:rounded-r-2xl inline-block">
             {slides[currentSlide].text}
           </label>
           <Link
             to={slides[currentSlide].buttonLink}
             style={{ fontFamily: 'Days One, sans-serif', color: "black", textDecoration: 'none' }}
             className="bg-[#FCD421] flex items-center gap-2 whitespace-nowrap text-black font-bold 
-             text-sm sm:text-lg md:text-2xl lg:text-3xl px-4 sm:px-6 py-3 md:py-4 rounded-xl md:rounded-2xl inline-flex justify-center cursor-pointer"
+             text-xs sm:text-base md:text-xl lg:text-2xl px-4 sm:px-6 py-3 md:py-4 rounded-xl md:rounded-2xl inline-flex justify-center cursor-pointer"
           >
             <span>{slides[currentSlide].buttonText}</span>
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
