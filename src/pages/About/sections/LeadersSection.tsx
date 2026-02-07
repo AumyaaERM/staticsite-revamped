@@ -85,7 +85,7 @@ export const LeadersSection: React.FC = () => {
               >
                 {/* Front Side */}
                 <div 
-                  className="absolute inset-0 rounded-[10px]"
+                  className="absolute inset-0 rounded-[10px] overflow-hidden"
                   style={{ 
                     background: '#FCD421',
                     backfaceVisibility: 'hidden'
@@ -140,7 +140,7 @@ export const LeadersSection: React.FC = () => {
 
                 {/* Back Side */}
                 <div 
-                  className="absolute inset-0 rounded-[10px] p-4 sm:p-6 md:p-8 overflow-y-auto"
+                  className="absolute inset-0 rounded-[10px]"
                   style={{ 
                     background: '#FFFFFF',
                     border: '3px solid #FCD421',
@@ -148,17 +148,18 @@ export const LeadersSection: React.FC = () => {
                     transform: 'rotateY(180deg)'
                   }}
                 >
-                  <div className="flex flex-col h-full justify-between">
-                    {/* Name and Title */}
-                    <div>
-                      <h3 className="text-[20px] sm:text-[24px] md:text-[28px] leading-[120%] mb-2 md:mb-4 text-center tracking-[0.01em]" style={{
+                  <div className="flex flex-col h-full">
+                    {/* Scrollable Content Area */}
+                    <div className="flex-1 overflow-y-auto p-4 sm:p-5 md:p-6">
+                      {/* Name and Title */}
+                      <h3 className="text-[20px] sm:text-[22px] md:text-[26px] leading-[120%] mb-1 md:mb-2 text-center tracking-[0.01em]" style={{
                         fontFamily: 'Inter, sans-serif',
                         fontWeight: 600,
                         color: '#000000'
                       }}>
                         {leader.name}
                       </h3>
-                      <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-[120%] mb-3 md:mb-6 text-center tracking-[0.01em] italic" style={{
+                      <p className="text-[14px] sm:text-[15px] md:text-[17px] leading-[120%] mb-3 md:mb-4 text-center tracking-[0.01em] italic" style={{
                         fontFamily: 'Inter, sans-serif',
                         fontWeight: 600,
                         color: '#000000'
@@ -167,7 +168,7 @@ export const LeadersSection: React.FC = () => {
                       </p>
 
                       {/* Details */}
-                      <div className="space-y-2 md:space-y-3 text-[12px] sm:text-[13px] md:text-[14px] leading-[140%] tracking-[0.01em]" style={{
+                      <div className="space-y-2 text-[12px] sm:text-[13px] md:text-[14px] leading-[140%] tracking-[0.01em]" style={{
                         fontFamily: 'Inter, sans-serif',
                         fontWeight: 500,
                         color: '#000000'
@@ -198,23 +199,25 @@ export const LeadersSection: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Go Back Button */}
-                    <button 
-                      onClick={() => toggleFlip(index)}
-                      className="flex items-center justify-center px-4 md:px-6 py-3 md:py-[18px] rounded self-center mt-4"
-                      style={{
-                        background: '#FCD421',
-                        border: '1px solid rgba(222, 202, 73, 0.5)'
-                      }}
-                    >
-                      <span className="text-[14px] md:text-[18px] leading-[150%] text-center" style={{
-                        fontFamily: 'Inter, sans-serif',
-                        fontWeight: 500,
-                        color: '#000000'
-                      }}>
-                        Go Back
-                      </span>
-                    </button>
+                    {/* Go Back Button - Fixed at Bottom */}
+                    <div className="p-4 sm:p-5 md:p-6 pt-0">
+                      <button 
+                        onClick={() => toggleFlip(index)}
+                        className="w-full flex items-center justify-center px-4 py-2 md:py-3 rounded"
+                        style={{
+                          background: '#FCD421',
+                          border: '1px solid rgba(222, 202, 73, 0.5)'
+                        }}
+                      >
+                        <span className="text-[14px] md:text-[17px] leading-[150%] text-center" style={{
+                          fontFamily: 'Inter, sans-serif',
+                          fontWeight: 500,
+                          color: '#000000'
+                        }}>
+                          Go Back
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,33 +1,90 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+interface Insight {
+  title: string;
+  date: string;
+}
 
 // Insights and Downloads Section
 export const InsightsDownloads: React.FC = () => {
-  // Ordered by date (newest first)
-  const insights = [
-    {
-      title: "Google's experimental AI Mode can now analyse and answer questions about images.",
-      date: "April 8, 2025"
-    },
-    {
-      title: "OpenAI plans to acquire Jony Ive's AI hardware startup for $500 million.",
-      date: "April 8, 2025"
-    },
-    {
-      title: "Cruise lines are going greener, but some are under fire for greenwashing",
-      date: "February 25, 2025"
-    },
-    {
-      title: "Perplexity AI looks to expand in India, seeks new talent for strategic growth",
-      date: "February 15, 2025"
-    },
-    {
-      title: "UAE's tech industry set to achieve record growth in 2025",
-      date: "February 12, 2025"
-    }
-  ];
+  const [insights, setInsights] = useState<Insight[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Google Sheets CSV URL - Automatically fetches from your Google Sheet
+  const GOOGLE_SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTJz9QKNP238g471r8-ZEBAHbtu3CdK5RKrLMKxfC52v4dszroe5oeylwXedjJQOUXnShWaNTcinUaW/pub?output=csv';
+
+  useEffect(() => {
+    const fetchInsights = async () => {
+
+      try {
+        console.log('Fetching insights from:', GOOGLE_SHEETS_CSV_URL);
+        const response = await fetch(GOOGLE_SHEETS_CSV_URL);
+        
+        if (!response.ok) {
+          console.error('Fetch failed with status:', response.status);
+          throw new Error(`Failed to fetch insights: ${response.status}`);
+        }
+
+        const csvText = await response.text();
+        console.log('CSV data received:', csvText.substring(0, 200)); // Log first 200 chars
+        
+        const rows = csvText.split('\n').slice(1); // Skip header row
+        console.log('Number of rows found:', rows.length);
+        
+        const fetchedInsights: Insight[] = rows
+          .filter(row => row.trim()) // Remove empty rows
+          .map((row, index) => {
+            // Split by comma, but handle quoted fields properly
+            const columns = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < row.length; i++) {
+              const char = row[i];
+              
+              if (char === '"') {
+                inQuotes = !inQuotes;
+              } else if (char === ',' && !inQuotes) {
+                columns.push(current.trim().replace(/^"|"$/g, ''));
+                current = '';
+              } else {
+                current += char;
+              }
+            }
+            // Push the last column
+            columns.push(current.trim().replace(/^"|"$/g, ''));
+            
+            const title = columns[0] || '';
+            const date = columns[1] || '';
+            
+            console.log(`Row ${index + 2}:`, { title, date });
+            return { title, date };
+          })
+          .filter(insight => insight.title && insight.date); // Only valid entries
+
+        console.log('Parsed insights:', fetchedInsights);
+        
+        if (fetchedInsights.length > 0) {
+          setInsights(fetchedInsights);
+          console.log('Successfully loaded', fetchedInsights.length, 'insights from Google Sheets');
+        } else {
+          console.warn('No valid insights found in CSV');
+        }
+        setIsLoading(false);
+      } catch (err) {
+        console.error('Error fetching insights:', err);
+        setError('Failed to load insights');
+        setIsLoading(false);
+      }
+    };
+
+    fetchInsights();
+  }, []);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 px-4 sm:px-6 md:px-12 py-10 md:py-16 bg-gray-50">
+    <>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 px-4 sm:px-6 md:px-12 py-10 md:py-16 bg-gray-50">
       <div className="lg:col-span-2 bg-[#fcd421] p-6 sm:p-8 md:p-12 rounded-2xl">
         <h2
           style={{ fontFamily: "Days One, sans-serif" }}
@@ -43,17 +100,38 @@ export const InsightsDownloads: React.FC = () => {
             />
           </div>
           
-          {/* All insights on right */}
-          <div className="md:w-3/5 space-y-3">
-            {insights.map((insight, index) => (
-              <div 
-                key={index} 
-                className={`${index !== insights.length - 1 ? 'border-b border-dotted border-gray-600 pb-3' : ''}`}
-              >
-                <h3 className="text-xs sm:text-sm font-bold mb-1">{insight.title}</h3>
-                <p className="text-xs text-gray-700">{insight.date}</p>
+          {/* All insights on right - Auto-scrolling */}
+          <div className="md:w-3/5 relative overflow-hidden max-h-[400px]">
+            {insights.length > 0 ? (
+              <div className="space-y-3 animate-scroll">
+                {/* Original content */}
+                {insights.map((insight, index) => (
+                  <div 
+                    key={`original-${index}`} 
+                    className="border-b border-dotted border-gray-600 pb-3"
+                  >
+                    <h3 className="text-xs sm:text-sm font-bold mb-1">{insight.title}</h3>
+                    <p className="text-xs text-gray-700">{insight.date}</p>
+                  </div>
+                ))}
+                {/* Duplicate content for seamless loop */}
+                {insights.map((insight, index) => (
+                  <div 
+                    key={`duplicate-${index}`} 
+                    className="border-b border-dotted border-gray-600 pb-3"
+                  >
+                    <h3 className="text-xs sm:text-sm font-bold mb-1">{insight.title}</h3>
+                    <p className="text-xs text-gray-700">{insight.date}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <div className="flex items-center justify-center h-full">
+                <p className="text-sm text-gray-700 italic">
+                  {isLoading ? 'Loading insights...' : error ? error : 'No insights available at the moment.'}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -68,7 +146,8 @@ export const InsightsDownloads: React.FC = () => {
             href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/NewsLetter/JULY%20NEWSLETTER%202024.pdf?CT=1765799086359&OR=ItemsView"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-white text-[#fcd421] font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
+            className="w-full bg-white font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
+            style={{ textDecoration: 'none', color: '#fcd421' }}
           >
             <img
               src="/images/home/download-icon.png"
@@ -82,7 +161,8 @@ export const InsightsDownloads: React.FC = () => {
             href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/Profile%20downloads/Aumyaa%20Profile_2025%20(2).pdf?CT=1765799149057&OR=ItemsView"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-white text-[#fcd421] font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
+            className="w-full bg-white font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
+            style={{ textDecoration: 'none', color: '#fcd421' }}
           >
             <img
               src="/images/home/download-icon.png"
@@ -96,12 +176,13 @@ export const InsightsDownloads: React.FC = () => {
               href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/Survey%20report/survey%20report%202024-2025.pdf?CT=1765946645795&OR=ItemsView"
              target="_blank"
              rel="noopener noreferrer"
-              className="w-full bg-white text-[#fcd421] font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors">
-          <img
-    src="/images/home/download-icon.png"
-    alt="Download"
-    className="w-5 h-5"
-  />
+              className="w-full bg-white font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
+              style={{ textDecoration: 'none', color: '#fcd421' }}>
+              <img
+                src="/images/home/download-icon.png"
+                alt="Download"
+                className="w-5 h-5"
+              />
               Survey Reports
             </a>
             
@@ -116,5 +197,24 @@ export const InsightsDownloads: React.FC = () => {
           </div>
         </div>
       </div>
-    );
-  };
+
+      {/* CSS for auto-scroll animation */}
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 20s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+    </>
+  );
+};

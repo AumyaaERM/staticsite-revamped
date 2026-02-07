@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import { About } from './pages/About';
@@ -9,16 +9,24 @@ import { Training } from './pages/Training';
 import { ExecutiveCoaching } from './pages/ExecutiveCoaching';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { CookieConsent } from './components/CookieConsent';
 import { BusinessConsulting } from './pages/Consulting/BusinessConsulting';
 import { TechnologyConsulting } from './pages/Consulting/TechnologyConsulting';
 import { RiskAdvisory } from './pages/Consulting/RiskAdvisory';
 import { ESGConsulting } from './pages/Consulting/ESGConsulting';
 import { ComplianceServices } from './pages/Consulting/ComplianceServices';
+import { initGA, usePageTracking } from './utils/analytics';
 
 // Main App Component
 const App: React.FC = () => {
+  // Initialize Google Analytics on app load
+  useEffect(() => {
+    initGA();
+  }, []);
+
   return (
     <Router>
+      <PageTracker />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={
@@ -87,8 +95,17 @@ const App: React.FC = () => {
         <Route path="/consulting/esg-consulting" element={<ESGConsulting />} />
         <Route path="/consulting/compliance-services" element={<ComplianceServices />} />
       </Routes>
+      
+      {/* Cookie Consent Banner - appears on all pages */}
+      <CookieConsent />
     </Router>
   );
+};
+
+// Component to track page views
+const PageTracker: React.FC = () => {
+  usePageTracking();
+  return null;
 };
 
 export default App;

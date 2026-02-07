@@ -26,7 +26,7 @@ export const WhoWeAreHome: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_0.7fr] gap-6">
-        <div className="vision-tile bg-[#FCD421] rounded-3xl overflow-hidden relative flex flex-col h-full">
+        <div className="vision-tile bg-[#FCD421] rounded-3xl overflow-hidden relative flex flex-col h-full border-2 border-transparent transition-all duration-300">
             <div className="bg-[#FCD421] px-4 md:px-6 py-3 md:py-4 flex-shrink-0">
               <h3 
               style={{ fontFamily: 'Days One, sans-serif' }}
@@ -47,7 +47,7 @@ export const WhoWeAreHome: React.FC = () => {
             </div>
           </div>
           
-          <div className="mission-tile bg-[#FCD421] rounded-3xl overflow-hidden relative flex flex-col h-full">
+          <div className="mission-tile bg-[#FCD421] rounded-3xl overflow-hidden relative flex flex-col h-full border-2 border-transparent transition-all duration-300">
             <div className="bg-[#FCD421] px-4 md:px-6 py-3 md:py-4 flex-shrink-0">
               <h3 
               style={{ fontFamily: 'Days One, sans-serif' }}
@@ -68,7 +68,7 @@ export const WhoWeAreHome: React.FC = () => {
             </div>
           </div>
           
-          <div className="bg-white border-2 border-[#FCD421] rounded-3xl overflow-hidden flex flex-col h-full sm:col-span-2 lg:col-span-1">
+          <div className="bg-white rounded-3xl overflow-hidden flex flex-col h-full sm:col-span-2 lg:col-span-1" style={{ border: '3px dotted #FCD421' }}>
             <div className="bg-[#FCD421] px-4 md:px-6 py-3 md:py-4 flex-shrink-0">
               <h3 className="text-xl md:text-2xl font-bold text-center text-black">What's New</h3>
             </div>
@@ -92,6 +92,12 @@ export const WhoWeAreHome: React.FC = () => {
         .mission-tile {
           position: relative;
           overflow: hidden;
+        }
+
+        .vision-tile:hover,
+        .mission-tile:hover {
+          border: 3px dotted #FCD421 !important;
+          background: white;
         }
 
         .forward-img,
