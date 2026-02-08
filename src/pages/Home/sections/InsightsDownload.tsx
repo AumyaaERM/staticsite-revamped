@@ -18,24 +18,19 @@ export const InsightsDownloads: React.FC = () => {
     const fetchInsights = async () => {
 
       try {
-        console.log('Fetching insights from:', GOOGLE_SHEETS_CSV_URL);
         const response = await fetch(GOOGLE_SHEETS_CSV_URL);
         
         if (!response.ok) {
-          console.error('Fetch failed with status:', response.status);
           throw new Error(`Failed to fetch insights: ${response.status}`);
         }
 
         const csvText = await response.text();
-        console.log('CSV data received:', csvText.substring(0, 200)); // Log first 200 chars
-        
+
         const rows = csvText.split('\n').slice(1); // Skip header row
-        console.log('Number of rows found:', rows.length);
-        
+
         const fetchedInsights: Insight[] = rows
-          .filter(row => row.trim()) // Remove empty rows
+          .filter(row => row.trim())
           .map((row, index) => {
-            // Split by comma, but handle quoted fields properly
             const columns = [];
             let current = '';
             let inQuotes = false;
