@@ -288,24 +288,11 @@ export const ExecutiveCoaching: React.FC = () => {
 
               {/* Right Side - Image */}
               <div className="flex justify-center lg:justify-end">
-                <div className="relative" style={{ paddingTop: '20px', paddingRight: '20px' }}>
-                  {/* Yellow border box - full rectangle */}
-                  <div 
-                    className="absolute top-0 left-0 bottom-0 right-0"
-                    style={{
-                      border: '3px solid #FCD421'
-                    }}
-                  />
-                  {/* Image positioned up and to the right, covering top and right borders */}
+                <div className="p-4 md:p-6" style={{ border: '3px solid #FCD421', borderRadius: '10px', background: '#FFFFFF' }}>
                   <img 
                     src="/images/coaching/coach-new.png"
                     alt="Manjula Banerji"
-                    className="relative w-full max-w-md"
-                    style={{
-                      position: 'relative',
-                      top: '-35px',
-                      right: '-35px'
-                    }}
+                    className="w-full max-w-md h-auto"
                   />
                 </div>
               </div>
@@ -332,12 +319,11 @@ export const ExecutiveCoaching: React.FC = () => {
             Choose from our comprehensive coaching programs designed for different stages of executive development
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div className="flex flex-col md:flex-row gap-8">
             {programs.map((program, index) => (
               <div 
                 key={index}
-                className="relative flex flex-col"
-                style={{ minHeight: '500px' }}
+                className="relative flex flex-col flex-1"
               >
                 {/* Image */}
                 <div className="h-64 sm:h-80 md:h-96 overflow-hidden rounded-t-2xl md:rounded-t-3xl flex-shrink-0">
@@ -350,11 +336,12 @@ export const ExecutiveCoaching: React.FC = () => {
 
                 {/* Overlapping Text Card */}
                 <div 
-                  className="relative -mt-12 md:-mt-20 mx-3 sm:mx-4 md:mx-6 rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-8 hover:shadow-xl transition-shadow flex-grow"
+                  className="relative -mt-12 md:-mt-20 mx-3 sm:mx-4 md:mx-6 rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-8 pb-8 md:pb-12 hover:shadow-xl transition-shadow flex-1 flex flex-col"
                   style={{
                     background: '#FFFFFF',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-                    border: '2px solid #FFF4CC'
+                    border: '2px solid #FFF4CC',
+                    minHeight: '400px'
                   }}
                 >
                   <h3 className="text-[20px] sm:text-[24px] md:text-[28px] font-bold mb-3 md:mb-4" style={{
@@ -365,7 +352,7 @@ export const ExecutiveCoaching: React.FC = () => {
                     {program.title}
                   </h3>
 
-                  <p className="text-[14px] md:text-[16px] leading-relaxed whitespace-pre-line" style={{
+                  <p className="text-[14px] md:text-[16px] leading-relaxed whitespace-pre-line flex-grow" style={{
                     fontFamily: 'Inter, sans-serif',
                     color: '#000000',
                     lineHeight: '1.7',

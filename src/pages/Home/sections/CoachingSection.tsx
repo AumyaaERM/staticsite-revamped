@@ -5,15 +5,15 @@ export function CoachingSection() {
     return (
     <div className="bg-[#fafafa] py-10 md:py-16 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 text-black">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 text-black">
           {/* Learning Academy Card */}
-          <div className="relative min-h-[500px] md:min-h-[650px]">
+          <div className="relative flex-1 flex flex-col" style={{ height: '900px' }}>
               <img 
               src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" 
                 alt="Learning Academy"
-              className="w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover"
+              className="w-full h-[300px] md:h-[350px] object-cover"
               />
-            <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 md:left-8 right-4 sm:right-6 md:right-8 bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8">
+            <div className="absolute bottom-8 left-4 sm:left-6 md:left-8 right-4 sm:right-6 md:right-8 bg-white rounded-2xl md:rounded-3xl shadow-2xl p-6 md:p-8 pb-6 md:pb-8 flex flex-col" style={{ height: '540px' }}>
               <div className="flex items-center gap-2 mb-3">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -33,7 +33,7 @@ export function CoachingSection() {
               
               <p className="font-semibold mb-3 text-sm">Why Choose Aumyaa Learning Academy?</p>
               
-              <div className="space-y-2 mb-6">
+              <div className="space-y-2 flex-grow">
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-lg flex-shrink-0">💎</span>
                   <p className="text-xs">
@@ -60,21 +60,23 @@ export function CoachingSection() {
                 </div>
               </div>
               
-              <Link to="/executive-coaching" style={{background:"#fcd421"}} className=" bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-colors text-sm">
+              <Link to="/executive-coaching" style={{background:"#fcd421", textDecoration: 'none', color: '#000000'}} className="bg-yellow-400 font-semibold px-6 py-3 rounded-full flex items-center justify-between hover:bg-yellow-500 transition-colors text-base mt-auto">
                   View all details
-                  <ChevronRight className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center ml-4">
+                    <ChevronRight className="w-5 h-5 text-black" />
+                  </div>
                 </Link>
               </div>
             </div>
             
           {/* Executive Coaching Card */}
-          <div className="relative min-h-[500px] md:min-h-[650px]">
+          <div className="relative flex-1 flex flex-col" style={{ height: '900px' }}>
               <img 
               src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=800&h=600&fit=crop" 
                 alt="Executive Coaching"
-              className="w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover"
+              className="w-full h-[300px] md:h-[350px] object-cover"
               />
-            <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-4 sm:left-6 md:left-8 right-4 sm:right-6 md:right-8 bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8">
+            <div className="absolute bottom-8 left-4 sm:left-6 md:left-8 right-4 sm:right-6 md:right-8 bg-white rounded-2xl md:rounded-3xl shadow-2xl p-6 md:p-8 pb-6 md:pb-8 flex flex-col" style={{ height: '540px' }}>
               <div className="flex items-center gap-2 mb-3">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -96,7 +98,7 @@ export function CoachingSection() {
                 ARE THE SENIOR PROFESSIONALS IN YOUR ORGANIZATION STRIVING TO ACHIEVE :
               </p>
               
-              <div className="space-y-2 mb-4">
+              <div className="space-y-2 flex-grow">
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-lg flex-shrink-0">💎</span>
                   <p className="text-xs">
@@ -131,9 +133,11 @@ export function CoachingSection() {
               
               <p className="font-bold text-xs mb-4 underline">Click Here to Get Started</p>
               
-              <Link to="/executive-coaching" style={{background:"#fcd421"}} className="text-black bg-[#fcd421] text-black font-semibold px-6 py-3 rounded-full flex items-center gap-2 transition-colors text-sm">
+              <Link to="/executive-coaching" style={{background:"#fcd421", textDecoration: 'none', color: '#000000'}} className="bg-[#fcd421] font-semibold px-6 py-3 rounded-full flex items-center justify-between transition-colors text-base mt-auto">
                   View all details
-                  <ChevronRight className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center ml-4">
+                    <ChevronRight className="w-5 h-5 text-black" />
+                  </div>
                 </Link>
               </div>
             </div>
