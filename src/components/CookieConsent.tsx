@@ -88,7 +88,9 @@ export const CookieConsent: React.FC = () => {
                   and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. 
                   You can manage your preferences or learn more in our{' '}
                   <a 
-                    // href="/privacy-policy" 
+                    href="https://drive.google.com/file/d/1FaYSm6AgZ3EgZJIGkdYSKT4Bh6oq8_15/view?usp=drivesdk"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="underline hover:no-underline"
                     style={{ color: '#FCD421', fontWeight: 600 }}
                   >
