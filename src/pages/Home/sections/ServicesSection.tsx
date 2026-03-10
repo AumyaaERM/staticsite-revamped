@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { OptimizedImage } from '../../../components/OptimizedImage';
 
 export const ServicesSection: React.FC = () => {
   const navigate = useNavigate();
@@ -108,7 +109,7 @@ export const ServicesSection: React.FC = () => {
               overflow-hidden transition-shadow snap-start flex flex-col p-4"
             >
               {/* IMAGE */}
-              <img
+              <OptimizedImage
                 src={service.image}
                 alt={service.title}
                 className="w-full h-[160px] object-cover rounded-xl flex-shrink-0"

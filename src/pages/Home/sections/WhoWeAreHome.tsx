@@ -1,4 +1,5 @@
 import React from 'react';
+import { OptimizedImage } from '../../../components/OptimizedImage';
 
 export const WhoWeAreHome: React.FC = () => {
   return (
@@ -33,7 +34,7 @@ export const WhoWeAreHome: React.FC = () => {
               className="text-xl md:text-2xl font-bold text-center text-black">Vision</h3>
             </div>
             <div className="relative flex-1 bg-white min-h-[200px] md:min-h-[256px]">
-            <img 
+            <OptimizedImage
                 src="/images/home/vision.jpg"
               alt="Vision"
                 className="forward-img absolute inset-0 w-full h-full object-cover"
@@ -54,7 +55,7 @@ export const WhoWeAreHome: React.FC = () => {
               className="text-xl md:text-2xl font-bold text-center text-black">Mission</h3>
             </div>
             <div className="relative flex-1 bg-white min-h-[200px] md:min-h-[256px]">
-            <img 
+            <OptimizedImage
                 src="/images/home/mission.jpg"
               alt="Mission"
                 className="forward-img absolute inset-0 w-full h-full object-cover"

@@ -48,30 +48,29 @@ export const HeroSectionHome: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: '600px' }}>
+    <div className="relative w-full overflow-hidden h-[450px] sm:h-[550px] md:h-[600px] lg:h-[650px]">
       {slides.map((slide, index) => (
         <div
           key={index}
           className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
-        >
-          <OptimizedImage
-            src={slide.image}
-            alt={slide.text}
-            priority={index === 0}
-            className="w-full h-full object-cover"
-          />
-        </div>
+          style={{
+            backgroundImage: `url(${slide.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
       ))}
         
       <div className="absolute inset-0 bg-black/30" />
 
-      <div className="absolute top-0 right-0 flex items-center gap-3 z-10">
+      <div className="absolute top-2 right-2 md:top-4 md:right-4 flex items-center gap-2 md:gap-3 z-10">
         <a
           href="https://wa.me/9818248133"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 flex items-center justify-center"
+          className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
         >
           <OptimizedImage
             src="/images/home/whatsapp.png"
@@ -84,27 +83,26 @@ export const HeroSectionHome: React.FC = () => {
         <Link
           to="/contact"
           style={{ fontFamily: 'Days One, sans-serif', textDecoration: 'none', color: "black" }}
-
-          className="py-[10px] px-[15px] bg-[#fcd421] text-black no-underline font-bold flex items-center justify-center text-center"
+          className="py-2 px-3 md:py-[10px] md:px-[15px] bg-[#fcd421] text-black no-underline font-bold flex items-center justify-center text-center text-xs md:text-sm rounded md:rounded-none"
         >
           Quick Enquiry
         </Link>
           </div>
 
-      <div className="absolute bottom-4 md:bottom-8 left-0 right-4 md:right-8 z-10">
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-end justify-between gap-2 md:gap-4">
-          <label style={{ fontFamily: 'Days One, sans-serif' }}
-            className="bg-[#FCD421] text-black font-bold text-sm sm:text-lg md:text-xl lg:text-2xl w-full px-4 sm:px-6 py-3 md:py-4 rounded-r-xl md:rounded-r-2xl inline-block">
+      <div className="absolute bottom-4 md:bottom-8 left-0 right-0 z-10 px-2 md:px-0">
+        <div className="flex flex-col gap-2 md:gap-3 max-w-7xl mx-auto">
+          <div style={{ fontFamily: 'Days One, sans-serif' }}
+            className="bg-[#FCD421] text-black font-bold text-xs sm:text-base md:text-lg lg:text-xl px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-r-lg md:rounded-r-2xl w-[90%] sm:w-[85%] md:w-auto">
             {slides[currentSlide].text}
-          </label>
+          </div>
           <Link
             to={slides[currentSlide].buttonLink}
             style={{ fontFamily: 'Days One, sans-serif', color: "black", textDecoration: 'none' }}
-            className="bg-[#FCD421] flex items-center gap-2 whitespace-nowrap text-black font-bold 
-             text-xs sm:text-base md:text-xl lg:text-2xl px-4 sm:px-6 py-3 md:py-4 rounded-xl md:rounded-2xl inline-flex justify-center cursor-pointer"
+            className="bg-[#FCD421] flex items-center gap-1 sm:gap-2 text-black font-bold
+             text-xs sm:text-sm md:text-base lg:text-lg px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-lg md:rounded-2xl justify-between sm:justify-center cursor-pointer w-[80%] sm:w-[70%] md:w-auto ml-auto mr-2 md:mr-8"
           >
-            <span>{slides[currentSlide].buttonText}</span>
-            <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="truncate">{slides[currentSlide].buttonText}</span>
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
           </Link>
         </div>
         </div>

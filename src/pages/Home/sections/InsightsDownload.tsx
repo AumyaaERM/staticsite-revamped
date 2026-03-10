@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { OptimizedImage } from '../../../components/OptimizedImage';
 
 interface Insight {
   title: string;
@@ -144,48 +145,56 @@ export const InsightsDownloads: React.FC = () => {
             className="w-full bg-white font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
             style={{ textDecoration: 'none', color: '#fcd421' }}
           >
-            <img
+            <OptimizedImage
               src="/images/home/download-icon.png"
               alt="Download"
-              className="w-5 h-5"
+              className="w-5 h-5 flex-shrink-0"
+              width={20}
+              height={20}
             />
-            Newsletter
+            <span>Newsletter</span>
           </a>
-            
-          <a 
+
+          <a
             href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/Profile%20downloads/Aumyaa%20Profile_2025%20(2).pdf?CT=1765799149057&OR=ItemsView"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-white font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
             style={{ textDecoration: 'none', color: '#fcd421' }}
           >
-            <img
+            <OptimizedImage
               src="/images/home/download-icon.png"
               alt="Download"
-              className="w-5 h-5"
+              className="w-5 h-5 flex-shrink-0"
+              width={20}
+              height={20}
             />
-            Firm Profile
+            <span>Firm Profile</span>
           </a>
-            
+
           <a
               href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/Survey%20report/survey%20report%202024-2025.pdf?CT=1765946645795&OR=ItemsView"
              target="_blank"
              rel="noopener noreferrer"
               className="w-full bg-white font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
               style={{ textDecoration: 'none', color: '#fcd421' }}>
-              <img
+              <OptimizedImage
                 src="/images/home/download-icon.png"
                 alt="Download"
-                className="w-5 h-5"
+                className="w-5 h-5 flex-shrink-0"
+                width={20}
+                height={20}
               />
-              Survey Reports
+              <span>Survey Reports</span>
             </a>
-            
+
           <button className="w-full bg-black text-[#fcd421] font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors">
-          <img
+          <OptimizedImage
     src="/images/home/download-icon.png"
     alt="Download"
-    className="w-5 h-5"
+    className="w-5 h-5 flex-shrink-0"
+    width={20}
+    height={20}
   />
               Other Publication
             </button>
