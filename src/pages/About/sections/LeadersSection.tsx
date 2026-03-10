@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { OptimizedImage } from '../../../components/OptimizedImage';
 
 export const LeadersSection: React.FC = () => {
   const [flippedCard, setFlippedCard] = useState<number | null>(null);
@@ -93,14 +94,15 @@ export const LeadersSection: React.FC = () => {
                 >
                   <div className="p-5 md:p-8 flex flex-col items-center h-full">
                     {/* Circular Photo */}
-                    <div 
-                      className="w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] md:w-[220px] md:h-[220px] rounded-full overflow-hidden mb-4 md:mb-6 mt-4 md:mt-8"
-                      style={{ 
-                        backgroundImage: `url(${leader.image})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                      }}
-                    />
+                    <div className="w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] md:w-[220px] md:h-[220px] rounded-full overflow-hidden mb-4 md:mb-6 mt-4 md:mt-8">
+                      <OptimizedImage
+                        src={leader.image}
+                        alt={leader.name}
+                        className="w-full h-full object-cover"
+                        width={220}
+                        height={220}
+                      />
+                    </div>
                     
                     {/* Name and Title */}
                     <h3 className="text-[18px] sm:text-[20px] md:text-[24px] leading-[120%] mb-2 text-center tracking-[0.01em]" style={{

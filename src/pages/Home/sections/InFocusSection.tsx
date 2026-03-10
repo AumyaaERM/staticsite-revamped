@@ -1,14 +1,17 @@
+import { OptimizedImage } from '../../../components/OptimizedImage';
+
 // In Focus Section
 export const InFocusSection: React.FC = () => {
   return (
-    <div
-      className="relative bg-cover bg-center py-10 md:py-20"
-      style={{
-        backgroundImage: 'url("/images/home/videophoto.png")',
-      }}
-    >
+    <div className="relative bg-cover bg-center py-10 md:py-20">
+      {/* Background Image */}
+      <OptimizedImage
+        src="/images/home/videophoto.png"
+        alt="In Focus Background"
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      />
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/60 -z-5" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Heading */}

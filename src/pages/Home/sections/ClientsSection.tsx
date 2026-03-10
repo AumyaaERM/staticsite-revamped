@@ -1,4 +1,5 @@
 import React from "react";
+import { OptimizedImage } from '../../../components/OptimizedImage';
 
 export const ClientsSection: React.FC = () => {
     return (
@@ -21,14 +22,14 @@ export const ClientsSection: React.FC = () => {
           }}
         >
           {/* Image 1 */}
-          <img
+          <OptimizedImage
             src="/images/home/clientList.png"
             alt="Client List"
             className="h-20 sm:h-28 md:h-40 object-contain mr-8 md:mr-16"
           />
 
           {/* Image 2 (duplicate) */}
-          <img
+          <OptimizedImage
             src="/images/home/clientList.png"
             alt="Client List"
             className="h-20 sm:h-28 md:h-40 object-contain mr-8 md:mr-16"

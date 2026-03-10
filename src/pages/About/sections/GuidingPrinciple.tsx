@@ -1,4 +1,5 @@
 import React from 'react';
+import { OptimizedImage } from '../../../components/OptimizedImage';
 
 export const GuidingPrinciple: React.FC = () => {
   return (
@@ -25,7 +26,7 @@ export const GuidingPrinciple: React.FC = () => {
               </p>
             </div>
             <div className="rounded-[15px] md:rounded-[20px] overflow-hidden">
-              <img
+              <OptimizedImage
                   src="/images/about/team-collaboration.png"
                   alt="Team collaboration"
                   className="w-full h-[180px] sm:h-[220px] md:h-[272px] object-cover"
@@ -35,11 +36,12 @@ export const GuidingPrinciple: React.FC = () => {
 
           {/* Right Side - Hexagonal Diagram Image */}
           <div className="flex items-center justify-center mt-4 lg:mt-0">
-            <img
+            <OptimizedImage
                 src="/images/about/key-differentiators.png"
                 alt="Aumyaa Key Differentiators"
                 className="w-full max-w-md lg:max-w-xl"
             />
+
           </div>
         </div>
       </div>

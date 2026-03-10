@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { OptimizedImage } from '../../../components/OptimizedImage';
 
 interface Slide {
   image: string;
@@ -53,13 +54,14 @@ export const HeroSectionHome: React.FC = () => {
           key={index}
           className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
-          style={{
-            backgroundImage: `url(${slide.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
+        >
+          <OptimizedImage
+            src={slide.image}
+            alt={slide.text}
+            priority={index === 0}
+            className="w-full h-full object-cover"
+          />
+        </div>
       ))}
         
       <div className="absolute inset-0 bg-black/30" />
@@ -71,10 +73,12 @@ export const HeroSectionHome: React.FC = () => {
           rel="noopener noreferrer"
           className="w-12 h-12 flex items-center justify-center"
         >
-          <img
+          <OptimizedImage
             src="/images/home/whatsapp.png"
             alt="WhatsApp"
             className="w-full h-full object-contain"
+            width={48}
+            height={48}
           />
         </a>
         <Link

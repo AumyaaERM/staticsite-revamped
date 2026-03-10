@@ -1,14 +1,16 @@
 import React from 'react';
+import { OptimizedImage } from '../../../components/OptimizedImage';
 
 export const HeroSectionAbout: React.FC = () => {
   return (
     <div className="relative">
       {/* Hero Image */}
       <div className="h-[250px] sm:h-[350px] md:h-[433px] bg-cover bg-center relative overflow-hidden">
-        <img 
+        <OptimizedImage
           src="/images/about/about-main.png"
           alt="Business meeting"
           className="w-full h-full object-cover"
+          priority
         />
       </div>
       
