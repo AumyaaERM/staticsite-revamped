@@ -21,7 +21,7 @@ export const HeroSectionHome: React.FC = () => {
       buttonLink: '/consulting/tech-consulting'
     },
     {
-      image: '/images/home/attachment (1) 3-1.svg',
+      image: '/images/consulting/risk-consulting/ra1.png',
       text: 'Navigate Risk with Foresight and Precision',
       buttonText: 'Risk Advisory',
       buttonLink: '/consulting/risk-consulting'
