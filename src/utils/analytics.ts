@@ -1,49 +1,43 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const GTM_CONTAINER_ID = 'GTM-P4LN9HTS';
-let hasInitializedGTM = false;
+export const GA_MEASUREMENT_ID = 'G-TBDNTEW5S3';
+
+declare global {
+  interface Window {
+    dataLayer: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+function getGtag(): typeof window.gtag | undefined {
+  return typeof window !== 'undefined' ? window.gtag : undefined;
+}
 
 export const initGA = () => {
-  if (hasInitializedGTM) {
-    return;
-  }
-  window.dataLayer = window.dataLayer || [];
-  const hasScript = Array.from(document.scripts).some((script) => script.src.includes(`googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`));
-  if (!hasScript) {
-    window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
-    document.head.appendChild(script);
-  }
-  hasInitializedGTM = true;
+  getGtag();
 };
 
 export const usePageTracking = () => {
   const location = useLocation();
 
   useEffect(() => {
-    initGA();
-    window.dataLayer.push({
-      event: 'virtual_page_view',
-      page_path: `${location.pathname}${location.search}`,
-      page_location: window.location.href,
+    const gtag = getGtag();
+    if (!gtag) {
+      return;
+    }
+    const path = `${location.pathname}${location.search}`;
+    gtag('config', GA_MEASUREMENT_ID, {
+      page_path: path,
       page_title: document.title,
     });
   }, [location]);
 };
 
-export const trackEvent = (eventName: string, eventParams?: Record<string, any>) => {
-  initGA();
-  window.dataLayer.push({
-    event: eventName,
-    ...eventParams,
-  });
-};
-
-declare global {
-  interface Window {
-    dataLayer: Array<Record<string, unknown>>;
+export const trackEvent = (eventName: string, eventParams?: Record<string, unknown>) => {
+  const gtag = getGtag();
+  if (!gtag) {
+    return;
   }
-}
+  gtag('event', eventName, eventParams ?? {});
+};
