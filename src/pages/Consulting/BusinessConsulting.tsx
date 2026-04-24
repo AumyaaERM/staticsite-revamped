@@ -73,7 +73,7 @@ export const BusinessConsulting: React.FC = () => (
   <div className="bg-[#f7f5f2] min-h-screen">
     <Navbar />
     <HeroSection heroContent={heroContent}/>
-    <section className="max-w-6xl mx-auto px-4 py-16 space-y-8">
+    <section className="w-full px-12 py-16 space-y-8">
       <div className="text-center">
         {/* <p className="text-yellow-500 uppercase tracking-[0.4em] text-sm">Empowering your business with clarity</p> */}
         <h2 className="text-4xl font-bold text-black mt-2" style={{fontFamily: 'Days One, sans-serif',}}>Our Services</h2>

@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export function CoachingSection() {
     return (
     <div className="bg-[#fafafa] py-10 md:py-16 px-4 sm:px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-[85%] mx-auto">
         <div className="flex flex-col lg:flex-row gap-6 md:gap-8 text-black">
           {/* Learning Academy Card */}
           <div className="flex-1 flex flex-col bg-white rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden">

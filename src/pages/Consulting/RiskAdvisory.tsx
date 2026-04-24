@@ -73,7 +73,7 @@ export const RiskAdvisory: React.FC = () => (
   <div className="bg-[#f7f5f2] min-h-screen">
     <Navbar />
     <HeroSection heroContent={heroContent} />
-    <section className="max-w-6xl mx-auto px-4 py-16 space-y-10">
+    <section className="w-full px-12 py-16 space-y-10">
       <div className="text-center">
         <h2
           className="text-4xl font-bold text-black mt-2"

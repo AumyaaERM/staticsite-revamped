@@ -91,7 +91,7 @@ export const ServicesSection: React.FC = () => {
   
   return (
     <div className="bg-white overflow-x-hidden py-10 md:py-16 px-4 sm:px-6 md:px-12 text-black">
-      <div className="max-w-7xl overflow-x-hidden mx-auto">
+      <div className="w-full overflow-x-hidden">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
         <p className="text-yellow-500 text-base sm:text-lg md:text-xl mb-8 md:mb-12">
           Explore how we help you navigate change and thrive

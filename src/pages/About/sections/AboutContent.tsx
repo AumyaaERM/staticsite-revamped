@@ -3,7 +3,7 @@ import React from 'react';
 export const AboutContent: React.FC = () => {
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full">
         <h2 className="text-[32px] sm:text-[40px] md:text-[50px] leading-[130%] md:leading-[150%] text-center mb-8 md:mb-12" style={{
           fontFamily: 'Days One, sans-serif',
           fontWeight: 400,

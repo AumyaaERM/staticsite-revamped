@@ -36,7 +36,7 @@ export const TrustedBySection: React.FC = () => {
 
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         <h2 className="text-[16px] sm:text-[22px] md:text-[32px] lg:text-[42px] xl:text-[48px] leading-[130%] md:leading-[58px] text-left mb-8 md:mb-16 capitalize tracking-[0.01em] sm:tracking-[0.02em] md:tracking-[0.04em] whitespace-nowrap"
             style={{
               fontFamily: 'Days One, sans-serif',

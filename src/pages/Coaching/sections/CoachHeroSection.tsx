@@ -9,7 +9,7 @@ export const CoachHeroSection: React.FC = () => {
 
   return (
     <div className="relative py-10 md:py-16 px-4 sm:px-6 md:px-12 overflow-hidden" style={{ background: '#FCD421' }}>
-      <div className="max-w-7xl mx-auto relative">
+      <div className="w-full relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
           {/* Left Side - Coach Image */}
           <div className="lg:col-span-3 flex items-center justify-center lg:justify-start order-2 lg:order-1">

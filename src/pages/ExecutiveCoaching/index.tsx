@@ -82,7 +82,7 @@ export const ExecutiveCoaching: React.FC = () => {
     <div className="bg-white">
       {/* Hero Section */}
       <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{ background: '#FCD421' }}>
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full">
           {/* Badge */}
           <div className="mb-6 md:mb-8">
             <span className="inline-block px-4 md:px-6 py-2 md:py-3 rounded-full text-[14px] md:text-[16px] font-semibold" style={{
@@ -95,7 +95,7 @@ export const ExecutiveCoaching: React.FC = () => {
           </div>
 
           {/* Content */}
-          <div className="max-w-4xl">
+          <div className="w-full">
             <h1 className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[72px] leading-tight font-bold mb-4 md:mb-6" style={{
               fontFamily: 'Inter, sans-serif',
               color: '#000000',
@@ -112,7 +112,7 @@ export const ExecutiveCoaching: React.FC = () => {
               Nurturing Leaders, Shaping Futures
             </h2>
 
-            <p className="text-[15px] sm:text-[18px] md:text-[20px] leading-relaxed mb-6 md:mb-8 max-w-3xl" style={{
+            <p className="text-[15px] sm:text-[18px] md:text-[20px] leading-relaxed mb-6 md:mb-8 w-full" style={{
               fontFamily: 'Inter, sans-serif',
               color: '#000000',
               lineHeight: '1.6'
@@ -150,7 +150,7 @@ export const ExecutiveCoaching: React.FC = () => {
 
       {/* Our Coaching Services */}
       <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{ background: '#F9FAFB' }}>
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full">
           <h2 className="text-[28px] sm:text-[36px] md:text-[52px] font-bold text-center mb-3 md:mb-4" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000'
@@ -158,7 +158,7 @@ export const ExecutiveCoaching: React.FC = () => {
             Our Coaching Services
           </h2>
 
-          <p className="text-[14px] sm:text-[16px] md:text-[17px] text-center mb-8 md:mb-16 max-w-3xl mx-auto" style={{
+          <p className="text-[14px] sm:text-[16px] md:text-[17px] text-center mb-8 md:mb-16 w-full mx-auto" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000',
             lineHeight: '1.6'
@@ -166,7 +166,7 @@ export const ExecutiveCoaching: React.FC = () => {
             Comprehensive executive coaching programs tailored to your leadership development needs
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 w-full">
             {services.map((service, index) => (
               <div 
                 key={index}
@@ -204,7 +204,7 @@ export const ExecutiveCoaching: React.FC = () => {
 
       {/* Meet Our Executive Coach */}
       <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12 bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full">
           <div className="rounded-2xl md:rounded-3xl p-5 sm:p-8 md:p-12 lg:p-16" style={{
             border: '3px md:4px solid #FCD421',
             background: '#FFFFFF'
@@ -303,7 +303,7 @@ export const ExecutiveCoaching: React.FC = () => {
 
       {/* Our Programs */}
       <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{ background: '#FAFAFA' }}>
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full">
           <h2 className="text-[28px] sm:text-[36px] md:text-[52px] font-bold text-center mb-3 md:mb-4" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000'
@@ -311,7 +311,7 @@ export const ExecutiveCoaching: React.FC = () => {
             Our Programs
           </h2>
 
-          <p className="text-[14px] sm:text-[16px] md:text-[17px] text-center mb-8 md:mb-12 max-w-3xl mx-auto" style={{
+          <p className="text-[14px] sm:text-[16px] md:text-[17px] text-center mb-8 md:mb-12 w-full mx-auto" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000',
             lineHeight: '1.6'
@@ -373,7 +373,7 @@ export const ExecutiveCoaching: React.FC = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}>
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full">
           <h2 className="text-[32px] sm:text-[40px] md:text-[56px] font-bold text-center mb-8 md:mb-16" style={{
             fontFamily: 'Georgia, serif',
             color: '#FFFFFF'
@@ -445,7 +445,7 @@ export const ExecutiveCoaching: React.FC = () => {
 
       {/* Call to Action */}
       <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12 bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             {/* Left Side - Text */}
             <div className="flex-1 text-center md:text-left">

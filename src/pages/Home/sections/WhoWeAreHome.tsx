@@ -4,7 +4,7 @@ import { OptimizedImage } from '../../../components/OptimizedImage';
 export const WhoWeAreHome: React.FC = () => {
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center mb-10 md:mb-16">
           <div className="md:mr-[5%] text-center md:text-left">
             <h2

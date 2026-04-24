@@ -14,7 +14,7 @@ export const ContactHeroSection: React.FC = () => {
       </div>
       
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative w-full">
         <div className="flex items-center justify-center">
           {/* Contact Icons */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-12">

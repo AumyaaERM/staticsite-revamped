@@ -16,7 +16,7 @@ export const CoachingServicesSection: React.FC = () => {
 
   return (
     <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{ background: '#FFFFFF' }}>
-      <div className="max-w-7xl mx-auto rounded-xl md:rounded-2xl py-8 md:py-12 px-5 sm:px-8 md:px-12" style={{ background: '#F5C542' }}>
+      <div className="w-full rounded-xl md:rounded-2xl py-8 md:py-12 px-5 sm:px-8 md:px-12" style={{ background: '#F5C542' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Left Side - Coaching Services */}
           <div>

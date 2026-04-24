@@ -27,7 +27,7 @@ export const CoachingAdvantageSection: React.FC = () => {
 
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Left Side - Book Cover */}
           <div className="flex items-start justify-center lg:justify-start">

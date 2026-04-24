@@ -107,7 +107,7 @@ export const ESGConsulting: React.FC = () => (
       }}
     >
       <div className="absolute inset-0 bg-black/60" />
-      <div className="relative max-w-6xl mx-auto space-y-6 ">
+      <div className="relative w-full space-y-6 ">
         <div className='text-center'>
           <h1 className="text-4xl md:text-5xl font-bold text-[#FCD421]" style={{fontFamily: 'Days One, sans-serif',}}>ESG Consulting</h1>
           <p className="text-2xl md:text-3xl text-[#a5d68f] mt-2">Greener Practices, Sustainable Growth</p>
@@ -119,7 +119,7 @@ export const ESGConsulting: React.FC = () => (
         </div>
       </div>
     </section>
-    <section className="max-w-6xl mx-auto px-4 py-16 space-y-10">
+    <section className="w-full px-12 py-16 space-y-10">
       <div className="text-center">
         <h2
           className="text-4xl font-bold text-black mt-2"

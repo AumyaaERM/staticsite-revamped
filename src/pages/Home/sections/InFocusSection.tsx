@@ -13,7 +13,7 @@ export const InFocusSection: React.FC = () => {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60 -z-5" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+      <div className="relative w-full px-4 sm:px-6 md:px-12">
         {/* Heading */}
         <h2
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-8 md:mb-12"

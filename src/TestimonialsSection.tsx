@@ -49,7 +49,7 @@ export const TestimonialsSection: React.FC = () => {
 
     return (
     <div className="bg-[#fafafa] py-10 md:py-20">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+    <div className="w-full px-4 sm:px-6 md:px-12">
       {/* Header */}
       <h2
         className="text-3xl sm:text-4xl md:text-5xl mb-6 md:mb-10 font-bold text-center text-black"

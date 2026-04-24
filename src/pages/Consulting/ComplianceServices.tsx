@@ -207,7 +207,7 @@ export const ComplianceServices: React.FC = () => (
       <h1 style={{fontFamily: 'Days One, sans-serif',}} className="text-3xl md:text-4xl font-bold text-black">
         Navigate Complex Compliance with Confidence
       </h1>
-      <p className="max-w-3xl mx-auto text-black text-lg">
+      <p className="w-full mx-auto text-black text-lg">
         Expert consulting services to ensure your organization meets regulatory requirements, mitigates
         risks, and maintains the highest standards of compliance across all operations
       </p>
@@ -223,7 +223,7 @@ export const ComplianceServices: React.FC = () => (
         </button>
       </div>
     </section>
-    <section className="max-w-6xl mx-auto px-4 py-16 space-y-12">
+    <section className="w-full px-12 py-16 space-y-12">
       <div className="text-center space-y-3">
         <h2 style={{fontFamily: 'Days One, sans-serif',}} className="text-4xl font-bold text-black">Our Areas of Expertise</h2>
         <p className="text-gray-600">

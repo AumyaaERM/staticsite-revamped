@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
 
     return (
     <footer className="bg-yellow-400 py-8 md:py-12 px-4 sm:px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8 md:mb-12">
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
