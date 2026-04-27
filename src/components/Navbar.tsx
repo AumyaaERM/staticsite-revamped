@@ -77,12 +77,12 @@ export const Navbar: React.FC = () => {
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflowY = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflowY = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflowY = '';
     };
   }, [mobileMenuOpen]);
 
