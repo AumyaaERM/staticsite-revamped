@@ -89,7 +89,7 @@ export const HeroSectionHome: React.FC = () => {
         </Link>
           </div>
 
-      <div className="absolute bottom-4 md:bottom-8 left-0 right-0 z-10 px-3 sm:px-2 md:px-0 md:mr-9">
+      <div className="absolute bottom-4 md:bottom-8 left-0 right-0 z-10 px-0 sm:px-2 md:px-0 md:mr-9">
         <div className="flex w-full flex-row items-stretch gap-2 sm:gap-3 md:gap-4">
           <div
             style={{ fontFamily: 'Days One, sans-serif' }}

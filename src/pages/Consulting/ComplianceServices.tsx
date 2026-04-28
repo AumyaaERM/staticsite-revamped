@@ -195,7 +195,7 @@ const FrameworkCard: React.FC<(typeof frameworks)[number]> = ({ title, descripti
 
 
 export const ComplianceServices: React.FC = () => (
-  <div className="bg-[#f7f5f0] min-h-screen">
+  <div className="bg-[#ffffff] min-h-screen">
     <Navbar />
     <section className="w-full my-8">
       <img src={heroImage} alt="Compliance hero" className="w-full max-h-[460px] object-cover" />

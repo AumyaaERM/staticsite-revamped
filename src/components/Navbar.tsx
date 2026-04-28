@@ -77,12 +77,12 @@ export const Navbar: React.FC = () => {
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflowY = 'hidden';
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflowY = '';
+      document.body.style.overflow = 'unset';
     }
     return () => {
-      document.body.style.overflowY = '';
+      document.body.style.overflow = 'unset';
     };
   }, [mobileMenuOpen]);
 
@@ -96,24 +96,16 @@ export const Navbar: React.FC = () => {
     <nav className="px-4 md:px-6 lg:px-8 relative" style={{ background: '#FCD421' }}>
       <div className="w-full flex items-end justify-between py-2">
         {/* Logo */}
-        <div className="flex items-end flex-shrink-0 mr-2 lg:mr-4 xl:mr-6">
-          <Link to="/" className="flex flex-col items-center rounded-t-[6px] px-2 py-1" style={{
+        <div className="flex flex-shrink-0 mr-2 lg:mr-4 xl:mr-0 scale-50 mt-[-15px] ml-[-80px]">
+          <Link to="/" className="flex flex-col items-center rounded-t-[12px] px-2" style={{
             background: '#FFFFFF',
-            marginBottom: '-10px'
+            marginBottom: '-65px'
           }}>
             <img 
-              src="/images/logo.png"
+              src="/images/aumyaalogo.png"
               alt="Aumyaa Logo" 
-              className="h-8 md:h-10"
-            />
-            <div className="text-xl md:text-l font-bold leading-none" style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 700,
-              letterSpacing: '0.05em',
-              marginTop: '-8px'
-            }}>
-              <span style={{ color: '#000000' }}>AUMYAA</span>
-            </div>
+              className="h-8 md:h-10 mb-[-15px]"
+            />  
           </Link>
         </div>
         

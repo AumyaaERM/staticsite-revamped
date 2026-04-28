@@ -142,7 +142,7 @@ export const InsightsDownloads: React.FC = () => {
             href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/NewsLetter/JULY%20NEWSLETTER%202024.pdf?CT=1765799086359&OR=ItemsView"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-white font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
+            className="w-full bg-black font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-white transition-colors"
             style={{ textDecoration: 'none', color: '#fcd421' }}
           >
             <OptimizedImage
@@ -159,7 +159,7 @@ export const InsightsDownloads: React.FC = () => {
             href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/Profile%20downloads/Aumyaa%20Profile_2025%20(2).pdf?CT=1765799149057&OR=ItemsView"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-white font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
+            className="w-full bg-black font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-white transition-colors"
             style={{ textDecoration: 'none', color: '#fcd421' }}
           >
             <OptimizedImage
@@ -176,7 +176,7 @@ export const InsightsDownloads: React.FC = () => {
               href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/Survey%20report/survey%20report%202024-2025.pdf?CT=1765946645795&OR=ItemsView"
              target="_blank"
              rel="noopener noreferrer"
-              className="w-full bg-white font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors"
+              className="w-full bg-black font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-white transition-colors"
               style={{ textDecoration: 'none', color: '#fcd421' }}>
               <OptimizedImage
                 src="/images/home/download-icon.png"
@@ -188,16 +188,21 @@ export const InsightsDownloads: React.FC = () => {
               <span>Survey Reports</span>
             </a>
 
-          <button className="w-full bg-black text-[#fcd421] font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-gray-800 transition-colors">
-          <OptimizedImage
-    src="/images/home/download-icon.png"
-    alt="Download"
-    className="w-5 h-5 flex-shrink-0"
-    width={20}
-    height={20}
-  />
-              Other Publication
-            </button>
+            <a
+              href=""
+             target="_blank"
+             rel="noopener noreferrer"
+              className="w-full bg-black font-semibold py-4 px-6 rounded flex items-center gap-3 hover:bg-white transition-colors"
+              style={{ textDecoration: 'none', color: '#fcd421' }}>
+              <OptimizedImage
+                src="/images/home/download-icon.png"
+                alt="Download"
+                className="w-5 h-5 flex-shrink-0"
+                width={20}
+                height={20}
+              />
+              <span>Other Publication</span>
+            </a>
           </div>
         </div>
       </div>

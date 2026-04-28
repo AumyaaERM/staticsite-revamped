@@ -93,7 +93,7 @@ const esgTestimonials = {
 };
 
 export const ESGConsulting: React.FC = () => (
-  <div className="bg-[#f6f5f1] min-h-screen">
+  <div className="bg-[#ffffff] min-h-screen">
     <Navbar />
     <section className="w-full my-5">
       <img src={heroImages.topImage} alt="ESG bulb" className="w-full max-h-[480px] object-cover" />
