@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { OptimizedImage } from '../../../components/OptimizedImage';
@@ -38,106 +38,58 @@ export const ServicesSection: React.FC = () => {
     {
       title: 'Compliance Support Solutions',
       description:
-        "Aumyaa’s Compliance services support organizations in building strong compliance frameworks, reducing regulatory risks, and staying aligned with evolving laws. We help drive ethical practices and operational integrity, enabling confident and compliant business growth.",
+        "Aumyaa's Compliance services support organizations in building strong compliance frameworks, reducing regulatory risks, and staying aligned with evolving laws. We help drive ethical practices and operational integrity, enabling confident and compliant business growth.",
       image: '/images/home/service5.png',
       link: '/consulting/compliance-services'
     }
   ];
-  const carouselRef = useRef(null);
 
-  useEffect(() => {
-    const slider:any = carouselRef.current;
-    let isDown = false;
-    let startX: number;
-    let scrollLeft: number;
-  
-    const onMouseDown = (e: { pageX: number; }) => {
-      isDown = true;
-      slider.classList.add("active");
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    };
-  
-    const onMouseLeave = () => {
-      isDown = false;
-      slider.classList.remove("active");
-    };
-  
-    const onMouseUp = () => {
-      isDown = false;
-      slider.classList.remove("active");
-    };
-  
-    const onMouseMove = (e: { preventDefault: () => void; pageX: number; }) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 1.3; // scroll speed
-      slider.scrollLeft = scrollLeft - walk;
-    };
-  
-    slider.addEventListener("mousedown", onMouseDown);
-    slider.addEventListener("mouseleave", onMouseLeave);
-    slider.addEventListener("mouseup", onMouseUp);
-    slider.addEventListener("mousemove", onMouseMove);
-  
-    return () => {
-      slider.removeEventListener("mousedown", onMouseDown);
-      slider.removeEventListener("mouseleave", onMouseLeave);
-      slider.removeEventListener("mouseup", onMouseUp);
-      slider.removeEventListener("mousemove", onMouseMove);
-    };
-  }, []);
-  
   return (
-    <div className="bg-white overflow-x-hidden py-10 md:py-16 px-4 sm:px-6 md:px-12 text-black">
-      <div className="w-full overflow-x-hidden">
+    <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12 text-black">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
         <p className="text-yellow-500 text-base sm:text-lg md:text-xl mb-8 md:mb-12">
           Explore how we help you navigate change and thrive
         </p>
 
-        {/* CAROUSEL */}
-        <div ref={carouselRef}
-          className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide 
-          cursor-grab active:cursor-grabbing select-none items-stretch"
-        >
+        {/* Responsive Layout with centered last row */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="min-w-[320px] sm:min-w-[340px] md:min-w-[360px] lg:min-w-[320px] bg-white rounded-2xl border-2 border-[#FCD421] 
-              overflow-hidden transition-shadow snap-start flex flex-col p-4"
+              className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-2xl border-2 border-[#FCD421] overflow-hidden transition-all hover:shadow-lg hover:scale-105 duration-300 flex flex-col"
             >
               {/* IMAGE */}
-              <OptimizedImage
-                src={service.image}
-                alt={service.title}
-                className="w-full h-[160px] object-cover rounded-xl flex-shrink-0"
-              />
+              <div className="relative w-full pt-[56.25%]">
+                <OptimizedImage
+                  src={service.image}
+                  alt={service.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
 
               {/* TEXT CONTENT */}
-              <div className="pt-4 flex-1 flex flex-col">
-                <h3 className="text-lg font-bold">{service.title}</h3>
-                <p className="text-sm text-gray-700 leading-relaxed text-justify mt-2 mb-4">
+              <div className="p-4 md:p-5 flex-1 flex flex-col">
+                <h3 className="text-lg md:text-xl font-bold mb-2">{service.title}</h3>
+                <p className="text-sm text-gray-700 leading-relaxed text-justify mb-4 line-clamp-4">
                   {service.description}
                 </p>
 
-                {/* BUTTON - pushed to bottom for alignment */}
+                {/* BUTTON */}
                 <button
                   onClick={() => navigate(service.link)}
                   style={{ backgroundColor: '#FCD421', borderRadius: '9999px' }}
-                  className="text-black font-semibold pl-6 pr-2 py-2.5 items-center flex justify-between hover:brightness-95 transition-all w-full text-sm mt-auto"
+                  className="text-black font-semibold pl-6 pr-2 py-2.5 flex items-center justify-between hover:brightness-95 transition-all w-full text-sm md:text-base mt-auto"
                 >
                   <span>View all details</span>
                   <span className="bg-white rounded-full p-2 flex items-center justify-center shadow-sm">
-                    <ChevronRight className="w-5 h-5 text-black" />
+                    <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-black" />
                   </span>
                 </button>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );
