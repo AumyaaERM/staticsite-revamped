@@ -41,7 +41,7 @@ export function CoreValues() {
         }}
       >
         <img 
-          src="/images/home/core values.png"
+          src="/images/home/core_values-black.png"
           alt="Core Values"
           className="w-full h-full object-contain rounded-full"
         />

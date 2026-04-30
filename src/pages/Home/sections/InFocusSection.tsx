@@ -22,7 +22,7 @@ export const InFocusSection: React.FC = () => {
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 h-full min-h-[600px] md:min-h-[800px] lg:min-h-[900px]">
         
         {/* Heading */}
-        <div className="pt-8 md:pt-16 lg:pt-20 text-center mt-[50px]">
+        <div className="pt-8 md:pt-16 lg:pt-20 text-center">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 md:mb-12"
             style={{ fontFamily: "Days One, sans-serif" }}
