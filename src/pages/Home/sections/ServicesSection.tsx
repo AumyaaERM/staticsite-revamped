@@ -46,50 +46,50 @@ export const ServicesSection: React.FC = () => {
 
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12 text-black">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
-        <p className="text-yellow-500 text-base sm:text-lg md:text-xl mb-8 md:mb-12">
-          Explore how we help you navigate change and thrive
-        </p>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+      <p className="text-yellow-500 text-base sm:text-lg md:text-xl mb-8 md:mb-12">
+        Explore how we help you navigate change and thrive
+      </p>
 
-        {/* Responsive Layout with centered last row */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-          {services.map((service, idx) => (
-            <div
-              key={idx}
-              className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-white rounded-2xl border-2 border-[#FCD421] overflow-hidden transition-all hover:shadow-lg hover:scale-105 duration-300 flex flex-col"
-            >
-              {/* IMAGE */}
-              <div className="relative w-full pt-[56.25%]">
-                <OptimizedImage
-                  src={service.image}
-                  alt={service.title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-
-              {/* TEXT CONTENT */}
-              <div className="p-4 md:p-5 flex-1 flex flex-col">
-                <h3 className="text-lg md:text-xl font-bold mb-2">{service.title}</h3>
-                <p className="text-sm text-gray-700 leading-relaxed text-justify mb-4 line-clamp-4">
-                  {service.description}
-                </p>
-
-                {/* BUTTON */}
-                <button
-                  onClick={() => navigate(service.link)}
-                  style={{ backgroundColor: '#FCD421', borderRadius: '9999px' }}
-                  className="text-black font-semibold pl-6 pr-2 py-2.5 flex items-center justify-between hover:brightness-95 transition-all w-full text-sm md:text-base mt-auto"
-                >
-                  <span>View all details</span>
-                  <span className="bg-white rounded-full p-2 flex items-center justify-center shadow-sm">
-                    <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-black" />
-                  </span>
-                </button>
-              </div>
+      {/* Responsive Layout: one row on desktop, scroll on mobile/tablet */}
+      <div className="flex overflow-x-auto lg:overflow-visible gap-4 md:gap-5 pb-4 lg:pb-0">
+        {services.map((service, idx) => (
+          <div
+            key={idx}
+            className="w-[280px] sm:w-[300px] lg:w-1/5 flex-shrink-0 lg:flex-shrink bg-white rounded-2xl border-2 border-[#FCD421] overflow-hidden transition-all hover:shadow-lg hover:scale-105 duration-300 flex flex-col"
+          >
+            {/* IMAGE */}
+            <div className="relative w-full pt-[56.25%]">
+              <OptimizedImage
+                src={service.image}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </div>
-          ))}
-        </div>
+
+            {/* TEXT CONTENT */}
+            <div className="p-3 md:p-4 flex-1 flex flex-col mt-[-20px]">
+              <h3 className="text-base md:text-lg font-bold mb-1.5 line-clamp-2 min-h-[2.5rem]">
+                {service.title}
+              </h3>
+              <p className="text-xs md:text-sm text-gray-700 leading-snug mb-3 mt-[-6px]">
+                {service.description}
+              </p>
+
+              {/* BUTTON */}
+              <button
+                onClick={() => navigate(service.link)}
+                style={{ backgroundColor: '#FCD421', borderRadius: '9999px' }}
+                className="text-black font-semibold pl-4 pr-1.5 py-1.5 flex items-center justify-between hover:brightness-95 transition-all w-full text-xs md:text-sm mt-auto"
+              >
+                <span>View all details</span>
+                <span className="bg-white rounded-full p-1.5 flex items-center justify-center shadow-sm">
+                  <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-black" />
+                </span>
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
