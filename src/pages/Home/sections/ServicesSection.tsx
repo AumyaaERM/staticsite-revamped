@@ -59,7 +59,7 @@ export const ServicesSection: React.FC = () => {
         {services.map((service, idx) => (
           <div
             key={idx}
-            className="w-[280px] sm:w-[300px] lg:w-1/5 flex-shrink-0 lg:flex-shrink bg-white rounded-2xl border border-[#FCD421]/60 overflow-hidden transition-all hover:shadow-lg hover:scale-105 duration-300 flex flex-col"
+            className="w-[280px] sm:w-[300px] lg:w-1/5 shadow-lg flex-shrink-0 lg:flex-shrink bg-white rounded-2xl border border-[#FCD421]/60 overflow-hidden transition-all hover:shadow-lg hover:scale-105 duration-300 flex flex-col"
           >
             {/* ✅ UPDATED IMAGE (inset + rounded) */}
             <div className="p-3 pb-0">
