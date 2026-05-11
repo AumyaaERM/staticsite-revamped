@@ -88,7 +88,7 @@ export const InsightsDownloads: React.FC = () => {
       <div className="bg-[#fcd421] p-6 sm:p-8 md:p-12 rounded-2xl">
         <h2
           style={{ fontFamily: "Days One, sans-serif" }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-6 md:mb-8 pb-4 border-b-2 border-black"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-black text-center mb-6 md:mb-8 pb-4 border-b-2 border-black"
         >
           Insights
         </h2>
@@ -213,7 +213,7 @@ export const InsightsDownloads: React.FC = () => {
       <div className="bg-[#fcd421] p-6 sm:p-8 md:p-10 rounded-2xl">
         <h2
           style={{ fontFamily: "Days One, sans-serif" }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-6 md:mb-8 pb-4 border-b-2 border-black"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-black text-center mb-6 md:mb-8 pb-4 border-b-2 border-black"
         >
           Downloads
         </h2>

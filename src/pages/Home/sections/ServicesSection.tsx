@@ -46,43 +46,50 @@ export const ServicesSection: React.FC = () => {
 
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12 text-black">
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+        Our Services
+      </h2>
+
       <p className="text-yellow-500 text-base sm:text-lg md:text-xl mb-8 md:mb-12">
         Explore how we help you navigate change and thrive
       </p>
 
-      {/* Responsive Layout: one row on desktop, scroll on mobile/tablet */}
+      {/* KEEPING YOUR ORIGINAL SCROLL BEHAVIOR */}
       <div className="flex overflow-x-auto lg:overflow-visible gap-4 md:gap-5 pb-4 lg:pb-0">
         {services.map((service, idx) => (
           <div
             key={idx}
-            className="w-[280px] sm:w-[300px] lg:w-1/5 flex-shrink-0 lg:flex-shrink bg-white rounded-2xl border-2 border-[#FCD421] overflow-hidden transition-all hover:shadow-lg hover:scale-105 duration-300 flex flex-col"
+            className="w-[280px] sm:w-[300px] lg:w-1/5 flex-shrink-0 lg:flex-shrink bg-white rounded-2xl border border-[#FCD421]/60 overflow-hidden transition-all hover:shadow-lg hover:scale-105 duration-300 flex flex-col"
           >
-            {/* IMAGE */}
-            <div className="relative w-full pt-[56.25%]">
-              <OptimizedImage
-                src={service.image}
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+            {/* ✅ UPDATED IMAGE (inset + rounded) */}
+            <div className="p-3 pb-0">
+              <div className="relative w-full pt-[56.25%] rounded-xl overflow-hidden">
+                <OptimizedImage
+                  src={service.image}
+                  alt={service.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
             </div>
 
-            {/* TEXT CONTENT */}
+            {/* TEXT CONTENT (UNCHANGED) */}
             <div className="p-3 md:p-4 flex-1 flex flex-col mt-[-20px]">
               <h3 className="text-base md:text-lg font-bold mb-1.5 line-clamp-2 min-h-[2.5rem]">
                 {service.title}
               </h3>
+
               <p className="text-xs md:text-sm text-gray-700 leading-snug mb-3 mt-[-6px]">
                 {service.description}
               </p>
 
-              {/* BUTTON */}
+              {/* BUTTON (UNCHANGED) */}
               <button
                 onClick={() => navigate(service.link)}
                 style={{ backgroundColor: '#FCD421', borderRadius: '9999px' }}
                 className="text-black font-semibold pl-4 pr-1.5 py-1.5 flex items-center justify-between hover:brightness-95 transition-all w-full text-xs md:text-sm mt-auto"
               >
                 <span>View all details</span>
+
                 <span className="bg-white rounded-full p-1.5 flex items-center justify-center shadow-sm">
                   <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-black" />
                 </span>
