@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { OptimizedImage } from '../../../components/OptimizedImage';
 
 interface Insight {
   title: string;
