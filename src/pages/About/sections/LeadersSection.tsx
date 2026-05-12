@@ -57,7 +57,7 @@ export const LeadersSection: React.FC = () => {
 
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         <h2 className="text-[28px] sm:text-[36px] md:text-[48px] leading-[130%] md:leading-[58px] mb-8 md:mb-12 capitalize tracking-[0.04em] md:tracking-[0.06em]" style={{
           fontFamily: 'Days One, sans-serif',
           fontWeight: 400,

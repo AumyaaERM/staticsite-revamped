@@ -3,7 +3,7 @@ import React from 'react';
 export const CompaniesSection: React.FC = () => {
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         {/* Decorative lines and title */}
         <div className="flex items-center justify-center mb-8 md:mb-12">
           <div className="flex-1 h-px hidden sm:block" style={{ background: '#D0D0C8', maxWidth: '445px' }}></div>

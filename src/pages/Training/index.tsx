@@ -113,7 +113,7 @@ export const Training: React.FC = () => {
 
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         {/* Training Card */}
         <div className="rounded-2xl md:rounded-3xl overflow-hidden mb-10 md:mb-16" style={{
           border: '2px solid #E5E7EB',

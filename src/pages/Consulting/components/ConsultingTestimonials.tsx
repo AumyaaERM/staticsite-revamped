@@ -28,7 +28,7 @@ export const ConsultingTestimonials: FC<ConsultingTestimonialsProps> = ({
     }}
   >
     <div className="absolute inset-0 bg-black/55" />
-    <div className="relative max-w-5xl mx-auto text-center text-white space-y-8 md:space-y-12">
+    <div className="relative w-full text-center text-white space-y-8 md:space-y-12">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif drop-shadow-lg">{title}</h2>
       <div className="grid gap-6 md:gap-10 grid-cols-1 md:grid-cols-2">
         {testimonials.map(

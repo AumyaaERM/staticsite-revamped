@@ -27,7 +27,7 @@ export const CoachStatsSection: React.FC = () => {
 
   return (
     <div className="bg-gray-50 py-10 md:py-16 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <div 

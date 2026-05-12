@@ -89,23 +89,25 @@ export const HeroSectionHome: React.FC = () => {
         </Link>
           </div>
 
-      <div className="absolute bottom-4 md:bottom-8 left-0 right-0 z-10 px-2 md:px-0">
-        <div className="flex flex-col gap-2 md:gap-3 max-w-7xl mx-auto">
-          <div style={{ fontFamily: 'Days One, sans-serif' }}
-            className="bg-[#FCD421] text-black font-bold text-xs sm:text-base md:text-lg lg:text-xl px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-r-lg md:rounded-r-2xl w-[90%] sm:w-[85%] md:w-auto">
+      <div className="absolute bottom-4 md:bottom-8 left-0 right-0 z-10 px-0 sm:px-2 md:px-0 md:mr-9">
+        <div className="flex w-full flex-row items-stretch gap-2 sm:gap-3 md:gap-4">
+          <div
+            style={{ fontFamily: 'Days One, sans-serif' }}
+            className="bg-[#FCD421] text-black font-bold text-xs sm:text-base md:text-lg lg:text-xl px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-r-2xl flex min-w-0 flex-1 items-center"
+          >
             {slides[currentSlide].text}
           </div>
           <Link
             to={slides[currentSlide].buttonLink}
-            style={{ fontFamily: 'Days One, sans-serif', color: "black", textDecoration: 'none' }}
-            className="bg-[#FCD421] flex items-center gap-1 sm:gap-2 text-black font-bold
-             text-xs sm:text-sm md:text-base lg:text-lg px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-lg md:rounded-2xl justify-between sm:justify-center cursor-pointer w-[80%] sm:w-[70%] md:w-auto ml-auto mr-2 md:mr-8"
+            style={{ fontFamily: 'Days One, sans-serif', color: 'black', textDecoration: 'none' }}
+            className="bg-[#FCD421] flex shrink-0 items-center justify-center gap-1 sm:gap-2 text-black font-bold
+              text-xs sm:text-sm md:text-base lg:text-lg px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-2xl whitespace-nowrap"
           >
-            <span className="truncate">{slides[currentSlide].buttonText}</span>
-            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+            <span>{slides[currentSlide].buttonText}</span>
+            <ArrowRight className="h-4 w-4 shrink-0 md:h-5 md:w-5" />
           </Link>
         </div>
-        </div>
       </div>
-    );
-  };
+    </div>
+  );
+};

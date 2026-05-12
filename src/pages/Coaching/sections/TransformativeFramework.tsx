@@ -25,7 +25,7 @@ export const TransformativeFramework: React.FC = () => {
     <div style={{ background: '#FFF9E6' }}>
       {/* Framework Section */}
       <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full">
           {/* Heading */}
           <h2 className="text-[24px] sm:text-[32px] md:text-[48px] leading-tight font-bold text-center mb-3 md:mb-4" style={{
             fontFamily: 'Inter, sans-serif',
@@ -35,7 +35,7 @@ export const TransformativeFramework: React.FC = () => {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-[14px] sm:text-[16px] md:text-[18px] text-center mb-8 md:mb-12 max-w-4xl mx-auto" style={{
+          <p className="text-[14px] sm:text-[16px] md:text-[18px] text-center mb-8 md:mb-12 w-full mx-auto" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000',
             lineHeight: '1.6'
@@ -82,7 +82,7 @@ export const TransformativeFramework: React.FC = () => {
 
       {/* CTA Section */}
       <div className="mx-4 sm:mx-6 md:mx-12 pb-10 md:pb-16">
-        <div className="max-w-7xl mx-auto rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-12 text-center" style={{
+        <div className="w-full rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-12 text-center" style={{
           background: '#F5C542'
         }}>
           <h2 className="text-[22px] sm:text-[28px] md:text-[40px] font-bold mb-3 md:mb-4" style={{
@@ -92,7 +92,7 @@ export const TransformativeFramework: React.FC = () => {
             Ready to Transform Your Leadership Journey?
           </h2>
 
-          <p className="text-[14px] sm:text-[16px] md:text-[18px] mb-6 md:mb-8 max-w-3xl mx-auto" style={{
+          <p className="text-[14px] sm:text-[16px] md:text-[18px] mb-6 md:mb-8 w-full mx-auto" style={{
             fontFamily: 'Inter, sans-serif',
             color: '#000000'
           }}>

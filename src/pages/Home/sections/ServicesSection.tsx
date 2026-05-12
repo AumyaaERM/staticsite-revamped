@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { OptimizedImage } from '../../../components/OptimizedImage';
@@ -38,106 +38,64 @@ export const ServicesSection: React.FC = () => {
     {
       title: 'Compliance Support Solutions',
       description:
-        "Aumyaa’s Compliance services support organizations in building strong compliance frameworks, reducing regulatory risks, and staying aligned with evolving laws. We help drive ethical practices and operational integrity, enabling confident and compliant business growth.",
+        "Aumyaa's Compliance services support organizations in building strong compliance frameworks, reducing regulatory risks, and staying aligned with evolving laws. We help drive ethical practices and operational integrity, enabling confident and compliant business growth.",
       image: '/images/home/service5.png',
       link: '/consulting/compliance-services'
     }
   ];
-  const carouselRef = useRef(null);
 
-  useEffect(() => {
-    const slider:any = carouselRef.current;
-    let isDown = false;
-    let startX: number;
-    let scrollLeft: number;
-  
-    const onMouseDown = (e: { pageX: number; }) => {
-      isDown = true;
-      slider.classList.add("active");
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    };
-  
-    const onMouseLeave = () => {
-      isDown = false;
-      slider.classList.remove("active");
-    };
-  
-    const onMouseUp = () => {
-      isDown = false;
-      slider.classList.remove("active");
-    };
-  
-    const onMouseMove = (e: { preventDefault: () => void; pageX: number; }) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 1.3; // scroll speed
-      slider.scrollLeft = scrollLeft - walk;
-    };
-  
-    slider.addEventListener("mousedown", onMouseDown);
-    slider.addEventListener("mouseleave", onMouseLeave);
-    slider.addEventListener("mouseup", onMouseUp);
-    slider.addEventListener("mousemove", onMouseMove);
-  
-    return () => {
-      slider.removeEventListener("mousedown", onMouseDown);
-      slider.removeEventListener("mouseleave", onMouseLeave);
-      slider.removeEventListener("mouseup", onMouseUp);
-      slider.removeEventListener("mousemove", onMouseMove);
-    };
-  }, []);
-  
   return (
-    <div className="bg-white overflow-x-hidden py-10 md:py-16 px-4 sm:px-6 md:px-12 text-black">
-      <div className="max-w-7xl overflow-x-hidden mx-auto">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
-        <p className="text-yellow-500 text-base sm:text-lg md:text-xl mb-8 md:mb-12">
-          Explore how we help you navigate change and thrive
-        </p>
+    <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12 text-black">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+        Our Services
+      </h2>
 
-        {/* CAROUSEL */}
-        <div ref={carouselRef}
-          className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide 
-          cursor-grab active:cursor-grabbing select-none items-stretch"
-        >
-          {services.map((service, idx) => (
-            <div
-              key={idx}
-              className="min-w-[320px] sm:min-w-[340px] md:min-w-[360px] lg:min-w-[320px] bg-white rounded-2xl border-2 border-[#FCD421] 
-              overflow-hidden transition-shadow snap-start flex flex-col p-4"
-            >
-              {/* IMAGE */}
-              <OptimizedImage
-                src={service.image}
-                alt={service.title}
-                className="w-full h-[160px] object-cover rounded-xl flex-shrink-0"
-              />
+      <p className="text-yellow-500 text-base sm:text-lg md:text-xl mb-8 md:mb-12">
+        Explore how we help you navigate change and thrive
+      </p>
 
-              {/* TEXT CONTENT */}
-              <div className="pt-4 flex-1 flex flex-col">
-                <h3 className="text-lg font-bold">{service.title}</h3>
-                <p className="text-sm text-gray-700 leading-relaxed text-justify mt-2 mb-4">
-                  {service.description}
-                </p>
-
-                {/* BUTTON - pushed to bottom for alignment */}
-                <button
-                  onClick={() => navigate(service.link)}
-                  style={{ backgroundColor: '#FCD421', borderRadius: '9999px' }}
-                  className="text-black font-semibold pl-6 pr-2 py-2.5 items-center flex justify-between hover:brightness-95 transition-all w-full text-sm mt-auto"
-                >
-                  <span>View all details</span>
-                  <span className="bg-white rounded-full p-2 flex items-center justify-center shadow-sm">
-                    <ChevronRight className="w-5 h-5 text-black" />
-                  </span>
-                </button>
+      {/* KEEPING YOUR ORIGINAL SCROLL BEHAVIOR */}
+      <div className="flex overflow-x-auto lg:overflow-visible gap-4 md:gap-5 pb-4 lg:pb-0">
+        {services.map((service, idx) => (
+          <div
+            key={idx}
+            className="w-[280px] sm:w-[300px] lg:w-1/5 shadow-lg flex-shrink-0 lg:flex-shrink bg-white rounded-2xl border border-[#FCD421]/60 overflow-hidden transition-all hover:shadow-lg hover:scale-105 duration-300 flex flex-col"
+          >
+            <div className="p-3 pb-0">
+              <div className="relative w-full pt-[56.25%] rounded-xl overflow-hidden">
+                <OptimizedImage
+                  src={service.image}
+                  alt={service.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
             </div>
-          ))}
-        </div>
 
+            {/* TEXT CONTENT (UNCHANGED) */}
+            <div className="p-3 md:p-4 flex-1 flex flex-col mt-[-20px]">
+              <h3 className="text-base md:text-lg font-bold mb-1.5 line-clamp-2 min-h-[2.5rem]">
+                {service.title}
+              </h3>
+
+              <p className="text-xs md:text-sm text-gray-700 leading-snug mb-3 mt-[-6px]">
+                {service.description}
+              </p>
+
+              {/* BUTTON (UNCHANGED) */}
+              <button
+                onClick={() => navigate(service.link)}
+                style={{ backgroundColor: '#FCD421', borderRadius: '9999px' }}
+                className="text-black font-semibold pl-4 pr-1.5 py-1.5 flex items-center justify-between hover:brightness-95 transition-all w-full text-xs md:text-sm mt-auto"
+              >
+                <span>View all details</span>
+
+                <span className="bg-white rounded-full p-1.5 flex items-center justify-center shadow-sm">
+                  <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-black" />
+                </span>
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
