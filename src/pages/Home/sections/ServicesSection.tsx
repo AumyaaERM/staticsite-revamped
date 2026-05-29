@@ -8,9 +8,9 @@ export const ServicesSection: React.FC = () => {
 
   const services = [
     {
-      title: 'Business Consulting',
+      title: 'Business Consulting Services',
       description:
-        "Aumyaa's Business Consulting services enhance performance through customer journey mapping, program and project management, operational excellence, and vendor management.",
+        "Our business consulting services enhance organizational performance through customer journey mapping, operations consulting, project management, and vendor excellence — helping companies achieve measurable growth.",
       image: '/images/home/servoice1.png',
       link: '/consulting/business-consulting'
     },
@@ -47,11 +47,14 @@ export const ServicesSection: React.FC = () => {
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12 text-black">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-        Our Services
+      Expert Business Consulting &amp; Advisory
+      Services
       </h2>
 
       <p className="text-yellow-500 text-base sm:text-lg md:text-xl mb-8 md:mb-12">
-        Explore how we help you navigate change and thrive
+      From business strategy consulting to
+corporate risk advisory - explore how we
+help organizations thrive
       </p>
 
       {/* KEEPING YOUR ORIGINAL SCROLL BEHAVIOR */}
