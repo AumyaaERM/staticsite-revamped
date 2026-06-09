@@ -15,7 +15,7 @@ That gap between checking boxes and building genuine capability is where competi
 
 ---
 
-![From compliance burden to competitive advantage](/public/images/insights/ai-1.png)
+![From compliance burden to competitive advantage](/images/insights/ai-1.png)
 
 ---
 
@@ -70,7 +70,7 @@ IT controls mapped simultaneously to ISO 27001, SOC 2, NIST CSF, DORA, GDPR, and
 
 ---
 
-![Building a unified IT risk framework](/public/images/insights/ai-2.png)
+![Building a unified IT risk framework](/images/insights/ai-2.png)
 
 ---
 
