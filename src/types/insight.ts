@@ -1,5 +1,3 @@
-// src/types/insight.ts
-
 export type InsightCategory =
   | 'Blog'
   | 'Newsletter'
@@ -7,6 +5,8 @@ export type InsightCategory =
   | 'Podcast'
   | 'Survey Report'
   | 'Insight';
+
+export type ServiceCategory = 'Business' | 'Tech' | 'ESG' | 'Risk';
 
 export interface Insight {
   title: string;
@@ -17,4 +17,5 @@ export interface Insight {
   slug: string;
   contentFile: string;
   featured: boolean;
+  serviceCategory: ServiceCategory | '';
 }

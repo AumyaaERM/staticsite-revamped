@@ -71,32 +71,13 @@ Fulfilling these rights at scale requires data access infrastructure that most o
 
 ## The five data governance capabilities every DPDP-compliant organisation must build
 
-<table header-row="true" fit-page-width="true">
-  <tr>
-    <td>**Capability**</td>
-    <td>**What it means**</td>
-  </tr>
-  <tr>
-    <td>Enterprise data inventory and mapping</td>
-    <td>A live, maintained register of all personal data assets, processing activities, vendor relationships, and cross-border data flows</td>
-  </tr>
-  <tr>
-    <td>Consent lifecycle management</td>
-    <td>Systems that capture, store, track, and act on consent status across every data subject and every processing purpose</td>
-  </tr>
-  <tr>
-    <td>Data lineage and retention governance</td>
-    <td>End-to-end documentation of data movement, transformation, and deletion — including automated enforcement of storage limitation and data minimisation obligations</td>
-  </tr>
-  <tr>
-    <td>Access control and security governance</td>
-    <td>Role-based access controls, audit logs, encryption standards, and anomaly detection that meet the reasonable security safeguards standard</td>
-  </tr>
-  <tr>
-    <td>Privacy-by-Design governance</td>
-    <td>Embedding DPIA processes, Privacy-by-Design principles, and data minimisation into product and technology development cycles — not retrofitted after the fact</td>
-  </tr>
-</table>
+| Capability | What it means |
+|---|---|
+| **Enterprise data inventory and mapping** | A live, maintained register of all personal data assets, processing activities, vendor relationships, and cross-border data flows |
+| **Consent lifecycle management** | Systems that capture, store, track, and act on consent status across every data subject and every processing purpose |
+| **Data lineage and retention governance** | End-to-end documentation of data movement, transformation, and deletion — including automated enforcement of storage limitation and data minimisation obligations |
+| **Access control and security governance** | Role-based access controls, audit logs, encryption standards, and anomaly detection that meet the reasonable security safeguards standard |
+| **Privacy-by-Design governance** | Embedding DPIA processes, Privacy-by-Design principles, and data minimisation into product and technology development cycles — not retrofitted after the fact |
 
 ---
 

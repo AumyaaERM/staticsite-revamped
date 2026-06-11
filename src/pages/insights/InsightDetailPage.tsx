@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer';
 import { useInsights } from '../../hooks/useInsights';
-import type { Insight } from '../../types/insight';
+import type { Insight } from '../../types/insight'; 
 
 const markdownFiles = import.meta.glob(
   '/src/content/insights/*.md',
@@ -26,7 +26,7 @@ const headingFont = { fontFamily: 'Days One, sans-serif' };
 export const InsightDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const { insights, isLoading: insightsLoading } = useInsights();
+  const { insights, loading: insightsLoading } = useInsights();
 
   const [insight, setInsight] = useState<Insight | null>(null);
   const [markdownContent, setMarkdownContent] = useState<string>('');
@@ -92,7 +92,6 @@ export const InsightDetailPage: React.FC = () => {
 
   const badgeClass = categoryColors[insight.category] ?? 'bg-[#fcd421] text-black';
 
-  // Hero background — image fills the container, text drives the height
   const heroStyle = {
     backgroundImage: `url(${insight.image})`,
     backgroundSize: 'cover',
@@ -104,34 +103,34 @@ export const InsightDetailPage: React.FC = () => {
       <Navbar />
       <div className="h-6 bg-white" />
 
-      {/* ── HERO ──
-          Background image fills this div.
-          Height is driven by the content (text) inside.
-          Gradient ensures text is always readable.
-      */}
+      {/* ── HERO ── */}
       <div className="relative w-full" style={heroStyle}>
-
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
 
         {/* Content sits on top of the image */}
         <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-8 sm:pb-12">
 
-         {/* Back button */}
-<button
-  onClick={() => navigate('/insights')}
-  className="inline-flex items-center gap-2 bg-[#fcd421] text-black font-bold px-5 py-2.5 rounded-full hover:bg-yellow-400 transition-colors text-xs sm:text-sm mb-6 sm:mb-8 group"
-  style={{ fontFamily: 'Days One, sans-serif', backgroundColor: '#fcd421', color: '#000000' }}
->
-  <span className="group-hover:-translate-x-0.5 transition-transform">←</span>
-  Back to Insights
-</button>
+          {/* Back button */}
+          <button
+            onClick={() => navigate('/insights')}
+            className="inline-flex items-center gap-2 bg-[#fcd421] text-black font-bold px-5 py-2.5 rounded-full hover:bg-yellow-400 transition-colors text-xs sm:text-sm mb-6 sm:mb-8 group"
+            style={{ fontFamily: 'Days One, sans-serif', backgroundColor: '#fcd421', color: '#000000' }}          
+          >
+            <span className="group-hover:-translate-x-0.5 transition-transform">←</span>
+            Back to Insights
+          </button>
 
-          {/* Category badge */}
-          <div className="mb-3">
+          {/* Badges */}
+          <div className="flex items-center gap-2 mb-3">
             <span className={`inline-block text-xs font-bold px-4 py-1.5 rounded-full ${badgeClass}`}>
               {insight.category}
             </span>
+            {insight.serviceCategory && (
+              <span className="bg-black text-white text-xs font-bold px-4 py-1.5 rounded-full border border-white/30">
+                {insight.serviceCategory}
+              </span>
+            )}
           </div>
 
           {/* Title */}
@@ -150,11 +149,10 @@ export const InsightDetailPage: React.FC = () => {
           </div>
 
         </div>
-      </div>
+      </div>    
 
       {/* ── ARTICLE BODY ── */}
       <main className="flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-
         {markdownContent ? (
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -206,7 +204,6 @@ export const InsightDetailPage: React.FC = () => {
               hr: () => (
                 <div className="w-full border-t-2 border-dashed border-[#fcd421] my-8" />
               ),
-              // Full image, no cropping, slightly reduced width
               img: ({ src, alt }) => (
                 <div className="my-8 max-w-[70%] mx-auto rounded-2xl overflow-hidden shadow-sm">
                   <img
@@ -231,6 +228,32 @@ export const InsightDetailPage: React.FC = () => {
                   {children}
                 </a>
               ),
+              // ── TABLE COMPONENTS ── (new)
+              table: ({ children }) => (
+                <div className="overflow-x-auto my-8">
+                  <table className="w-full border-collapse text-sm">
+                    {children}
+                  </table>
+                </div>
+              ),
+              thead: ({ children }) => (
+                <thead className="bg-[#fcd421]">{children}</thead>
+              ),
+              th: ({ children }) => (
+                <th className="text-left font-bold text-black px-4 py-3 border border-gray-200">
+                  {children}
+                </th>
+              ),
+              td: ({ children }) => (
+                <td className="px-4 py-3 border border-gray-200 align-top leading-relaxed text-gray-700">
+                  {children}
+                </td>
+              ),
+              tr: ({ children }) => (
+                <tr className="even:bg-gray-50 hover:bg-yellow-50 transition-colors">
+                  {children}
+                </tr>
+              ),
             }}
           >
             {markdownContent}
@@ -244,12 +267,11 @@ export const InsightDetailPage: React.FC = () => {
           <Link
             to="/insights"
             className="inline-flex items-center gap-2 bg-[#fcd421] text-black font-bold px-6 py-3 rounded-full hover:bg-yellow-400 transition-colors text-sm sm:text-base"
-            style={{ fontFamily: 'Days One, sans-serif', textDecoration: 'none', color: '#000000' }}
+            style={{ fontFamily: 'Days One, sans-serif', textDecoration: 'none', color: '#000000' }} 
           >
             ← Back to all insights
           </Link>
         </div>
-
       </main>
 
       <Footer />

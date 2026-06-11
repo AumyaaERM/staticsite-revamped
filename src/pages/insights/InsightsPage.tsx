@@ -11,7 +11,7 @@ type FilterOption = 'All' | InsightCategory;
 const headingFont = { fontFamily: 'Days One, sans-serif' };
 
 export const InsightsPage: React.FC = () => {
-  const { insights, isLoading, error } = useInsights();
+  const { insights, loading, error } = useInsights();
   const [activeFilter, setActiveFilter] = useState<FilterOption>('All');
 
   const filtered =
@@ -62,7 +62,7 @@ export const InsightsPage: React.FC = () => {
         </div>
 
         {/* Loading */}
-        {isLoading ? (
+        {loading ? (
           <div className="flex items-center justify-center h-64">
             <p className="text-gray-400 text-sm">Loading insights…</p>
           </div>

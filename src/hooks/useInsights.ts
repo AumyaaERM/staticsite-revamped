@@ -10,8 +10,8 @@ const fallbackImages = [
   'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop',
 ];
 
-const parseCSVRow = (row: string): string[] => {
-  const columns: string[] = [];
+function parseCSVRow(row: string): string[] {
+  const cols: string[] = [];
   let current = '';
   let inQuotes = false;
   for (let i = 0; i < row.length; i++) {
@@ -19,40 +19,35 @@ const parseCSVRow = (row: string): string[] => {
     if (char === '"') {
       inQuotes = !inQuotes;
     } else if (char === ',' && !inQuotes) {
-      columns.push(current.trim().replace(/^"|"$/g, ''));
+      cols.push(current);
       current = '';
     } else {
       current += char;
     }
   }
-  columns.push(current.trim().replace(/^"|"$/g, ''));
-  return columns;
-};
+  cols.push(current);
+  return cols;
+}
 
-// Cache so repeated navigations don't re-fetch the sheet
 let cache: Insight[] | null = null;
 
 export function useInsights() {
   const [insights, setInsights] = useState<Insight[]>(cache ?? []);
-  const [isLoading, setIsLoading] = useState<boolean>(cache === null);
+  const [loading, setLoading] = useState(!cache);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // If already cached, skip fetch
-    if (cache !== null) {
+    if (cache) {
       setInsights(cache);
-      setIsLoading(false);
-      return;
+      setLoading(false);
+      return; 
     }
 
-    const fetchInsights = async () => {
-      try {
-        const response = await fetch(GOOGLE_SHEETS_CSV_URL);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const csvText = await response.text();
-        const rows = csvText.split('\n').slice(1);
-
-        const fetched: Insight[] = rows
+    fetch(GOOGLE_SHEETS_CSV_URL)  
+      .then((res) => res.text())
+      .then((text) => {
+        const rows = text.split('\n').slice(1); // skip header row
+        const fetched = rows
           .filter((row) => row.trim())
           .map((row, index) => {
             const cols = parseCSVRow(row);
@@ -61,30 +56,28 @@ export function useInsights() {
                 ? cols[2].trim()
                 : fallbackImages[index % fallbackImages.length];
             return {
-              title:       cols[0] || '',
-              date:        cols[1] || '',
+              title:           cols[0] || '',
+              date:            cols[1] || '',
               image,
-              description: cols[3] || '',
-              category:    (cols[4] as Insight['category']) || 'Insight',
-              slug:        cols[5] || '',
-              contentFile: cols[6] || '',
-              featured:    cols[7]?.trim().toUpperCase() === 'TRUE',
+              description:     cols[3] || '',
+              category:        (cols[4]?.trim() as Insight['category']) || 'Insight',
+              slug:            cols[5]?.trim() || '',
+              contentFile:     cols[6]?.trim() || '',
+              featured:        cols[7]?.trim().toUpperCase() === 'TRUE',
+              serviceCategory: (cols[8]?.trim() as Insight['serviceCategory']) || '',
             };
           })
-          .filter((insight) => insight.title && insight.date && insight.slug);
+          .filter((insight) => insight.title && insight.date && insight.slug) as Insight[];
 
         cache = fetched;
         setInsights(fetched);
-      } catch (err) {
-        console.error('Error fetching insights:', err);
-        setError('Failed to load insights');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchInsights();
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, []);
 
-  return { insights, isLoading, error };
+  return { insights, loading, error };
 }
