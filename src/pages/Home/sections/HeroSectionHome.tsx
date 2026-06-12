@@ -252,6 +252,14 @@ export const HeroSectionHome: React.FC = () => {
 
   const slides: Slide[] = [
     {
+      image: '/images/home/dpdp.png',
+      text: '',
+      buttonText: '',
+      buttonLink: '',
+      isDPDP: true,
+      duration: 12000, // 12s 
+    },
+    {
       image: '/images/home/tc1.png',
       text: 'Tech That Transforms. Strategy That Scales',
       buttonText: 'Technology Consulting',
@@ -274,14 +282,6 @@ export const HeroSectionHome: React.FC = () => {
       text: 'Accelerating Growth with Purpose and Responsibility',
       buttonText: 'ESG Consulting',
       buttonLink: '/consulting/esg-consulting',
-    },
-    {
-      image: '/images/home/dpdp.png',
-      text: '',
-      buttonText: '',
-      buttonLink: '',
-      isDPDP: true,
-      duration: 12000, // 12s 
     },
   ];
 
