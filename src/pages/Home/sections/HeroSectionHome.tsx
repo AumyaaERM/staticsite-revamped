@@ -251,14 +251,14 @@ export const HeroSectionHome: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides: Slide[] = [
-    {
-      image: '/images/home/dpdp.png',
-      text: '',
-      buttonText: '',
-      buttonLink: '',
-      isDPDP: true,
-      duration: 12000, // 12s 
-    },
+    // {
+    //   image: '/images/home/dpdp.png',
+    //   text: '',
+    //   buttonText: '',
+    //   buttonLink: '',
+    //   isDPDP: true,
+    //   duration: 12000, // 12s 
+    // },
     {
       image: '/images/home/tc1.png',
       text: 'Tech That Transforms. Strategy That Scales',

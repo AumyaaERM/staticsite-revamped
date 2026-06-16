@@ -11,10 +11,10 @@ interface InsightFilterBarProps {
 const filters: FilterOption[] = [
   'All',
   'Blog',
-  'Newsletter',
-  'Case Study',
-  'Podcast',
-  'Survey Report',
+  // 'Newsletter',
+  // 'Case Study',
+  // 'Podcast',
+  // 'Survey Report',
 ];
 
 export const InsightFilterBar: React.FC<InsightFilterBarProps> = ({ active, onChange }) => {
