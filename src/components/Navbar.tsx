@@ -9,6 +9,7 @@ const allServices = [
   { name: 'Risk Consulting', path: '/consulting/risk-consulting' },
   { name: 'ESG Consulting', path: '/consulting/esg-consulting' },
   { name: 'Compliance Services', path: '/consulting/compliance-services' },
+  { name: 'DPDP Compliance', path: '/dpdp-compliance' },
   { name: 'Executive Coaching', path: '/executive-coaching' },
   { name: 'Training', path: '/training' },
   { name: 'About Us', path: '/about' },
@@ -171,7 +172,8 @@ export const Navbar: React.FC = () => {
                   ['tech-consulting', 'Tech Consulting'],
                   ['risk-consulting', 'Risk Consulting'],
                   ['esg-consulting', 'ESG Consulting'],
-                  ['compliance-services', 'Compliance Services']
+                  ['compliance-services', 'Compliance Services'],
+                  // ['dpdp-compliance', 'DPDP Compliance'],
                 ].map(([path, text]) => (
                   <Link
                     key={path}

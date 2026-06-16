@@ -18,10 +18,12 @@ export const WhoWeAreHome: React.FC = () => {
           
           <div className="flex-1">
             <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-center md:text-left">
-              We are a team of seasoned professionals from Fortune 100 and Big 4 firms, dedicated to
-              driving business success. We specialize in Business Consulting, Technology Consulting, Risk
-              Advisory, and ESG, empowering organizations to navigate challenges, drive transformation, and
-              achieve sustainable growth.
+            We are a team of seasoned professionals from Fortune 100 and Big 4 firms delivering expert business consulting services, risk advisory, and digital transformation
+consulting across India. From enterprise risk
+management consulting to ESG consulting
+services, we empower organizations to
+navigate complexity, reduce risk, and
+achieve sustainable growth.
             </p>
           </div>
         </div>
