@@ -18,6 +18,7 @@ import { ComplianceServices } from './pages/Consulting/ComplianceServices';
 import { InsightsPage } from './pages/insights/InsightsPage';
 import { InsightDetailPage } from './pages/insights/InsightDetailPage';
 import { initGA, usePageTracking } from './utils/analytics';
+import  DpdpCompliancePage  from './pages/Consulting/DpdpCompliancePage'
 
 // Main App Component
 const App: React.FC = () => {
@@ -96,13 +97,14 @@ const App: React.FC = () => {
         <Route path="/consulting/risk-consulting" element={<RiskAdvisory />} />
         <Route path="/consulting/esg-consulting" element={<ESGConsulting />} />
         <Route path="/consulting/compliance-services" element={<ComplianceServices />} />
+        <Route path="/consulting/dpdp-compliance" element={<DpdpCompliancePage />} />
 
         {/* ── INSIGHTS ── */}
         <Route path="/insights" element={<InsightsPage />} />
         <Route path="/insights/:slug" element={<InsightDetailPage />} />
 
       </Routes>
-
+      
       {/* Cookie Consent Banner - appears on all pages */}
       <CookieConsent />
     </Router>
