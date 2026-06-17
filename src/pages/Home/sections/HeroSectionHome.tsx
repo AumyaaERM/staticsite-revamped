@@ -88,15 +88,19 @@ const DPDPSlideContent: React.FC = () => {
   );
 
   return (
-    <div className="absolute inset-0 z-10 flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 py-3 md:py-6 lg:py-10">
-
+    // On mobile this is RELATIVE (normal flow) so the hero grows to fit the
+    // content and can never clip the "Take Assessment" button on any phone.
+    // On md+ it returns to the original ABSOLUTE overlay behaviour.
+    <div className="relative md:absolute md:inset-0 z-10 flex flex-col md:px-8 lg:px-12 md:py-6 lg:py-10">
       {/* =================================================================
           MOBILE LAYOUT  (< md)
-          Content is vertically centered as one balanced group with even
-          gaps. pt-16 reserves space for the floating WhatsApp + Quick
-          Enquiry CTAs (which sit at z-20) so nothing overlaps them.
+          Content-driven height: the hero uses min-h, and this block flows
+          normally with its own min-h so short content stays vertically
+          centered while taller content simply makes the banner grow
+          instead of being clipped. pt-20 reserves space for the floating
+          WhatsApp + Quick Enquiry CTAs (z-20) so nothing overlaps them.
          ================================================================= */}
-      <div className="flex flex-col md:hidden flex-1 justify-center gap-5 pt-16 pb-3">
+      <div className="flex flex-col md:hidden justify-center gap-5 px-4 sm:px-6 pt-20 pb-8 min-h-[520px] sm:min-h-[560px]">
         {/* Tagline + heading (kept tight together) */}
         <div className="flex flex-col gap-1.5">
           <p
@@ -339,7 +343,9 @@ export const HeroSectionHome: React.FC = () => {
   const currentIsDPDP = slides[currentSlide].isDPDP === true;
 
   return (
-    <div className="relative w-full overflow-hidden h-[500px] sm:h-[550px] md:h-[600px] lg:h-[650px]">
+    // Mobile/sm use min-h so the DPDP content (in normal flow) can grow the
+    // hero instead of being clipped. md+ keep the original fixed heights.
+    <div className="relative w-full overflow-hidden min-h-[520px] sm:min-h-[560px] md:h-[600px] lg:h-[650px]">
       {/* Background images */}
       {slides.map((slide, index) => (
         <div

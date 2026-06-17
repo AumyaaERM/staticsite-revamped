@@ -426,7 +426,8 @@ export const Navbar: React.FC = () => {
                   ['tech-consulting', 'Tech Consulting'],
                   ['risk-consulting', 'Risk Consulting'],
                   ['esg-consulting', 'ESG Consulting'],
-                  ['compliance-services', 'Compliance Services']
+                  ['compliance-services', 'Compliance Services'],
+                  ['dpdp-compliance', 'DPDP Compliance'],
                 ].map(([path, text]) => (
                   <Link
                     key={path}
