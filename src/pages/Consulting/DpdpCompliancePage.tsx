@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { Navbar } from '../../components/Navbar';
-import { Footer } from '../../components/Footer';
-import { ArrowRight } from 'lucide-react';
+import { Navbar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
+import { ArrowRight } from "lucide-react";
+
 // ─── Style consts (never write style=... inline literals) ─────────────────
 const headingFont = { fontFamily: "Days One, sans-serif" };
 // Explicit color overrides so React-Router <Link> never falls back to browser-default blue
 const btnWhite = { fontFamily: "Days One, sans-serif", color: "white" };
 const btnBlack = { fontFamily: "Days One, sans-serif", color: "black" };
+
 // Hero background image (path relative to /public)
 const heroBgStyle = {
   backgroundImage: "url('/images/home/dpdp.png')",
@@ -48,7 +50,6 @@ const whyNow: Card[] = [
       "Privacy has become a brand differentiator and a buying criterion.",
   },
 ];
-
 const whoNeeds: Card[] = [
   {
     title: "Data Fiduciaries",
@@ -66,7 +67,6 @@ const whoNeeds: Card[] = [
       "Entities processing personal data on behalf of a Data Fiduciary under a binding contract.",
   },
 ];
-
 const offerings: Offering[] = [
   {
     no: "01",
@@ -135,7 +135,6 @@ const offerings: Offering[] = [
       "Support audits, remediation tracking, evidence registers and periodic reviews.",
   },
 ];
-
 const steps: Card[] = [
   {
     title: "Discover",
@@ -168,7 +167,6 @@ const steps: Card[] = [
       "Maintain dashboards, evidence registers, periodic reviews and improvement.",
   },
 ];
-
 const engagementModels: EngagementModel[] = [
   {
     badge: "Fast Start",
@@ -196,7 +194,6 @@ const engagementModels: EngagementModel[] = [
       "Tailored support for complex organisations, multi-location operations or high-volume processing.",
   },
 ];
-
 const industries: IconCard[] = [
   {
     icon: "💻",
@@ -217,7 +214,6 @@ const industries: IconCard[] = [
       "KYC, transaction data, onboarding, fraud monitoring and regulatory expectations.",
   },
 ];
-
 const whyAumyaa: IconCard[] = [
   {
     icon: "🛡️",
@@ -249,9 +245,7 @@ function Eyebrow({
   children: string;
   light?: boolean;
 }) {
-  const theme = light
-    ? "bg-[#fcd421] text-black"
-    : "bg-[#fcd421]/20 text-black";
+  const theme = light ? "bg-[#fcd421] text-black" : "bg-[#fcd421] text-black";
   return (
     <span
       className={`inline-block rounded-full px-4 py-1 text-xs uppercase tracking-wider ${theme}`}
@@ -261,7 +255,6 @@ function Eyebrow({
     </span>
   );
 }
-
 function SectionHead({
   eyebrow,
   title,
@@ -321,32 +314,31 @@ export default function DpdpCompliancePage() {
             the right service for your organisation.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 mt-8">
-  <div className="mt-8 sm:mt-0">
-    <Link
-      to="/consulting/dpdp-compliance/assessment"
-      className="inline-flex items-center gap-3 rounded-full bg-[#fcd421] px-5 sm:px-7 py-3 font-semibold transition hover:opacity-90 whitespace-nowrap"
-      style={btnBlack}
-    >
-      Free Self-Assessment
-      <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-black">
-        <ArrowRight className="h-3 w-3 text-[#fcd421]" />
-      </span>
-    </Link>
-  </div>
-  
-  <div className="mt-0">
-    <Link
-      to="/contact"
-      className="inline-block rounded-full bg-[#fcd421] px-5 sm:px-7 py-3 font-semibold transition hover:opacity-90 whitespace-nowrap"
-      style={btnBlack}
-    >
-      Enquire now
-    </Link>
-  </div>
-</div>
+            <div className="mt-8 sm:mt-0">
+              <Link
+                to="/consulting/dpdp-compliance/assessment"
+                className="inline-flex items-center gap-3 rounded-full bg-[#fcd421] px-5 sm:px-7 py-3 font-semibold transition hover:opacity-90 whitespace-nowrap"
+                style={btnBlack}
+              >
+                Free Self-Assessment
+                <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-black">
+                  <ArrowRight className="h-3 w-3 text-[#fcd421]" />
+                </span>
+              </Link>
+            </div>
+            <div className="mt-0">
+              <Link
+                to="/contact"
+                className="inline-block rounded-full bg-[#fcd421] px-5 sm:px-7 py-3 font-semibold transition hover:opacity-90 whitespace-nowrap"
+                style={btnBlack}
+              >
+                Enquire now
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
-​
+
       {/* ── WHAT IS THE DPDP ACT ── */}
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
@@ -356,7 +348,7 @@ export default function DpdpCompliancePage() {
             intro="India's comprehensive data protection law governing how organisations collect, process, store and protect the personal data of individuals (Data Principals). It introduces clear obligations around notice, consent, security and accountability — and meaningful penalties for non-compliance."
           />
           {/* Visual accent block */}
-          <div className="rounded-2xl border border-black/10 bg-[#faf8f0] p-8">
+          <div className="rounded-2xl border border-black/10 bg-white p-8">
             <div
               className="text-5xl font-bold text-[#fcd421]"
               style={headingFont}
@@ -387,7 +379,7 @@ export default function DpdpCompliancePage() {
           </div>
         </div>
       </section>
-​
+
       {/* ── WHY DPDP MATTERS NOW ── */}
       <section className="bg-black">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
@@ -419,7 +411,7 @@ export default function DpdpCompliancePage() {
           </div>
         </div>
       </section>
-​
+
       {/* ── WHO NEEDS COMPLIANCE ── */}
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
         <SectionHead
@@ -451,9 +443,9 @@ export default function DpdpCompliancePage() {
           })}
         </div>
       </section>
-​
+
       {/* ── AUMYAA DPDP OFFERINGS ── */}
-      <section id="offerings" className="bg-[#faf8f0]">
+      <section id="offerings" className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
           <SectionHead
             eyebrow="Aumyaa DPDP offerings"
@@ -509,12 +501,9 @@ export default function DpdpCompliancePage() {
           </div>
         </div>
       </section>
-​
+
       {/* ── COMPLIANCE LIFECYCLE / METHODOLOGY ── */}
-      <section
-        id="methodology"
-        className="mx-auto max-w-6xl px-6 py-16 sm:py-20"
-      >
+      <section id="methodology" className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
         <SectionHead
           center
           eyebrow="Compliance lifecycle"
@@ -525,7 +514,7 @@ export default function DpdpCompliancePage() {
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="relative border border-black/8 bg-white p-7 transition hover:bg-[#faf8f0] first:rounded-tl-2xl last:rounded-br-2xl [&:nth-child(3)]:rounded-tr-2xl [&:nth-child(4)]:rounded-bl-2xl"
+              className="relative border border-black/8 bg-white p-7 transition hover:border-[#fcd421] first:rounded-tl-2xl last:rounded-br-2xl [&:nth-child(3)]:rounded-tr-2xl [&:nth-child(4)]:rounded-bl-2xl"
             >
               {/* Step number pill */}
               <div className="flex items-center gap-3">
@@ -546,7 +535,7 @@ export default function DpdpCompliancePage() {
           ))}
         </div>
       </section>
-​
+
       {/* ── ENGAGEMENT MODELS ── */}
       <section id="engage" className="bg-black">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
@@ -573,8 +562,7 @@ export default function DpdpCompliancePage() {
                 : "text-white/60";
               const btnClass = model.popular
                 ? "mt-5 inline-block rounded-full bg-black px-6 py-2.5 text-center font-semibold transition hover:opacity-80"
-                : "mt-5 inline-block rounded-full border border-yellow/30 px-6 py-2.5 text-center font-semibold transition hover:bg-white/10";
-              const btnStyle = model.popular ? btnWhite : btnWhite;
+                : "mt-5 inline-block rounded-full border border-[#fcd421] px-6 py-2.5 text-center font-semibold transition hover:bg-white/10";
               return (
                 <div key={model.title} className={`${cardBase} ${cardTheme}`}>
                   <span
@@ -594,7 +582,7 @@ export default function DpdpCompliancePage() {
                   >
                     {model.description}
                   </p>
-                  <Link to="/contact" className={btnClass} style={btnStyle}>
+                  <Link to="/contact" className={btnClass} style={btnWhite}>
                     Enquire
                   </Link>
                 </div>
@@ -603,7 +591,7 @@ export default function DpdpCompliancePage() {
           </div>
         </div>
       </section>
-​
+
       {/* ── INDUSTRIES SERVED ── */}
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
         <SectionHead
@@ -617,7 +605,7 @@ export default function DpdpCompliancePage() {
               className="group flex flex-col gap-4 rounded-2xl border border-black/10 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-[#fcd421] hover:shadow-md"
             >
               {/* Icon on yellow circle */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#fcd421]/20 text-3xl transition group-hover:bg-[#fcd421]">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#fcd421] text-3xl">
                 {industry.icon}
               </div>
               <h4 className="text-lg" style={headingFont}>
@@ -630,9 +618,9 @@ export default function DpdpCompliancePage() {
           ))}
         </div>
       </section>
-​
+
       {/* ── WHY AUMYAA ── */}
-      <section className="bg-[#faf8f0]">
+      <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
           <SectionHead
             center
@@ -659,7 +647,7 @@ export default function DpdpCompliancePage() {
           </div>
         </div>
       </section>
-​
+
       {/* ── FINAL CTA ── */}
       <section className="bg-[#fcd421]">
         <div className="mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
@@ -687,7 +675,8 @@ export default function DpdpCompliancePage() {
           </div>
         </div>
       </section>
-      <Footer / >
+
+      <Footer />
     </main>
   );
 }

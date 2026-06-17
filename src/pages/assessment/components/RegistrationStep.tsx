@@ -101,7 +101,7 @@ export function RegistrationStep({ initial, onComplete }: RegistrationStepProps)
 					Tell us about your organisation
 				</h2>
 				<p className="mt-1 text-sm text-gray-500">
-					We'll use these details to tailor and email your compliance report.
+					We'll use these details to tailor and generate your compliance report.
 				</p>
 			</div>
 

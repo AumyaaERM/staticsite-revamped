@@ -8,7 +8,7 @@ import { ReportView } from "./components/ReportView"
 import { BRAND_YELLOW, headingFont } from "./theme"
 import { dpdpQuestions, SECTION_ORDER } from "../../data/dpdpAssessment/questions"
 import { getMaxExposureScore, scoreAssessment } from "../../lib/dpdpScoring"
-import { buildLeadSubmission, submitLead } from "../../lib/submitLead"
+import { submitRegistration, submitCompletion } from "../../lib/submitLead";
 import type { LeadDetails } from "../../lib/submitLead"
 import type {
 	AnswerValue,
@@ -105,7 +105,7 @@ export function DpdpAssessmentPage() {
 	async function finish() {
 		setSubmitting(true)
 		const computed = scoreAssessment(answers)
-		await submitLead(buildLeadSubmission(lead, computed))
+		await submitCompletion(lead, computed);
 		setResult(computed)
 		setSubmitting(false)
 		setStep(totalSections + 1)
@@ -160,6 +160,7 @@ export function DpdpAssessmentPage() {
 							initial={lead}
 							onComplete={(l) => {
 								setLead(l)
+								submitRegistration(l);
 								setStep(1)
 							}}
 						/>
