@@ -34,6 +34,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/consulting/risk-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Risk Advisory</Link></li>
               <li><Link to="/consulting/esg-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">ESG Consulting</Link></li>
               <li><Link to="/consulting/compliance-services" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Compliance Support Solutions</Link></li>
+              <li><Link to="/consulting/dpdp-compliance" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">DPDP Compliance Services</Link></li>
               </ul>
             </div>
             
