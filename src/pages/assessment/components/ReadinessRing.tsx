@@ -1,4 +1,3 @@
-import React from "react"
 import { headingFont } from "../theme"
 
 interface ReadinessRingProps {

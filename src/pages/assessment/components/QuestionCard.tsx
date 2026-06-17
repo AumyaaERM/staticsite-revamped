@@ -1,4 +1,3 @@
-import React from "react"
 import { BRAND_YELLOW } from "../theme"
 import type { AnswerValue, Question, ScaleValue } from "../../../types/assessment"
 
