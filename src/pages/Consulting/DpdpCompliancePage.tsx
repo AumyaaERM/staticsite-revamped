@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer';
+import { ArrowRight } from 'lucide-react';
 // ─── Style consts (never write style=... inline literals) ─────────────────
 const headingFont = { fontFamily: "Days One, sans-serif" };
 // Explicit color overrides so React-Router <Link> never falls back to browser-default blue
@@ -319,15 +320,30 @@ export default function DpdpCompliancePage() {
             end-to-end programme. Explore the law, see who must comply, and find
             the right service for your organisation.
           </p>
-          <div className="mt-8">
-            <Link
-              to="/contact"
-              className="inline-block rounded-full bg-[#fcd421] px-7 py-3 font-semibold transition hover:opacity-90"
-              style={btnBlack}
-            >
-              Enquire now
-            </Link>
-          </div>
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 mt-8">
+  <div className="mt-8 sm:mt-0">
+    <Link
+      to="/consulting/dpdp-compliance/assessment"
+      className="inline-flex items-center gap-3 rounded-full bg-[#fcd421] px-5 sm:px-7 py-3 font-semibold transition hover:opacity-90 whitespace-nowrap"
+      style={btnBlack}
+    >
+      Free Self-Assessment
+      <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-black">
+        <ArrowRight className="h-3 w-3 text-[#fcd421]" />
+      </span>
+    </Link>
+  </div>
+  
+  <div className="mt-0">
+    <Link
+      to="/contact"
+      className="inline-block rounded-full bg-[#fcd421] px-5 sm:px-7 py-3 font-semibold transition hover:opacity-90 whitespace-nowrap"
+      style={btnBlack}
+    >
+      Enquire now
+    </Link>
+  </div>
+</div>
         </div>
       </section>
 ​

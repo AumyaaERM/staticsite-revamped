@@ -130,6 +130,7 @@ export const ContactFormSection: React.FC = () => {
     { label: 'Collaboration', value: 'Collaboration' },
     { label: 'Tool Utilisation', value: 'Tool Utilisation' },
     { label: 'Executive Coaching', value: 'Executive Coaching' },
+    { label: 'DPDP Compliance', value: 'DPDP Compliance' },
     { label: 'Other reasons to connect', value: '__other_option__' }
   ];
 
