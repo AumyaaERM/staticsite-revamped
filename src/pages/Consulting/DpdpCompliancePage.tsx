@@ -390,7 +390,7 @@ export default function DpdpCompliancePage() {
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {whyNow.map((card, i) => {
-              const icons = ["⚠️", "🤝", "🔒"];
+              const icons = ["₹", "🤝", "🔒"];
               return (
                 <div
                   key={card.title}
@@ -398,7 +398,9 @@ export default function DpdpCompliancePage() {
                 >
                   {/* yellow left accent bar */}
                   <div className="absolute left-0 top-0 h-full w-1 rounded-l-2xl bg-[#fcd421]" />
-                  <div className="text-3xl">{icons[i]}</div>
+                  <div className={`text-3xl ${i === 0 ? 'text-green-500' : ''}`}>
+          {icons[i]}
+        </div>
                   <h4 className="mt-4 text-lg text-white" style={headingFont}>
                     {card.title}
                   </h4>
@@ -649,7 +651,7 @@ export default function DpdpCompliancePage() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="bg-[#fcd421]">
+      <section className="bg-yellow-400 mb-5">
         <div className="mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
           <span
             className="inline-block rounded-full bg-black/10 px-4 py-1 text-xs uppercase tracking-wider"
