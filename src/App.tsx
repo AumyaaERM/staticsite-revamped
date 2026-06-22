@@ -20,6 +20,7 @@ import { InsightDetailPage } from './pages/insights/InsightDetailPage';
 import { initGA, usePageTracking } from './utils/analytics';
 import DpdpCompliancePage from './pages/Consulting/DpdpCompliancePage';
 import { DpdpAssessmentPage } from './pages/assessment/DpdpAssessmentPage';
+import { AdminPostInsight } from './adminPostInsight';
 
 // Main App Component
 const App: React.FC = () => {
@@ -104,6 +105,8 @@ const App: React.FC = () => {
         {/* ── INSIGHTS ── */}
         <Route path="/insights" element={<InsightsPage />} />
         <Route path="/insights/:slug" element={<InsightDetailPage />} />
+
+        <Route path="/admin" element={<AdminPostInsight />} />
       </Routes>
 
       {/* Cookie Consent Banner - appears on all pages */}

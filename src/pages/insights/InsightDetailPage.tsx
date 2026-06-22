@@ -7,11 +7,6 @@ import { Footer } from '../../components/Footer';
 import { useInsights } from '../../hooks/useInsights';
 import type { Insight } from '../../types/insight'; 
 
-const markdownFiles = import.meta.glob(
-  '/src/content/insights/*.md',
-  { query: '?raw', import: 'default' }
-);
-
 const categoryColors: Record<string, string> = {
   'Blog':          'bg-[#fcd421] text-black',
   'Newsletter':    'bg-black text-white',
@@ -46,16 +41,8 @@ export const InsightDetailPage: React.FC = () => {
 
   useEffect(() => {
     if (!insight) return;
-    const filePath = `/src/content/insights/${insight.contentFile}.md`;
-    const loader = markdownFiles[filePath];
-    if (!loader) {
-      setContentLoading(false);
-      return;
-    }
-    loader()
-      .then((content) => setMarkdownContent(content as string))
-      .catch(() => setMarkdownContent(''))
-      .finally(() => setContentLoading(false));
+    setMarkdownContent(insight.content);
+    setContentLoading(false);
   }, [insight]);
 
   if (insightsLoading || contentLoading) {
