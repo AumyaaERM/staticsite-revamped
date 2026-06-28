@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const API_BASE_URL = import.meta.env.VITE_AUMERM_API_URL || 'https://staging-erm.aumyaa.com';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://staging-erm.aumyaa.com/api';
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +14,7 @@ export const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/credentials/employee/login`, {
+      const res = await fetch(`${API_BASE_URL}/credentials/employee/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
