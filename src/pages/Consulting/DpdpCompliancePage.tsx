@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { ArrowRight } from "lucide-react";
+import { DPDP_FORM_URL } from "../../config/dpdpForm";
 
 // ─── Style consts (never write style=... inline literals) ─────────────────
 const headingFont = { fontFamily: "Days One, sans-serif" };
@@ -315,8 +316,10 @@ export default function DpdpCompliancePage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 mt-8">
             <div className="mt-8 sm:mt-0">
-              <Link
-                to="/consulting/dpdp-compliance/assessment"
+              <a
+                href={DPDP_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 rounded-full bg-[#fcd421] px-5 sm:px-7 py-3 font-semibold transition hover:opacity-90 whitespace-nowrap"
                 style={btnBlack}
               >
@@ -324,7 +327,7 @@ export default function DpdpCompliancePage() {
                 <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-black">
                   <ArrowRight className="h-3 w-3 text-[#fcd421]" />
                 </span>
-              </Link>
+              </a>
             </div>
             <div className="mt-0">
               <Link

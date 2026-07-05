@@ -19,9 +19,13 @@ import { InsightsPage } from './pages/insights/InsightsPage';
 import { InsightDetailPage } from './pages/insights/InsightDetailPage';
 import { initGA, usePageTracking } from './utils/analytics';
 import DpdpCompliancePage from './pages/Consulting/DpdpCompliancePage';
+<<<<<<< Updated upstream
 import { DpdpAssessmentPage } from './pages/assessment/DpdpAssessmentPage';
 import { Login } from './pages/Login';
 import { Admin } from './pages/Admin';
+=======
+import { DPDP_FORM_URL, IS_DPDP_FORM_CONFIGURED } from './config/dpdpForm';
+>>>>>>> Stashed changes
 
 // Main App Component
 const App: React.FC = () => {
@@ -101,7 +105,7 @@ const App: React.FC = () => {
         <Route path="/consulting/esg-consulting" element={<ESGConsulting />} />
         <Route path="/consulting/compliance-services" element={<ComplianceServices />} />
         <Route path="/consulting/dpdp-compliance" element={<DpdpCompliancePage />} />
-        <Route path="/consulting/dpdp-compliance/assessment" element={<DpdpAssessmentPage />} />
+        <Route path="/consulting/dpdp-compliance/assessment" element={<DpdpAssessmentRedirect />} />
 
         {/* ── INSIGHTS ── */}
         <Route path="/insights" element={<InsightsPage />} />
@@ -124,6 +128,26 @@ const App: React.FC = () => {
 const PageTracker: React.FC = () => {
   usePageTracking();
   return null;
+};
+
+const DpdpAssessmentRedirect: React.FC = () => {
+  useEffect(() => {
+    window.location.replace(DPDP_FORM_URL);
+  }, []);
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1 px-6 pt-32 text-center">
+        <p className="text-sm text-gray-600">
+          {IS_DPDP_FORM_CONFIGURED
+            ? 'Redirecting you to the DPDP assessment form...'
+            : 'Redirecting you to DPDP compliance services...'}
+        </p>
+      </main>
+      <Footer />
+    </div>
+  );
 };
 
 export default App;
