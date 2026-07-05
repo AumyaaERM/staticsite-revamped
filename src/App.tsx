@@ -19,13 +19,9 @@ import { InsightsPage } from './pages/insights/InsightsPage';
 import { InsightDetailPage } from './pages/insights/InsightDetailPage';
 import { initGA, usePageTracking } from './utils/analytics';
 import DpdpCompliancePage from './pages/Consulting/DpdpCompliancePage';
-<<<<<<< Updated upstream
-import { DpdpAssessmentPage } from './pages/assessment/DpdpAssessmentPage';
 import { Login } from './pages/Login';
 import { Admin } from './pages/Admin';
-=======
 import { DPDP_FORM_URL, IS_DPDP_FORM_CONFIGURED } from './config/dpdpForm';
->>>>>>> Stashed changes
 
 // Main App Component
 const App: React.FC = () => {
