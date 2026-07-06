@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { OptimizedImage } from "../../../components/OptimizedImage";
+import { DPDP_FORM_URL } from "../../../config/dpdpForm";
 
 interface Slide {
   image: string;
@@ -165,8 +166,10 @@ const DPDPSlideContent: React.FC = () => {
               </div>
             ))}
           </div>
-          <Link
-            to="/consulting/dpdp-compliance/assessment"
+          <a
+            href={DPDP_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center justify-between w-full bg-[#fcd421] font-bold text-[11px] px-3 py-2.5 rounded-xl hover:opacity-90 transition-opacity"
             style={btnLink}
           >
@@ -174,7 +177,7 @@ const DPDPSlideContent: React.FC = () => {
             <span className="w-5 h-5 rounded-full bg-black flex items-center justify-center flex-shrink-0">
               <ArrowRight className="h-2.5 w-2.5 text-[#fcd421]" />
             </span>
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -277,8 +280,10 @@ const DPDPSlideContent: React.FC = () => {
               </div>
             ))}
           </div>
-          <Link
-            to="/consulting/dpdp-compliance/assessment"
+          <a
+            href={DPDP_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center justify-between w-full bg-[#fcd421] font-bold text-[10px] lg:text-base px-2 lg:px-4 py-2 lg:py-3 rounded-lg lg:rounded-xl hover:opacity-90 transition-opacity"
             style={btnLink}
           >
@@ -286,7 +291,7 @@ const DPDPSlideContent: React.FC = () => {
             <span className="w-5 h-5 lg:w-7 lg:h-7 rounded-full bg-black flex items-center justify-center flex-shrink-0">
               <ArrowRight className="h-2.5 w-2.5 lg:h-4 lg:w-4 text-[#fcd421]" />
             </span>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
