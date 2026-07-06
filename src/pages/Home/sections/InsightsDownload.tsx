@@ -1,101 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import type { Insight } from '../../../types/insight';
+import { useInsights } from '../../../hooks/useInsights';
 
 export const InsightsDownloads: React.FC = () => {
-  const [insights, setInsights] = useState<Insight[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  //   col 0 → title
-  //   col 1 → date
-  //   col 2 → image
-  //   col 3 → description
-  //   col 4 → category
-  //   col 5 → slug
-  //   col 6 → contentFile
-  //   col 7 → featured (TRUE/FALSE)
-  //   col 8 → serviceCategory
-
-  const GOOGLE_SHEETS_CSV_URL =
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vTJz9QKNP238g471r8-ZEBAHbtu3CdK5RKrLMKxfC52v4dszroe5oeylwXedjJQOUXnShWaNTcinUaW/pub?output=csv';
-
-  const fallbackImages = [
-    'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400&h=250&fit=crop',
-    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop',
-    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop',
-  ];
+  const { insights: allInsights, loading: isLoading, error } = useInsights();
+  const insights = allInsights.filter((i) => i.featured).slice(0, 3);
 
   const headingStyle = { fontFamily: 'Days One, sans-serif' };
   const viewAllStyle = { fontFamily: 'Days One, sans-serif', color: '#000000' };
   const whiteTextStyle = { color: '#ffffff' };
-
-  const parseCSVRow = (row: string): string[] => {
-    const columns: string[] = [];
-    let current = '';
-    let inQuotes = false;
-    for (let i = 0; i < row.length; i++) {
-      const char = row[i];
-      if (char === '"') {
-        inQuotes = !inQuotes;
-      } else if (char === ',' && !inQuotes) {
-        columns.push(current.trim().replace(/^"|"$/g, ''));
-        current = '';
-      } else {
-        current += char;
-      }
-    }
-    columns.push(current.trim().replace(/^"|"$/g, ''));
-    return columns;
-  };
-
-  useEffect(() => {
-    const fetchInsights = async () => {
-      try {
-        const response = await fetch(GOOGLE_SHEETS_CSV_URL);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const csvText = await response.text();
-        const rows = csvText.split('\n').slice(1);
-
-        const fetchedInsights = rows
-          .filter((row) => row.trim())
-          .map((row, index) => {
-            const cols = parseCSVRow(row);
-            const image =
-              cols[2] && cols[2].trim() !== ''
-                ? cols[2].trim()
-                : fallbackImages[index % fallbackImages.length];
-            return {
-              title:           cols[0] || '',
-              date:            cols[1] || '',
-              image,
-              description:     cols[3] || '',
-              category:        (cols[4] as Insight['category']) || 'Insight',
-              slug:            cols[5] || '',
-              contentFile:     cols[6] || '',
-              featured:        cols[7]?.trim().toUpperCase() === 'TRUE',
-              serviceCategory: (cols[8]?.trim() as Insight['serviceCategory']) || '',
-            };
-          })
-          .filter((insight) => insight.title && insight.date && insight.slug) as Insight[];
-
-        const featuredInsights = fetchedInsights
-          .filter((insight) => insight.featured)
-          .slice(0, 3);
-
-        if (featuredInsights.length > 0) {
-          setInsights(featuredInsights);
-        }
-      } catch (err) {
-        console.error('Error fetching insights:', err);
-        setError('Failed to load insights');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchInsights();
-  }, []);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 px-4 sm:px-6 md:px-12 py-10 md:py-16 bg-white">
@@ -117,7 +30,6 @@ export const InsightsDownloads: React.FC = () => {
             View all insights
           </a>
         </div>
-
         {/* Content */}
         {isLoading ? (
           <div className="flex items-center justify-center h-64">
@@ -149,7 +61,6 @@ export const InsightsDownloads: React.FC = () => {
                       className="w-full h-full object-contain"
                     />
                   </div>
-
                   {/* Text */}
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-black text-sm sm:text-base leading-snug mb-1 line-clamp-2">
@@ -162,14 +73,14 @@ export const InsightsDownloads: React.FC = () => {
                     )}
                     <div className="flex items-center gap-2 justify-between flex-wrap mt-2">
                       <div className="flex">
-                      <span className="bg-[#fcd421] text-black text-xs font-semibold px-3 py-1 rounded-full">
-                        {insight.category}
-                      </span>
-                      {insight.serviceCategory && (
-                        <span className="bg-black ml-2 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                          {insight.serviceCategory}
+                        <span className="bg-[#fcd421] text-black text-xs font-semibold px-3 py-1 rounded-full">
+                          {insight.category}
                         </span>
-                      )}
+                        {insight.serviceCategory && (
+                          <span className="bg-black ml-2 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                            {insight.serviceCategory}
+                          </span>
+                        )}
                       </div>
                       <span className="text-gray-400 text-xs sm:text-sm whitespace-nowrap">
                         {insight.date}
@@ -177,7 +88,6 @@ export const InsightsDownloads: React.FC = () => {
                     </div>
                   </div>
                 </div>
-
                 {/* Thumbnail */}
                 <div className="hidden sm:flex flex-shrink-0 w-36 md:w-44 lg:w-52 rounded-xl overflow-hidden self-stretch">
                   <img
@@ -191,7 +101,6 @@ export const InsightsDownloads: React.FC = () => {
           </div>
         )}
       </div>
-
       {/* DOWNLOADS SECTION — unchanged */}
       <div className="bg-[#fcd421] p-6 sm:p-8 md:p-10 rounded-2xl">
         <h2
