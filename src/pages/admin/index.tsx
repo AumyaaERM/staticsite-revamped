@@ -48,8 +48,8 @@ const SECTIONS: Section[] = [
   {
     title: 'DPDP',
     tiles: [
-      { label: 'DPDP Form', icon: ShieldCheck, href: '' },
-      { label: 'DPDP Responses', icon: Table, href: '' },
+      { label: 'DPDP Form', icon: ShieldCheck, href: 'https://docs.google.com/forms/d/1KnXjwwqIL1FoebR3k1VK0-Csh_OLLD_Fzw4dm8uI3l4/edit' },
+      { label: 'DPDP Responses', icon: Table, href: 'https://docs.google.com/spreadsheets/d/1XYuwYMrFuX12UnmkyG7tqBukI2mh-0XkZDt3voP52XY/edit?usp=sharing' },
     ],
   },
   {
