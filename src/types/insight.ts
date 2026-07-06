@@ -6,7 +6,12 @@ export type InsightCategory =
   | 'Survey Report'
   | 'Insight';
 
-export type ServiceCategory = 'Business' | 'Tech' | 'ESG' | 'Risk' | 'Compliance';
+export type ServiceCategory =
+  | 'Business'
+  | 'Tech'
+  | 'ESG'
+  | 'Risk'
+  | 'Compliance';
 
 export interface Insight {
   title: string;
@@ -15,6 +20,7 @@ export interface Insight {
   description: string;
   category: InsightCategory;
   slug: string;
+  content: string;
   contentFile: string;
   featured: boolean;
   serviceCategory: ServiceCategory | '';
