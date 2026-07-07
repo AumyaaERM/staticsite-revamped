@@ -23,7 +23,7 @@ const ENTRY = {
 
 const CATEGORIES = [
   "Blog",
-  "Newsletter",
+  "Bulletin",
   "Case Study",
   "Podcast",
   "Survey Report",
@@ -58,12 +58,14 @@ const PLACEHOLDER_COVER =
 
 const headingFont = { fontFamily: "Days One, sans-serif" };
 
-const FORMATTER_PROMPT = `Convert the text I give you into beautiful, well-structured Markdown for Aumyaa Insights content (blogs, newsletters, case studies, survey reports, etc. from a business, tech, ESG, risk & compliance consultancy).
+const FORMATTER_PROMPT = `Convert the text I give you into beautiful, well-structured Markdown code for Aumyaa Insights content (blogs, bulletins, case studies, survey reports, etc. from a business, tech, ESG, risk & compliance consultancy).
 - Don't add or change any facts, numbers, names, or claims — only format what I give you. You may fix grammar and wording.
 - Structure it well using your own judgment: ## for sections and ### for sub-points (never # / H1, since the title is added automatically).
 - Use whatever fits the content: > blockquotes for key stats or quotes (they render as yellow callout boxes), tables for comparisons or structured data, **bold** for key terms, bulleted/numbered lists, and --- dividers between major sections.
 - Images: only if I give you a URL — place it on its own line as ![alt text](url) where I indicate. Never invent image URLs.
-- Output ONLY the final Markdown code file, nothing else.
+Links: if the raw text contains a URL — whether it's a source, citation, reference, "read more at...", or just a bare link pasted inline — always convert it into a proper clickable Markdown link using clear, descriptive link text, e.g. [World Economic Forum](https://...) or [read the full report](https://...). Never leave a raw URL as plain text, and never invent or guess a URL that isn't explicitly present in what I give you.
+- Put down the content "sources" as blue clickable bullet points.
+- Output ONLY the final Markdown code file which will be rendered by ReactMarkdown, nothing else.
 
 Now format this:
 [PASTE YOUR RAW CONTENT HERE]`;
@@ -483,7 +485,7 @@ export const AdminPostInsight: React.FC = () => {
               <div>
                 <FieldLabel
                   text="Category"
-                  hint="The type of content: Blog, Newsletter, Case Study, Podcast, or Survey Report. Shows as the yellow badge."
+                  hint="The type of content: Blog, Bulletin, Case Study, Podcast, or Survey Report. Shows as the yellow badge."
                 />
                 <select
                   className={input}

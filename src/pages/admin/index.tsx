@@ -42,7 +42,7 @@ const SECTIONS: Section[] = [
     tiles: [
       { label: 'Post an Insight', icon: Pencil, to: '/admin/post-insight' },
       { label: 'Edit Insights', icon: Table, href: 'https://docs.google.com/spreadsheets/d/1YyI1-K70oRhVvo0JmMflauOepxULcs8zvo71MqNK5vw/edit?usp=sharing' },
-      { label: 'How to post an Insight?', icon: Play, href: '' },
+      { label: 'How to post an Insight?', icon: Play, href: 'https://drive.google.com/file/d/1f5N7KWjbBgLbixjtSdhvW3r7HyUpwPhc/view?usp=sharing' },
     ],
   },
   {
