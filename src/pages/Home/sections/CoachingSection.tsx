@@ -28,7 +28,7 @@ export function CoachingSection() {
               </h3>
               
               <p className="text-gray-700 mb-4 text-sm leading-relaxed">
-                Empower yourself and your organization with 'Aumyaa Learning Academy' - where learning meets excellence!
+              Empower your team with Aumyaa Learning Academy — professional courses in AI consulting, cybersecurity, risk management, and business ethics for future-ready organizations.
               </p>
               
               <p className="font-semibold mb-3 text-sm">Why Choose Aumyaa Learning Academy?</p>
@@ -37,7 +37,7 @@ export function CoachingSection() {
                 <div className="flex items-center gap-2">
                   <span className="text-yellow-400 text-lg flex-shrink-0">💎</span>
                   <p className="text-xs">
-                    <strong>Diverse Courses</strong> – Learn Cybersecurity, AI, Risk Management, Ethics, and more.
+                    <strong>Diverse Courses</strong> – AI, Cybersecurity, Risk Management, Compliance, and Ethics for working professionals.
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -91,11 +91,11 @@ export function CoachingSection() {
               </h3>
               
               <p className="text-[#fcd421] text-xs font-semibold mb-3">
-                Attention : CHROs & L&D Leaders of Professional Service Firms, MNCs, and Listed Companies!
+                Attention : CHROs & L&D Leaders — Build High-Performance Leadership with Executive Coaching
               </p>
               
               <p className="font-bold mb-3 text-xs">
-                ARE THE SENIOR PROFESSIONALS IN YOUR ORGANIZATION STRIVING TO ACHIEVE :
+              TRANSFORM YOUR SENIOR PROFESSIONALS INTO STRATEGIC LEADERS:
               </p>
               
               <div className="space-y-2 flex-grow">
@@ -128,7 +128,7 @@ export function CoachingSection() {
               <p className="text-xs italic mb-3">Your Search Ends Here!</p>
               
                 <p className="text-[#fcd421] text-xs font-semibold mb-3">
-                  Grow your senior professionals' productivity by 2X in the next 90 days.
+                Boost senior professional productivity by 2X in 90 days with our proven executive coaching and management advisory programs.
                 </p>
               
               <p className="font-bold text-xs mb-4 underline">Click Here to Get Started</p>

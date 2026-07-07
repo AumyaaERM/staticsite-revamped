@@ -12,7 +12,7 @@ export const CompaniesSection: React.FC = () => {
             fontWeight: 400,
             color: '#5E5B49'
           }}>
-            Companies
+           Our Clients — Trusted by India&#39;s Leading Organizations
           </h3>
           <div className="flex-1 h-px hidden sm:block" style={{ background: '#D0D0C8', maxWidth: '445px' }}></div>
         </div>

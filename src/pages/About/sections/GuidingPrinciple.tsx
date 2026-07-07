@@ -10,7 +10,8 @@ export const GuidingPrinciple: React.FC = () => {
           fontWeight: 400
         }}>
           <span style={{ color: '#000000' }}>Our </span>
-          <span style={{ color: '#FCD421' }}>Guiding principle</span>
+          <span style={{ color: '#FCD421' }}>GUIDING PRINCIPLE </span>
+          <span style={{ color: '#000000' }}>— How We Deliver Results That Matter</span>
         </h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -22,7 +23,7 @@ export const GuidingPrinciple: React.FC = () => {
               color: '#000000'
             }}>
               <p className="text-base md:text-xl leading-[160%] md:leading-[32px]">
-                At Aumyaa, simplicity, effectiveness, and seamless collaboration across diverse expertise empower us to navigate complexities, adapt globally, and deliver impactful results.
+              At Aumyaa, simplicity, effectiveness, and seamless collaboration across diverse expertise enable us to navigate business complexities, adapt to global challenges, and deliver impactful consulting results for our clients.
               </p>
             </div>
             <div className="rounded-[15px] md:rounded-[20px] overflow-hidden">

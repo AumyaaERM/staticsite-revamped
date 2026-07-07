@@ -6,14 +6,14 @@ export const TestimonialsSection: React.FC = () => {
     {
       quote:
         "Their consulting approach helped us identify key ESG gaps and implement measures that significantly improved our sustainability metrics.",
-      author: "Client",
-      role: "ESG Consulting Engagement",
+      author: "CHRO",
+      role: "ESG Consulting Engagement | Banking & Financial Services Sector",
     },
     {
       quote:
         "Aumyaa's diverse team demonstrated a deep understanding of our complex business processes, designing and implementing a comprehensive SOD rule book for 40 applications.",
-      author: "VP – Applications",
-      role: "Largest Technology Company in India",
+      author: "VP Applications",
+      role: "Leading Technology Company in India | IT Risk & Compliance",
     },
     {
       quote:
@@ -55,7 +55,7 @@ export const TestimonialsSection: React.FC = () => {
         className="text-3xl sm:text-4xl md:text-5xl mb-6 md:mb-10 font-bold text-center text-black"
         style={{ fontFamily: "Days One, sans-serif" }}
       >
-        Explore Testimonials
+        What Our Clients Say About Our Consulting Services
       </h2>
     <div
       className="

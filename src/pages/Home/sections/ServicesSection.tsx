@@ -20,30 +20,30 @@ export const ServicesSection: React.FC = () => {
       link: '/consulting/business-consulting'
     },
     {
-      title: 'Technology Consulting',
+      title: 'IT & Digital Transformation Consulting',
       description:
-        "Aumyaa's technology Consulting Services enhance business performance through process optimization, automation, IT strategy development, data management, digital transformation, and enterprise collaboration.",
+        "Our IT consulting services and digital transformation consulting solutions drive business performance through AI consulting, cloud automation, data management, and enterprise technology strategy.",
       image: '/images/home/service2.png',
       link: '/consulting/tech-consulting'
     },
     {
-      title: 'Risk Advisory',
+      title: 'Risk Advisory & Enterprise Risk Management Consulting',
       description:
-        "Aumyaa's Risk Advisory services help businesses manage uncertainty, enhance resilience, and create value through optimized internal controls, business continuity planning, and continuous control monitoring.",
+        "Our risk advisory services help businesses manage uncertainty and build resilience through enterprise risk management consulting, internal controls optimization, and business continuity planning.",
       image: '/images/home/service3.png',
       link: '/consulting/risk-consulting'
     },
     {
-      title: 'ESG Consulting',
+      title: 'ESG Consulting Services India',
       description:
-        "Aumyaa's ESG Consulting services assist organizations in integrating effective Environmental, Social, and Governance (ESG) practices to enhance operational efficiency, sustainable value creation, and strengthen stakeholder relationships.",
+        "Our ESG consulting services help organizations across India integrate Environmental, Social, and Governance (ESG) practices, strengthen sustainability reporting, and build stakeholder trust for long-term value creation.",
       image: '/images/home/service4.png',
       link: '/consulting/esg-consulting'
     },
     {
-      title: 'Compliance Support Solutions',
+      title: 'Compliance Consulting & Regulatory Risk Services',
       description:
-        "Aumyaa's Compliance services support organizations in building strong compliance frameworks, reducing regulatory risks, and staying aligned with evolving laws. We help drive ethical practices and operational integrity, enabling confident and compliant business growth.",
+        "Our compliance consulting and regulatory compliance services help organizations build robust GRC frameworks, reduce regulatory risk, and maintain ethical, compliant business operations in line with evolving laws.",
       image: '/images/home/service5.png',
       link: '/consulting/compliance-services'
     }

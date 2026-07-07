@@ -22,7 +22,7 @@ export const HeroSectionAbout: React.FC = () => {
             color: '#191600',
             fontWeight: 400
           }}>
-            Aumyaa Consulting Services LLP
+            Aumyaa Consulting Services LLP — AI-Enabled Business Consulting & Risk Advisory Firm in India
           </h1>
         </div>
       </div>

@@ -169,7 +169,7 @@ export const Navbar: React.FC = () => {
               >
                 {[
                   ['business-consulting', 'Business Consulting'],
-                  ['tech-consulting', 'Tech Consulting'],
+                  ['tech-consulting', 'Technology Consulting'],
                   ['risk-consulting', 'Risk Consulting'],
                   ['esg-consulting', 'ESG Consulting'],
                   ['compliance-services', 'Compliance Services'],

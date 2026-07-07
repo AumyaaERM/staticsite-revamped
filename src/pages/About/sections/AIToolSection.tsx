@@ -9,7 +9,7 @@ export const AIToolSection: React.FC = () => {
           fontWeight: 400,
           color: '#191600'
         }}>
-          Our <span style={{ color: '#FCD421' }}>AI Tool</span> For Service Delivery Management
+          Our <span style={{ color: '#FCD421' }}>Proprietary AI Tools</span> for Smarter Consulting Service Delivery
         </h2>
         
         {/* AI Tools Screenshot */}
@@ -39,14 +39,14 @@ export const AIToolSection: React.FC = () => {
                 color: '#191600',
                 fontWeight: 400
               }}>
-                DATA DRIVEN DECISIONS
+                DATA-DRIVEN CONSULTING DECISIONS
               </p>
               <p className="leading-[140%] md:leading-[125%] tracking-[-0.01em] text-sm sm:text-base md:text-2xl" style={{
                 fontFamily: 'Inter, sans-serif',
                 color: '#191600',
                 fontWeight: 400
               }}>
-                Unlock insights with ease. Our database tool streamlines data management, amplifying smarter decisions. Effortless data management for powerful consulting outcomes. Efficiency starts here.
+                Unlock actionable insights with our AI-powered data analytics consulting tools. Streamlined data management, faster decisions, and measurable consulting outcomes — built for the modern enterprise.
               </p>
             </div>
           </div>
