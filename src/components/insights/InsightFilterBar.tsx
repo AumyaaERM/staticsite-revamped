@@ -11,7 +11,7 @@ interface InsightFilterBarProps {
 const filters: FilterOption[] = [
   'All',
   'Blog',
-  // 'Newsletter',
+  'Bulletin',
   // 'Case Study',
   // 'Podcast',
   // 'Survey Report',

@@ -1,6 +1,6 @@
 export type InsightCategory =
   | 'Blog'
-  | 'Newsletter'
+  | 'Bulletin'
   | 'Case Study'
   | 'Podcast'
   | 'Survey Report'
