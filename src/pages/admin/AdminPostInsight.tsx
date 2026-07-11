@@ -33,6 +33,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
   "Tech",
   "ESG",
   "Risk",
+  "Compliance",
 ];
 
 const CLOUD_NAME = "ddvyqkmbt";

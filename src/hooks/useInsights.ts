@@ -7,7 +7,7 @@ import type { Insight, ServiceCategory } from "../types/insight";
 const CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQwqNxyLeHbnD0sSvPgH1SlioMibYo0S5rEillup4eOtd4oCU0xB2oQKj__L8yvt4HgV9tgX1HEWw3n/pub?gid=877398146&single=true&output=csv";
 
-const SERVICE_CATEGORIES: ServiceCategory[] = ["Business", "Tech", "ESG", "Risk"];
+const SERVICE_CATEGORIES: ServiceCategory[] = ["Business", "Tech", "ESG", "Risk", "Compliance"];
 
 const slugify = (s: string) =>
   s

@@ -144,7 +144,7 @@ export const Admin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <nav className="px-4 md:px-6 lg:px-8 relative" style={navBg}>
         <div className="w-full flex items-end justify-between py-2">
           <div className="flex flex-shrink-0 mr-2 lg:mr-4 xl:mr-0 scale-50 mt-[-15px] ml-[-80px]">
@@ -186,7 +186,7 @@ export const Admin: React.FC = () => {
             <button
               type="button"
               onClick={handleLogout}
-              className="flex items-center gap-1.5 rounded-[70px] px-3 py-1.5 bg-black/90 hover:bg-black transition-colors text-[11px] lg:text-[12px] xl:text-[13px] uppercase tracking-wide text-[#FCD421]"
+              className="flex items-center gap-1.5 rounded-[70px] px-3 py-1.5 bg-black/90 hover:bg-black transition-colors text-[11px] lg:text-[12px] xl:text-[13px] uppercase tracking-wide text-red-500"
             >
               <LogOut className="w-3.5 h-3.5" />
               Logout
