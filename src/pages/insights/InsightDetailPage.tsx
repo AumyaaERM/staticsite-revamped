@@ -10,7 +10,7 @@ import type { Insight } from "../../types/insight";
 
 const categoryColors: Record<string, string> = {
   Blog: "bg-[#fcd421] text-black",
-  Bulletin: "bg-black text-white",
+  Bulletin: "bg-[#fcd421] text-black",
   "Case Study": "bg-gray-800 text-white",
   Podcast: "bg-purple-600 text-white",
   "Survey Report": "bg-blue-600 text-white",
