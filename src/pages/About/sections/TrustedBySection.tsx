@@ -3,33 +3,33 @@ import React from 'react';
 export const TrustedBySection: React.FC = () => {
   const industries = [
     {
-      title: "Manufacturing",
-      description: "We collaborate with leading Maharatna PSUs and top global manufacturing enterprises to optimize IT infrastructure, enhance operational compliance, and drive sustainable growth through innovative solutions.",
+      title: "Manufacturing & Industrial Consulting",
+      description: "We partner with Maharatna PSUs and global manufacturing enterprises to optimize IT infrastructure, strengthen operational compliance, and drive sustainable growth through innovative risk and technology consulting solutions.",
       image: "/images/about/manufacturing.png"
     },
     {
-      title: "BFSI",
-      description: "Serving top-tier banks, financial institutions, and global insurance providers, we deliver robust risk management frameworks and regulatory compliance solutions to elevate governance and operational efficiency.",
+      title: "BFSI — Banking, Financial Services & Insurance Consulting",
+      description: "Serving top-tier banks, financial institutions, and global insurance providers, we deliver robust risk management frameworks, credit risk advisory, and regulatory compliance consulting to elevate governance and operational efficiency.",
       image: "/images/about/office-modern.png"
     },
     {
-      title: "Technology",
-      description: "Partnering with the largest technology companies operating in over 140 countries, we design scalable SOD frameworks and risk management solutions tailored to complex global operations.",
+      title: "Technology & IT Risk Consulting",
+      description: "Partnering with leading technology companies across 140+ countries, we design scalable SOD frameworks, AI governance models, and IT risk management consulting solutions tailored to complex global operations.",
       image: "/images/about/technology-laptop.png"
     },
     {
-      title: "Consulting",
-      description: "Supporting leading global and national consulting firms, we enhance their service delivery through expert guidance in ITGC, Audit trails, and regulatory compliance to meet evolving client needs.",
+      title: "Risk & Compliance Consulting",
+      description: "We support leading global and national consulting firms with expert guidance in IT General Controls (ITGC), audit trail management, and regulatory compliance consulting — helping firms deliver sharper, more compliant client outcomes.",
       image: "/images/about/team-collaboration.png"
     },
     {
-      title: "ESG",
-      description: "We empower top-performing organizations and global enterprises to embed sustainability into their core strategies through expert ESG consulting and comprehensive training programs.",
+      title: "ESG & Sustainability Consulting",
+      description: "We empower top-performing organizations and global enterprises to embed sustainability into their core business strategies through expert ESG consulting services, carbon footprint advisory, and comprehensive ESG training programs.",
       image: "/images/about/renewable-energy.png"
     },
     {
-      title: "Coaching & Leadership",
-      description: "Working with senior leaders and executives from Fortune 500 companies and global enterprises, we provide customized coaching programs to drive leadership excellence and personal growth.",
+      title: "Executive Coaching &amp; Leadership Development",
+      description: "Working with senior leaders and C-suite executives from Fortune 500 companies and global enterprises, we deliver customized executive coaching programs and leadership advisory services to drive organizational excellence and measurable personal growth.",
       image: "/images/about/consulting-workspace.png"
     }
   ];
@@ -37,13 +37,14 @@ export const TrustedBySection: React.FC = () => {
   return (
     <div className="bg-white py-10 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="w-full">
-        <h2 className="text-[16px] sm:text-[22px] md:text-[32px] lg:text-[42px] xl:text-[48px] leading-[130%] md:leading-[58px] text-left mb-8 md:mb-16 capitalize tracking-[0.01em] sm:tracking-[0.02em] md:tracking-[0.04em] whitespace-nowrap"
+        <h2 className="text-[24px] sm:text-[32px] md:text-[40px] leading-[130%] md:leading-[58px] mb-6 md:mb-12 capitalize tracking-[0.04em] md:tracking-[0.06em]"
             style={{
               fontFamily: 'Days One, sans-serif',
               fontWeight: 400,
               color: '#000000'
             }}>
-          Aumyaa trusted by <span style={{color: '#FCD421'}}>businesses worldwide</span>
+          Trusted <span style={{color: '#FCD421'}}>Business Consulting & Risk Advisory Partner</span>
+          <span style={{color: '#000000'}}> — Serving Enterprises Worldwide</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">

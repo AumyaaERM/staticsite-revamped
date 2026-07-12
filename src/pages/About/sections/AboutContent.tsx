@@ -18,19 +18,19 @@ export const AboutContent: React.FC = () => {
           color: '#000000'
         }}>
           <p className="text-base sm:text-lg md:text-2xl leading-[140%] md:leading-[132%]">
-            AUMYAA is a women-led, AI-enabled consulting firm delivering high-impact Technology, Risk Advisory and ESG solutions to businesses worldwide. Founded in 2020, Aumyaa brings together deep industry experience and forward-thinking innovation to help organizations navigate complexity, embrace transformation, and achieve sustainable growth.
+          AUMYAA is a women-led, AI-enabled business consulting firm delivering high-impact Technology Consulting, Risk Advisory services, and ESG consulting solutions to businesses worldwide. Founded in 2020, Aumyaa combines deep industry expertise with forward thinking innovation to help organizations navigate complexity, drive digital transformation, and achieve sustainable growth.
           </p>
           
           <p className="text-base sm:text-lg md:text-2xl leading-[140%] md:leading-[132%]">
-            Our leadership team is self-made and driven, with a proven track record in Big 4 firms and Fortune 500 companies. They have served a diverse global clientele—including multinationals, listed companies, privately held enterprises, and family-owned businesses—across domains of Risk and Technology Consulting.
+          Our leadership team brings a proven track record from Big 4 consulting firms and Fortune 500 companies. With experience serving multinationals, listed companies, privately held enterprises, and family-owned businesses, our experts deliver world-class Risk Advisory and Technology Consulting across diverse industries.
           </p>
           
           <p className="text-base sm:text-lg md:text-2xl leading-[140%] md:leading-[132%]">
-            At Aumyaa, we specialize in: Business Consulting, Technology Consulting, Risk Advisory, Compliance Support Solutions & Environmental, Social, and Governance (ESG) Services.
+          At Aumyaa, we specialize in: Business Consulting Services, IT & Technology Consulting, Risk Advisory & Enterprise Risk Management, Compliance Support & GRC Solutions, and ESG Consulting Services — helping organizations build resilience, drive growth, and stay ahead of evolving regulations.
           </p>
           
           <p className="text-base sm:text-lg md:text-2xl leading-[140%] md:leading-[132%]">
-            With a strong foundation in values and expertise, we are committed to empowering our clients through insights, innovation, and integrity.
+          With a strong foundation in values and deep domain expertise, Aumyaa is committed to empowering clients across India and globally through actionable insights, responsible innovation, and unwavering integrity.
           </p>
         </div>
       </div>

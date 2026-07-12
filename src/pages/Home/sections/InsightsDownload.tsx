@@ -111,7 +111,7 @@ export const InsightsDownloads: React.FC = () => {
         </h2>
         <div className="space-y-4">
           <a
-            href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/NewsLetter/JULY%20NEWSLETTER%202024.pdf?CT=1765799086359&OR=ItemsView"
+            href="/Newsletter April.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={whiteTextStyle}

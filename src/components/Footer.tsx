@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
             <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-black" style={{ fontFamily: 'Days One, sans-serif' }}>Aumyaa Consulting Services LLP</h3>
-            <p className="text-sm font-semibold mb-4 md:mb-6 text-black" style={{ fontFamily: 'Inter, sans-serif' }}>Our Certification Recognizes Quality and Competence</p>
+            <p className="text-sm font-semibold mb-4 md:mb-6 text-black" style={{ fontFamily: 'Inter, sans-serif' }}>ISO 27001 & SOC 2 Certified Business Consulting & Risk Advisory Firm</p>
               <div className="flex gap-4">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-[#FFF8B7] rounded-full flex items-center justify-center p-2 md:p-3">
                 <img src="/images/home/iso.png" alt="ISO 27001" className="w-full h-full object-contain" />
@@ -29,11 +29,11 @@ export const Footer: React.FC = () => {
             <div>
             <h4 className="font-bold text-lg mb-3 md:mb-4 text-black" style={{ fontFamily: 'Days One, sans-serif' }}>Services</h4>
               <ul className="space-y-2 text-sm">
-              <li><Link to="/consulting/business-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Business Consulting</Link></li>
-              <li><Link to="/consulting/tech-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Technology Consulting</Link></li>
-              <li><Link to="/consulting/risk-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Risk Advisory</Link></li>
-              <li><Link to="/consulting/esg-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">ESG Consulting</Link></li>
-              <li><Link to="/consulting/compliance-services" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Compliance Support Solutions</Link></li>
+              <li><Link to="/consulting/business-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Business Consulting Services</Link></li>
+              <li><Link to="/consulting/tech-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">IT & Technology Consulting</Link></li>
+              <li><Link to="/consulting/risk-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Risk Advisory Services</Link></li>
+              <li><Link to="/consulting/esg-consulting" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">ESG & Sustainability Consulting</Link></li>
+              <li><Link to="/consulting/compliance-services" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Compliance & GRC Solutions</Link></li>
               <li><Link to="/consulting/dpdp-compliance" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">DPDP Compliance Services</Link></li>
               </ul>
             </div>

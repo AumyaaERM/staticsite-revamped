@@ -7,7 +7,7 @@ export const LeadersSection: React.FC = () => {
   const leaders = [
     {
       name: "Yukti Arora",
-      title: "Founder and CEO",
+      title: "Founder & CEO, Business Consulting & Risk Advisory",
       image: "/images/about/yukti-arora.png",
       credentials: "CA, CISA, DISA, ISO 27001 Lead Auditor",
       email: "yukti.arora@aumyaa.com",
@@ -18,7 +18,7 @@ export const LeadersSection: React.FC = () => {
     },
     {
       name: "Jyoti Singh",
-      title: "Business Partner",
+      title: "Business Partner, Technology & Compliance Consulting",
       image: "/images/about/jyoti-singh.png",
       credentials: "B.Com, CA, DISA, Certificate Course on BRSR, GRI Certified, TCFD Certified",
       email: "jyoti.singh@aumyaa.com",
@@ -29,7 +29,7 @@ export const LeadersSection: React.FC = () => {
     },
     {
       name: "Manjula Banerji",
-      title: "Transformation & Leadership coach",
+      title: "Executive Coach & Transformation Leadership Advisor",
       image: "/images/about/maula-ramoju.png",
       credentials: "Former Audit & Assurance Partner and Board member of Deloitte Haskins & Sells LLP (India), ICF-accredited Executive Coach & Chartered Accountant,",
       email: "mbanerji1301@gmail.com",
@@ -40,7 +40,7 @@ export const LeadersSection: React.FC = () => {
     },
     {
       name: "Ayushi Aggarwal",
-      title: "Associate Partner",
+      title: "Associate Partner, Risk & Compliance Advisory",
       image: "/images/about/ayushi.png",
       credentials: "CS, LLB, B.com (h), Certificate Course on  FICCI, RBI Compliance Program, IRDAI- Application of AI",
       email: "ayushi.aggarwal@gmail.com",
@@ -63,7 +63,8 @@ export const LeadersSection: React.FC = () => {
           fontWeight: 400,
           color: '#000000'
         }}>
-          Our <span style={{ color: '#FCD421' }}>Leaders</span>
+          Meet Our <span style={{ color: '#FCD421' }}>Leadership Team</span>
+          <span style={{ color: '#000000' }}> — Senior Consulting & Advisory Experts</span>
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -134,7 +135,7 @@ export const LeadersSection: React.FC = () => {
                         fontWeight: 500,
                         color: '#FFFFFF'
                       }}>
-                        Flip For Details
+                        View Profile & Expertise
                       </span>
                     </button>
                   </div>

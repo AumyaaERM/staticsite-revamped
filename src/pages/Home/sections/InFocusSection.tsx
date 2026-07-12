@@ -55,15 +55,11 @@ export const InFocusSection: React.FC = () => {
                   className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6"
                   style={{ fontFamily: "Days One, sans-serif" }}
                 >
-                  Navigating Net Zero: <span className="italic">A</span> Sustainable
-                  Business Transformation
+                  Navigating Net Zero: <span className="italic">ESG</span> & Climate Risk Consulting for Sustainable Business Transformation
                 </h3>
 
                 <p className="text-sm sm:text-base mb-6 md:mb-10 leading-relaxed">
-                  Embark on a transformative journey towards net-zero emissions with
-                  our comprehensive guide! 🚀 From assessing your current standing to
-                  setting ambitious targets aligned with global standards, we explore
-                  each step of the Net Zero Roadmap.
+                Embark on a transformative journey towards net-zero emissions with our sustainability consulting guide. From carbon footprint assessment to setting targets aligned with global ESG standards, we walk through each step of the Net Zero Roadmap.
                 </p>
 
                 <a
