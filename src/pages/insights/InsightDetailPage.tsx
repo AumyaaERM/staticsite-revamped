@@ -29,8 +29,41 @@ const ctaStyle: React.CSSProperties = {
   color: "#000000",
 };
 
-// Pass `insight` directly (preview mode from /admin) OR let it look the post up
-// by URL slug from the published CSV (normal live behavior). Same component.
+// ── YouTube embed support ──
+const getYouTubeId = (url: string): string | null => {
+  const match = url.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/,
+  );
+  return match ? match[1] : null;
+};
+
+// True only when the text is ONLY a URL (no surrounding words / spaces).
+const isBareUrl = (text: string): boolean => /^https?:\/\/\S+$/.test(text);
+
+// Walks a remark/hast node and concatenates its text. For an autolinked bare
+const getNodeText = (node: any): string => {
+  if (!node) return "";
+  if (node.type === "text") return node.value ?? "";
+  if (Array.isArray(node.children)) {
+    return node.children.map(getNodeText).join("");
+  }
+  return "";
+};
+
+// Responsive 16:9 branded YouTube player. ClassName-only (no inline style
+const YouTubeEmbed: React.FC<{ id: string }> = ({ id }) => (
+  <div className="my-8 w-full aspect-video overflow-hidden rounded-2xl shadow-sm">
+    <iframe
+      className="w-full h-full"
+      src={`https://www.youtube.com/embed/${id}`}
+      title="YouTube video player"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowFullScreen
+    />
+  </div>
+);
+
 export const InsightDetailPage: React.FC<{ insight?: Insight }> = ({
   insight: injected,
 }) => {
@@ -156,11 +189,19 @@ export const InsightDetailPage: React.FC<{ insight?: Insight }> = ({
                   {children}
                 </h3>
               ),
-              p: ({ children }) => (
-                <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-5 text-justify">
-                  {children}
-                </p>
-              ),
+              p: ({ node, children }) => {
+                // If this paragraph is nothing but a bare YouTube URL, render
+                const text = getNodeText(node).trim();
+                if (isBareUrl(text)) {
+                  const ytId = getYouTubeId(text);
+                  if (ytId) return <YouTubeEmbed id={ytId} />;
+                }
+                return (
+                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-5 text-justify">
+                    {children}
+                  </p>
+                );
+              },
               blockquote: ({ children }) => (
                 <blockquote className="border-l-4 border-[#fcd421] bg-yellow-50 px-4 sm:px-6 py-4 my-6 rounded-r-xl">
                   <div className="text-gray-800 text-sm sm:text-base font-medium italic leading-relaxed">
