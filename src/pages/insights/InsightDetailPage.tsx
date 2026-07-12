@@ -1,64 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { Navbar } from '../../components/Navbar';
-import { Footer } from '../../components/Footer';
-import { useInsights } from '../../hooks/useInsights';
-import type { Insight } from '../../types/insight'; 
-
-const markdownFiles = import.meta.glob(
-  '/src/content/insights/*.md',
-  { query: '?raw', import: 'default' }
-);
+// src/pages/insights/InsightDetailPage.tsx
+import React from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { Navbar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
+import { useInsights } from "../../hooks/useInsights";
+import type { Insight } from "../../types/insight";
 
 const categoryColors: Record<string, string> = {
-  'Blog':          'bg-[#fcd421] text-black',
-  'Bulletin':    'bg-[#fcd421] text-black',
-  'Case Study':    'bg-gray-800 text-white',
-  'Podcast':       'bg-purple-600 text-white',
-  'Survey Report': 'bg-blue-600 text-white',
-  'Insight':       'bg-[#fcd421] text-black',
+  Blog: "bg-[#fcd421] text-black",
+  Bulletin: "bg-[#fcd421] text-black",
+  "Case Study": "bg-gray-800 text-white",
+  Podcast: "bg-purple-600 text-white",
+  "Survey Report": "bg-blue-600 text-white",
+  Insight: "bg-[#fcd421] text-black",
 };
 
-const headingFont = { fontFamily: 'Days One, sans-serif' };
+const headingFont = { fontFamily: "Days One, sans-serif" };
+const backBtnStyle: React.CSSProperties = {
+  fontFamily: "Days One, sans-serif",
+  backgroundColor: "#fcd421",
+  color: "#000000",
+};
+const ctaStyle: React.CSSProperties = {
+  fontFamily: "Days One, sans-serif",
+  textDecoration: "none",
+  color: "#000000",
+};
 
-export const InsightDetailPage: React.FC = () => {
+// Pass `insight` directly (preview mode from /admin) OR let it look the post up
+// by URL slug from the published CSV (normal live behavior). Same component.
+export const InsightDetailPage: React.FC<{ insight?: Insight }> = ({
+  insight: injected,
+}) => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { insights, loading: insightsLoading } = useInsights();
 
-  const [insight, setInsight] = useState<Insight | null>(null);
-  const [markdownContent, setMarkdownContent] = useState<string>('');
-  const [contentLoading, setContentLoading] = useState<boolean>(true);
-  const [notFound, setNotFound] = useState<boolean>(false);
+  const isPreview = !!injected;
+  const insight = injected ?? insights.find((i) => i.slug === slug) ?? null;
 
-  useEffect(() => {
-    if (insightsLoading) return;
-    const found = insights.find((i) => i.slug === slug);
-    if (!found) {
-      setNotFound(true);
-      setContentLoading(false);
-      return;
-    }
-    setInsight(found);
-  }, [slug, insights, insightsLoading]);
-
-  useEffect(() => {
-    if (!insight) return;
-    const filePath = `/src/content/insights/${insight.contentFile}.md`;
-    const loader = markdownFiles[filePath];
-    if (!loader) {
-      setContentLoading(false);
-      return;
-    }
-    loader()
-      .then((content) => setMarkdownContent(content as string))
-      .catch(() => setMarkdownContent(''))
-      .finally(() => setContentLoading(false));
-  }, [insight]);
-
-  if (insightsLoading || contentLoading) {
+  // Loading / not-found states apply only on the live route (never in preview).
+  if (!isPreview && insightsLoading) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
@@ -71,7 +55,7 @@ export const InsightDetailPage: React.FC = () => {
     );
   }
 
-  if (notFound || !insight) {
+  if (!isPreview && !insight) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
@@ -90,19 +74,19 @@ export const InsightDetailPage: React.FC = () => {
     );
   }
 
-  const badgeClass = categoryColors[insight.category] ?? 'bg-[#fcd421] text-black';
+  if (!insight) return null;
 
-  const heroStyle = {
-    backgroundImage: `url(${insight.image})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center top',
+  const badgeClass =
+    categoryColors[insight.category] ?? "bg-[#fcd421] text-black";
+
+  const heroStyle: React.CSSProperties = {
+    backgroundImage: `url("${insight.image}")`,
+    backgroundSize: "cover",
+    backgroundPosition: "center top",
   };
 
-  return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar />
-      <div className="h-6 bg-white" />
-
+  const content = (
+    <>
       {/* ── HERO ── */}
       <div className="relative w-full" style={heroStyle}>
         {/* Gradient overlay */}
@@ -110,20 +94,23 @@ export const InsightDetailPage: React.FC = () => {
 
         {/* Content sits on top of the image */}
         <div className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-8 sm:pb-12">
-
           {/* Back button */}
           <button
-            onClick={() => navigate('/insights')}
+            onClick={() => navigate("/insights")}
             className="inline-flex items-center gap-2 bg-[#fcd421] text-black font-bold px-5 py-2.5 rounded-full hover:bg-yellow-400 transition-colors text-xs sm:text-sm mb-6 sm:mb-8 group"
-            style={{ fontFamily: 'Days One, sans-serif', backgroundColor: '#fcd421', color: '#000000' }}          
+            style={backBtnStyle}
           >
-            <span className="group-hover:-translate-x-0.5 transition-transform">←</span>
+            <span className="group-hover:-translate-x-0.5 transition-transform">
+              ←
+            </span>
             Back to Insights
           </button>
 
           {/* Badges */}
           <div className="flex items-center gap-2 mb-3">
-            <span className={`inline-block text-xs font-bold px-4 py-1.5 rounded-full ${badgeClass}`}>
+            <span
+              className={`inline-block text-xs font-bold px-4 py-1.5 rounded-full ${badgeClass}`}
+            >
               {insight.category}
             </span>
             {insight.serviceCategory && (
@@ -147,13 +134,12 @@ export const InsightDetailPage: React.FC = () => {
             <span>·</span>
             <span>{insight.category}</span>
           </div>
-
         </div>
-      </div>    
+      </div>
 
       {/* ── ARTICLE BODY ── */}
       <main className="flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-        {markdownContent ? (
+        {insight.content ? (
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
@@ -199,7 +185,9 @@ export const InsightDetailPage: React.FC = () => {
                 </ol>
               ),
               li: ({ children }) => (
-                <li className="text-sm sm:text-base leading-relaxed">{children}</li>
+                <li className="text-sm sm:text-base leading-relaxed">
+                  {children}
+                </li>
               ),
               hr: () => (
                 <div className="w-full border-t-2 border-dashed border-[#fcd421] my-8" />
@@ -207,8 +195,8 @@ export const InsightDetailPage: React.FC = () => {
               img: ({ src, alt }) => (
                 <div className="my-8 max-w-[70%] mx-auto rounded-2xl overflow-hidden shadow-sm">
                   <img
-                    src={src}
-                    alt={alt ?? ''}
+                    src={src as string}
+                    alt={alt ?? ""}
                     className="w-full h-auto block"
                   />
                   {alt && (
@@ -228,7 +216,7 @@ export const InsightDetailPage: React.FC = () => {
                   {children}
                 </a>
               ),
-              // ── TABLE COMPONENTS ── (new)
+              // ── TABLE COMPONENTS ──
               table: ({ children }) => (
                 <div className="overflow-x-auto my-8">
                   <table className="w-full border-collapse text-sm">
@@ -256,7 +244,7 @@ export const InsightDetailPage: React.FC = () => {
               ),
             }}
           >
-            {markdownContent}
+            {insight.content}
           </ReactMarkdown>
         ) : (
           <p className="text-gray-400 italic">Content coming soon.</p>
@@ -267,14 +255,29 @@ export const InsightDetailPage: React.FC = () => {
           <Link
             to="/insights"
             className="inline-flex items-center gap-2 bg-[#fcd421] text-black font-bold px-6 py-3 rounded-full hover:bg-yellow-400 transition-colors text-sm sm:text-base"
-            style={{ fontFamily: 'Days One, sans-serif', textDecoration: 'none', color: '#000000' }} 
+            style={ctaStyle}
           >
             ← Back to all insights
           </Link>
         </div>
       </main>
+    </>
+  );
 
+  // Preview (inside /admin): render the article only — no Navbar/Footer chrome.
+  if (isPreview) {
+    return <div className="bg-white">{content}</div>;
+  }
+
+  // Live route: full page with Navbar + Footer.
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <Navbar />
+      <div className="h-6 bg-white" />
+      {content}
       <Footer />
     </div>
   );
 };
+
+export default InsightDetailPage;

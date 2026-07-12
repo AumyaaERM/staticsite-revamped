@@ -20,7 +20,9 @@ import { InsightDetailPage } from './pages/insights/InsightDetailPage';
 import { initGA, usePageTracking } from './utils/analytics';
 import DpdpCompliancePage from './pages/Consulting/DpdpCompliancePage';
 import { Login } from './pages/Login';
-import { Admin } from './pages/Admin';
+import { Admin } from './pages/admin';
+import AdminPostInsight from './pages/admin/AdminPostInsight';
+import { RequireAuth } from './components/RequireAuth';
 import { DPDP_FORM_URL, IS_DPDP_FORM_CONFIGURED } from './config/dpdpForm';
 
 // Main App Component
@@ -102,18 +104,15 @@ const App: React.FC = () => {
         <Route path="/consulting/compliance-services" element={<ComplianceServices />} />
         <Route path="/consulting/dpdp-compliance" element={<DpdpCompliancePage />} />
         <Route path="/consulting/dpdp-compliance/assessment" element={<DpdpAssessmentRedirect />} />
-
         {/* ── INSIGHTS ── */}
         <Route path="/insights" element={<InsightsPage />} />
         <Route path="/insights/:slug" element={<InsightDetailPage />} />
-
         {/* ── LOGIN ── */}
         <Route path="/login" element={<Login />} />
-
         {/* ── ADMIN ── */}
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<RequireAuth><Admin /></RequireAuth>} />
+        <Route path="/admin/post-insight" element={<RequireAuth><AdminPostInsight /></RequireAuth>} />
       </Routes>
-
       {/* Cookie Consent Banner - appears on all pages */}
       <CookieConsent />
     </Router>

@@ -1,83 +1,102 @@
-import { useState, useEffect } from 'react';
-import type { Insight } from '../types/insight';
+// src/hooks/useInsights.ts
+import { useEffect, useState } from "react";
+import Papa from "papaparse";
+import type { Insight, ServiceCategory } from "../types/insight";
 
-const GOOGLE_SHEETS_CSV_URL =
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTJz9QKNP238g471r8-ZEBAHbtu3CdK5RKrLMKxfC52v4dszroe5oeylwXedjJQOUXnShWaNTcinUaW/pub?output=csv';
+// The Form-linked published CSV.
+const CSV_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQwqNxyLeHbnD0sSvPgH1SlioMibYo0S5rEillup4eOtd4oCU0xB2oQKj__L8yvt4HgV9tgX1HEWw3n/pub?gid=877398146&single=true&output=csv";
 
-const fallbackImages = [
-  'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400&h=250&fit=crop',
-  'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop',
-  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop',
-];
+const SERVICE_CATEGORIES: ServiceCategory[] = ["Business", "Tech", "ESG", "Risk", "Compliance"];
 
-function parseCSVRow(row: string): string[] {
-  const cols: string[] = [];
-  let current = '';
-  let inQuotes = false;
-  for (let i = 0; i < row.length; i++) {
-    const char = row[i];
-    if (char === '"') {
-      inQuotes = !inQuotes;
-    } else if (char === ',' && !inQuotes) {
-      cols.push(current);
-      current = '';
-    } else {
-      current += char;
+const slugify = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+
+// Read a column tolerant of header case / stray spaces / BOM, and trim the value.
+const pick = (row: Record<string, string>, name: string): string => {
+  const target = name.trim().toLowerCase();
+  for (const key of Object.keys(row)) {
+    if (key.replace(/^\uFEFF/, "").trim().toLowerCase() === target) {
+      return (row[key] ?? "").trim();
     }
   }
-  cols.push(current);
-  return cols;
-}
-
-let cache: Insight[] | null = null;
+  return "";
+};
 
 export function useInsights() {
-  const [insights, setInsights] = useState<Insight[]>(cache ?? []);
-  const [loading, setLoading] = useState(!cache);
+  const [insights, setInsights] = useState<Insight[]>([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (cache) {
-      setInsights(cache);
-      setLoading(false);
-      return; 
-    }
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
 
-    fetch(GOOGLE_SHEETS_CSV_URL)  
-      .then((res) => res.text())
-      .then((text) => {
-        const rows = text.split('\n').slice(1); // skip header row
-        const fetched = rows
-          .filter((row) => row.trim())
-          .map((row, index) => {
-            const cols = parseCSVRow(row);
-            const image =
-              cols[2] && cols[2].trim() !== ''
-                ? cols[2].trim()
-                : fallbackImages[index % fallbackImages.length];
+    // Cache-bust so the browser never serves a stale copy on refresh.
+    const url = `${CSV_URL}&_cb=${Date.now()}`;
+
+    Papa.parse<Record<string, string>>(url, {
+      download: true,
+      header: true,
+      skipEmptyLines: "greedy",
+      transformHeader: (h) => h.replace(/^\uFEFF/, "").trim(),
+      complete: (res) => {
+        if (cancelled) return;
+
+        const rows: Insight[] = (res.data as Record<string, string>[])
+          .map((row) => {
+            const title = pick(row, "Title");
+            const status = pick(row, "Status").toLowerCase();
+            const rawService = pick(row, "Service Category");
+            const serviceCategory = (SERVICE_CATEGORIES.find(
+              (c) => c.toLowerCase() === rawService.toLowerCase(),
+            ) ?? "") as ServiceCategory | "";
+            const featured = ["yes", "true", "1"].includes(
+              pick(row, "Featured?").toLowerCase(),
+            );
+
             return {
-              title:           cols[0] || '',
-              date:            cols[1] || '',
-              image,
-              description:     cols[3] || '',
-              category:        (cols[4]?.trim() as Insight['category']) || 'Insight',
-              slug:            cols[5]?.trim() || '',
-              contentFile:     cols[6]?.trim() || '',
-              featured:        cols[7]?.trim().toUpperCase() === 'TRUE',
-              serviceCategory: (cols[8]?.trim() as Insight['serviceCategory']) || '',
+              insight: {
+                title,
+                date: pick(row, "Date"),
+                image: pick(row, "Cover Image URL"),
+                description: pick(row, "Description"),
+                category: (pick(row, "Category") || "Blog") as Insight["category"],
+                slug: slugify(title),
+                contentFile: slugify(title),
+                content: pick(row, "Content (Markdown)"),
+                featured,
+                serviceCategory,
+              } as Insight,
+              status,
             };
           })
-          .filter((insight) => insight.title && insight.date && insight.slug) as Insight[];
+          // Keep only real, published rows (ignores blank trailing rows / drafts).
+          .filter((r) => r.insight.title !== "" && r.status === "published")
+          .map((r) => r.insight);
 
-        cache = fetched;
-        setInsights(fetched);
+        setInsights(rows);
         setLoading(false);
-      })
-      .catch((err) => {
+      },
+      error: (err) => {
+        if (cancelled) return;
         setError(err.message);
         setLoading(false);
-      });
+      },
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return { insights, loading, error };
 }
+
+export default useInsights;
