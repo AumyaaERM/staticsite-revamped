@@ -12,9 +12,9 @@ const filters: FilterOption[] = [
   'All',
   'Blog',
   'Bulletin',
-  'Case Study',
+  // 'Case Study',
   'Podcast',
-  'Survey Report',
+  // 'Survey Report',
 ];
 
 export const InsightFilterBar: React.FC<InsightFilterBarProps> = ({ active, onChange }) => {
