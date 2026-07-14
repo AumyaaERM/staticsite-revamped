@@ -81,7 +81,7 @@ export function useInsights() {
           .filter((r) => r.insight.title !== "" && r.status === "published")
           .map((r) => r.insight);
 
-        setInsights(rows);
+        setInsights(rows.reverse());
         setLoading(false);
       },
       error: (err) => {
