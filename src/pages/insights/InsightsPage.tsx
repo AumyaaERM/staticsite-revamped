@@ -19,6 +19,10 @@ export const InsightsPage: React.FC = () => {
       ? insights
       : insights.filter((i) => i.category === activeFilter);
 
+  const availableCategories = Array.from(
+    new Set(insights.map((i) => i.category)),
+  ) as InsightCategory[];
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
@@ -56,10 +60,16 @@ export const InsightsPage: React.FC = () => {
       {/* ── FILTER + CARDS ── */}
       <main className="flex-1 px-4 sm:px-8 md:px-16 py-10 md:py-14">
 
-        {/* Filter bar */}
-        <div className="mb-8">
-          <InsightFilterBar active={activeFilter} onChange={setActiveFilter} />
-        </div>
+        {/* Filter bar — only when at least one insight exists */}
+        {!loading && !error && insights.length > 0 && (
+          <div className="mb-8">
+            <InsightFilterBar
+              active={activeFilter}
+              onChange={setActiveFilter}
+              available={availableCategories}
+            />
+          </div>
+        )}
 
         {/* Loading */}
         {loading ? (

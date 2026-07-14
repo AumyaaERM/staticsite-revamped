@@ -6,21 +6,26 @@ type FilterOption = 'All' | InsightCategory;
 interface InsightFilterBarProps {
   active: FilterOption;
   onChange: (category: FilterOption) => void;
+  available: InsightCategory[];
 }
 
-const filters: FilterOption[] = [
-  'All',
+const CATEGORY_ORDER: InsightCategory[] = [
   'Blog',
   'Bulletin',
-  // 'Case Study',
+  'Case Study',
   'Podcast',
   'Survey Report',
 ];
 
-export const InsightFilterBar: React.FC<InsightFilterBarProps> = ({ active, onChange }) => {
+export const InsightFilterBar: React.FC<InsightFilterBarProps> = ({ active, onChange, available }) => {
+  const visibleFilters = [
+    'All',
+    ...CATEGORY_ORDER.filter((c) => available.includes(c)),
+  ] as FilterOption[];
+
   return (
     <div className="flex flex-wrap gap-3 justify-center">
-      {filters.map((filter) => {
+      {visibleFilters.map((filter) => {
         const isActive = active === filter;
         return (
           <button
@@ -31,7 +36,7 @@ export const InsightFilterBar: React.FC<InsightFilterBarProps> = ({ active, onCh
                 ? 'bg-black text-[#fcd421]'
                 : 'bg-[#fcd421] text-black hover:bg-yellow-400'
               }`}
-            style={{ fontFamily: 'Days One, sans-serif' }} 
+            style={{ fontFamily: 'Days One, sans-serif' }}
           >
             {filter === 'All' ? 'All Topics' : filter}
           </button>
