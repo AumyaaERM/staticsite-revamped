@@ -17,6 +17,7 @@ import { ESGConsulting } from './pages/Consulting/ESGConsulting';
 import { ComplianceServices } from './pages/Consulting/ComplianceServices';
 import { InsightsPage } from './pages/insights/InsightsPage';
 import { InsightDetailPage } from './pages/insights/InsightDetailPage';
+import { DownloadsPage } from './pages/downloads/DownloadsPage';
 import { initGA, usePageTracking } from './utils/analytics';
 import DpdpCompliancePage from './pages/Consulting/DpdpCompliancePage';
 import { Login } from './pages/Login';
@@ -112,6 +113,8 @@ const App: React.FC = () => {
         {/* ── ADMIN ── */}
         <Route path="/admin" element={<RequireAuth><Admin /></RequireAuth>} />
         <Route path="/admin/post-insight" element={<RequireAuth><AdminPostInsight /></RequireAuth>} />
+
+        <Route path="/downloads" element={<DownloadsPage />} />
       </Routes>
       {/* Cookie Consent Banner - appears on all pages */}
       <CookieConsent />
