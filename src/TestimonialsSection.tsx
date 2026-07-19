@@ -35,6 +35,12 @@ export const TestimonialsSection: React.FC = () => {
     },
     {
       quote:
+        "Aumyaa's risk advisory services gave us a clear view of our control gaps and a practical roadmap to strengthen governance. Their team worked closely with us to embed risk management into everyday decision-making.",
+      author: "CFO",
+      role: "Risk Advisory Engagement",
+    },
+    {
+      quote:
         "The ESG training conducted by Aumyaa Consulting Services was insightful and practical.",
       author: "Training Participant",
       role: "ESG Awareness Session",
