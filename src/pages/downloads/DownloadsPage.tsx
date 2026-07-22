@@ -2,18 +2,9 @@ import React, { useState } from 'react';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer';
 import { Download, Mail, BarChart3, Building2 } from 'lucide-react';
+import { useDownloads, type DownloadDoc, type DownloadCategory } from '../../hooks/useDownloads';
 
-/* ── Types ── */
-type DownloadCategory = 'Newsletter' | 'Firm Profile' | 'Survey Reports';
 type FilterOption = 'All' | DownloadCategory;
-
-interface DownloadItem {
-  title: string;
-  category: DownloadCategory;
-  description: string;
-  date: string;
-  pdfUrl: string;
-}
 
 const headingFont = { fontFamily: 'Days One, sans-serif' };
 const bannerStyle = {
@@ -22,24 +13,13 @@ const bannerStyle = {
   backgroundPosition: 'center',
 };
 
-const downloads: DownloadItem[] = [
-  {
-    title: 'NBFC Key Regulatory Developments (RBI), Quarter 1 2026',
-    category: 'Newsletter',
-    description:
-      'Explore the latest RBI regulatory developments for NBFCs in Quarter 1, 2026, including key circulars, compliance updates, supervisory expectations, and regulatory changes impacting the financial sector.',
-    date: 'April, 2026',
-    pdfUrl: '/Newsletter April.pdf',
-  },
-  {
-    title: 'Unlocking ESG Excellence',
-    category: 'Survey Reports',
-    description:
-      'Explore insights from our ESG survey covering BRSR reporting, ESG data management, governance, sustainability, board decision-making, and evolving regulatory requirements. Discover key trends, implementation challenges, and best practices for building a stronger ESG framework.',
-    date: 'May, 2025',
-    pdfUrl: '/ESG Report.pdf',
-  },
-];
+/* Cloudinary force-download: insert fl_attachment so the file downloads
+   instead of opening (the <a download> attr is ignored cross-origin). */
+const toDownloadUrl = (url: string, name: string): string => {
+  if (!url.includes('/upload/')) return url;
+  const safe = name.replace(/[^\w.-]+/g, '_');
+  return url.replace('/upload/', `/upload/fl_attachment:${encodeURIComponent(safe)}/`);
+};
 
 /* ── Category → icon (top-right of card) ── */
 const categoryIcon: Record<DownloadCategory, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
@@ -82,7 +62,7 @@ const FilterBar: React.FC<{
 };
 
 /* ── Download card ── */
-const DownloadCard: React.FC<{ item: DownloadItem }> = ({ item }) => {
+const DownloadCard: React.FC<{ item: DownloadDoc }> = ({ item }) => {
   const Icon = categoryIcon[item.category];
   return (
     <div
@@ -117,8 +97,7 @@ const DownloadCard: React.FC<{ item: DownloadItem }> = ({ item }) => {
       <div className="flex items-center justify-between">
         <span className="text-gray-500 text-sm">{item.date}</span>
         <a
-          href={item.pdfUrl}
-          download
+          href={toDownloadUrl(item.pdfUrl, item.title)}
           onClick={(e) => e.stopPropagation()}
           aria-label={`Download ${item.title}`}
           className="flex items-center justify-center w-9 h-9 rounded-full"
@@ -132,6 +111,7 @@ const DownloadCard: React.FC<{ item: DownloadItem }> = ({ item }) => {
 
 /* ── Page ── */
 export const DownloadsPage: React.FC = () => {
+  const { downloads, loading, error } = useDownloads();
   const [activeFilter, setActiveFilter] = useState<FilterOption>('All');
 
   const filtered =
@@ -152,10 +132,7 @@ export const DownloadsPage: React.FC = () => {
         <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <p className="text-white text-sm sm:text-base tracking-widest mb-3">Resources</p>
-          <h1
-            className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
-            style={headingFont}
-          >
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mb-4" style={headingFont}>
             Downloads
           </h1>
           <p className="text-[#fcd421] text-sm sm:text-base font-semibold max-w-3xl leading-relaxed">
@@ -167,24 +144,36 @@ export const DownloadsPage: React.FC = () => {
 
       {/* ── FILTER + CARDS ── */}
       <main className="flex-1 px-4 sm:px-8 md:px-16 py-10 md:py-14">
-        {downloads.length > 0 && (
-          <div className="mb-8">
-            <FilterBar active={activeFilter} onChange={setActiveFilter} available={availableCategories} />
-          </div>
-        )}
-
-        {filtered.length === 0 ? (
+        {loading ? (
           <div className="flex items-center justify-center h-64">
-            <p className="text-gray-400 text-sm italic">
-              No {activeFilter === 'All' ? '' : activeFilter} documents available yet.
-            </p>
+            <p className="text-gray-400 text-sm italic">Loading downloads…</p>
+          </div>
+        ) : error ? (
+          <div className="flex items-center justify-center h-64">
+            <p className="text-red-400 text-sm italic">{error}</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((item, i) => (
-              <DownloadCard key={i} item={item} />
-            ))}
-          </div>
+          <>
+            {downloads.length > 0 && (
+              <div className="mb-8">
+                <FilterBar active={activeFilter} onChange={setActiveFilter} available={availableCategories} />
+              </div>
+            )}
+
+            {filtered.length === 0 ? (
+              <div className="flex items-center justify-center h-64">
+                <p className="text-gray-400 text-sm italic">
+                  No {activeFilter === 'All' ? '' : activeFilter} documents available yet.
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filtered.map((item, i) => (
+                  <DownloadCard key={i} item={item} />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </main>
 
