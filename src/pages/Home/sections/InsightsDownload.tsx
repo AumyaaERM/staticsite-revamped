@@ -114,12 +114,18 @@ const featuredDownloads = DL_ORDER
   {/* DOWNLOADS SECTION */}
 <div className="bg-[#fcd421] p-6 sm:p-8 md:p-10 rounded-2xl">
   {/* Header row: title + View Archive (mirrors the Insights layout) */}
-  <div className="flex flex-wrap items-center justify-between gap-4 mb-6 md:mb-8 pb-4 border-b-2 border-black">
-    <div className="flex ml-50">
+  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 md:mb-8 pb-4 border-b-2 border-black">
+    <h2
+      style={headingStyle}
+      className="text-3xl sm:text-4xl md:text-5xl font-bold text-black order-1 sm:order-none"
+    >
+      Downloads
+    </h2>
+    <div className="w-full sm:w-auto order-2 sm:order-none">
       <Link
         to="/downloads"
         style={{ ...headingStyle, color: 'white' }}
-        className="group inline-flex items-center gap-2 bg-black text-white no-underline text-sm sm:text-base font-bold px-6 py-3 rounded-full hover:bg-gray-900 hover:scale-[1.03] transition-all whitespace-nowrap"
+        className="group inline-flex items-center justify-center w-full sm:w-auto gap-2 bg-black text-white no-underline text-sm sm:text-base font-bold px-6 py-3 rounded-full hover:bg-gray-900 hover:scale-[1.03] transition-all whitespace-nowrap"
       >
         View Archive
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
@@ -127,12 +133,6 @@ const featuredDownloads = DL_ORDER
         </svg>
       </Link>
     </div>
-    <h2
-      style={headingStyle}
-      className="text-3xl sm:text-4xl md:text-5xl font-bold text-black ml-10"
-    >
-      Downloads
-    </h2>
   </div>
 
   <div className="space-y-4">
