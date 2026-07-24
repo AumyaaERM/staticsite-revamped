@@ -59,6 +59,15 @@ export const AdminPostDownload: React.FC = () => {
       setMessage({ type: 'error', text: 'Please choose a PDF file.' });
       return;
     }
+
+    const MAX_PDF_BYTES = 10 * 1024 * 1024;
+if (file.size > MAX_PDF_BYTES) {
+  setMessage({
+    type: 'error',
+    text: `PDF is ${(file.size / 1024 / 1024).toFixed(1)} MB — the maximum is 10 MB. Please compress it and try again.`,
+  });
+  return;
+}
   
     setUploading(true);
     try {
@@ -145,7 +154,7 @@ export const AdminPostDownload: React.FC = () => {
 
           {/* PDF file */}
           <div>
-            <label className="block text-sm font-bold text-black mb-1.5">PDF file</label>
+            <label className="block text-sm font-bold text-black mb-1.5">PDF file (Keep under 10MB)</label>
             <input
               type="file"
               accept="application/pdf,.pdf"
