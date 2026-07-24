@@ -1,8 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useInsights } from '../../../hooks/useInsights';
+import { useDownloads, type DownloadDoc, type DownloadCategory } from '../../../hooks/useDownloads';
 
 export const InsightsDownloads: React.FC = () => {
+  const { downloads } = useDownloads();
+
+const DL_ORDER: DownloadCategory[] = ['Newsletter', 'Firm Profile', 'Survey Reports'];
+const featuredDownloads = DL_ORDER
+  .map((cat) => {
+    const inCat = downloads.filter((d) => d.category === cat);
+    return inCat.find((d) => d.featured) ?? inCat[0];
+  })
+  .filter(Boolean) as DownloadDoc[];
   const { insights: allInsights, loading: isLoading, error } = useInsights();
   const insights = allInsights.filter((i) => i.featured).slice(0, 3);
 
@@ -101,59 +111,50 @@ export const InsightsDownloads: React.FC = () => {
           </div>
         )}
       </div>
-      {/* DOWNLOADS SECTION — unchanged */}
-      <div className="bg-[#fcd421] p-6 sm:p-8 md:p-10 rounded-2xl">
-        <h2
-          style={headingStyle}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-black text-center mb-6 md:mb-8 pb-4 border-b-2 border-black"
-        >
-          Downloads
-        </h2>
-        <div className="space-y-4">
-          <a
-            href="/Newsletter April.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={whiteTextStyle}
-            className="w-full bg-black text-[#fcd421] font-bold py-4 px-5 rounded-lg flex items-center gap-4 hover:bg-gray-900 transition-all hover:scale-[1.02] group"
-          >
-            <span className="w-10 h-10 bg-[#fcd421] text-black rounded flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </span>
-            <span className="text-sm sm:text-base">Newsletter</span>
-          </a>
-          <a
-            href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/Profile%20downloads/Aumyaa%20Profile_2025%20(2).pdf?CT=1765799149057&OR=ItemsView"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={whiteTextStyle}
-            className="w-full bg-black text-[#fcd421] font-bold py-4 px-5 rounded-lg flex items-center gap-4 hover:bg-gray-900 transition-all hover:scale-[1.02] group"
-          >
-            <span className="w-10 h-10 bg-[#fcd421] text-black rounded flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </span>
-            <span className="text-sm sm:text-base">Firm Profile</span>
-          </a>
-          <a
-            href="https://aumyaaconsulting-my.sharepoint.com/personal/pranati_aumyaa_com/Documents/Survey%20report/survey%20report%202024-2025.pdf?CT=1765946645795&OR=ItemsView"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={whiteTextStyle}
-            className="w-full bg-black text-[#fcd421] font-bold py-4 px-5 rounded-lg flex items-center gap-4 hover:bg-gray-900 transition-all hover:scale-[1.02] group"
-          >
-            <span className="w-10 h-10 bg-[#fcd421] text-black rounded flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </span>
-            <span className="text-sm sm:text-base">Survey Reports</span>
-          </a>
-        </div>
-      </div>
+  {/* DOWNLOADS SECTION */}
+<div className="bg-[#fcd421] p-6 sm:p-8 md:p-10 rounded-2xl">
+  {/* Header row: title + View Archive (mirrors the Insights layout) */}
+  <div className="flex flex-wrap items-center justify-between gap-4 mb-6 md:mb-8 pb-4 border-b-2 border-black">
+    <div className="flex ml-50">
+      <Link
+        to="/downloads"
+        style={{ ...headingStyle, color: 'white' }}
+        className="group inline-flex items-center gap-2 bg-black text-white no-underline text-sm sm:text-base font-bold px-6 py-3 rounded-full hover:bg-gray-900 hover:scale-[1.03] transition-all whitespace-nowrap"
+      >
+        View Archive
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+        </svg>
+      </Link>
+    </div>
+    <h2
+      style={headingStyle}
+      className="text-3xl sm:text-4xl md:text-5xl font-bold text-black ml-10"
+    >
+      Downloads
+    </h2>
+  </div>
+
+  <div className="space-y-4">
+    {featuredDownloads.map((d, i) => (
+      <a
+        key={i}
+        href={d.pdfUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={whiteTextStyle}
+        className="w-full bg-black text-[#fcd421] font-bold py-4 px-5 rounded-lg flex items-center gap-4 hover:bg-gray-900 transition-all hover:scale-[1.02] group"
+      >
+        <span className="w-10 h-10 bg-[#fcd421] text-black rounded flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </span>
+        <span className="text-sm sm:text-base">{d.category}</span>
+      </a>
+    ))}
+  </div>
+</div>
     </div>
   );
 };

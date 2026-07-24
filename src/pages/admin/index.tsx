@@ -46,6 +46,13 @@ const SECTIONS: Section[] = [
     ],
   },
   {
+    title: 'Downloads',
+    tiles: [
+      { label: 'Post a Download', icon: Pencil, to: '/admin/post-download' },
+      { label: 'Edit Downloads', icon: Table, href: 'https://docs.google.com/spreadsheets/d/1wrKko5ZV7YxyBa6dfuAhW_0V1BD1czzsryjJcSiZZec/edit?usp=sharing' },
+    ],
+  },
+  {
     title: 'DPDP',
     tiles: [
       { label: 'DPDP Form', icon: ShieldCheck, href: 'https://docs.google.com/forms/d/1KnXjwwqIL1FoebR3k1VK0-Csh_OLLD_Fzw4dm8uI3l4/edit' },

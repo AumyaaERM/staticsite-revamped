@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ScrollToTop } from './components/ScrollToTop';
 import Home from './pages/Home';
 import { About } from './pages/About';
 import { Careers } from './pages/Careers';
@@ -17,11 +18,13 @@ import { ESGConsulting } from './pages/Consulting/ESGConsulting';
 import { ComplianceServices } from './pages/Consulting/ComplianceServices';
 import { InsightsPage } from './pages/insights/InsightsPage';
 import { InsightDetailPage } from './pages/insights/InsightDetailPage';
+import { DownloadsPage } from './pages/downloads/DownloadsPage';
 import { initGA, usePageTracking } from './utils/analytics';
 import DpdpCompliancePage from './pages/Consulting/DpdpCompliancePage';
 import { Login } from './pages/Login';
 import { Admin } from './pages/admin';
 import AdminPostInsight from './pages/admin/AdminPostInsight';
+import { AdminPostDownload } from './pages/admin/AdminPostDownload';
 import { RequireAuth } from './components/RequireAuth';
 import { DPDP_FORM_URL, IS_DPDP_FORM_CONFIGURED } from './config/dpdpForm';
 
@@ -34,6 +37,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <PageTracker />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -112,6 +116,9 @@ const App: React.FC = () => {
         {/* ── ADMIN ── */}
         <Route path="/admin" element={<RequireAuth><Admin /></RequireAuth>} />
         <Route path="/admin/post-insight" element={<RequireAuth><AdminPostInsight /></RequireAuth>} />
+        {/* ── DOWNLOADS ── */}
+        <Route path="/admin/post-download" element={<RequireAuth><AdminPostDownload /></RequireAuth>} />
+        <Route path="/downloads" element={<DownloadsPage />} />
       </Routes>
       {/* Cookie Consent Banner - appears on all pages */}
       <CookieConsent />
