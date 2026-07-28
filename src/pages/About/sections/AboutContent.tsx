@@ -26,7 +26,7 @@ export const AboutContent: React.FC = () => {
           </p>
           
           <p className="text-base sm:text-lg md:text-2xl leading-[140%] md:leading-[132%]">
-          At Aumyaa, we specialize in: Business Consulting Services, IT & Technology Consulting, Risk Advisory & Enterprise Risk Management, Compliance Support & GRC Solutions, and ESG Consulting Services — helping organizations build resilience, drive growth, and stay ahead of evolving regulations.
+          At Aumyaa, we specialize in: Business Consulting Services, IT & Technology Consulting, Risk Advisory & Enterprise Risk Management, Compliance Support & GRC Solutions, ESG Consulting Services and DPDP Compliance Services — helping organizations build resilience, drive growth, and stay ahead of evolving regulations.
           </p>
           
           <p className="text-base sm:text-lg md:text-2xl leading-[140%] md:leading-[132%]">
