@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ScrollToTop } from './components/ScrollToTop';
 import Home from './pages/Home';
+import RegHub from './pages/RegHub';
 import { About } from './pages/About';
 import { Careers } from './pages/Careers';
 import { Contact } from './pages/Contact';
@@ -41,6 +42,7 @@ const App: React.FC = () => {
       <PageTracker />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/reghub" element={<RegHub />} />
         <Route path="/about" element={
           <div className="min-h-screen flex flex-col">
             <Navbar />
