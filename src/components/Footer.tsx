@@ -44,6 +44,8 @@ export const Footer: React.FC = () => {
               <ul className="space-y-2 text-sm">
               <li><Link to="/about" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">About Us</Link></li>
               <li><Link to="/executive-coaching" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Executive Coaching</Link></li>
+              <li><Link to="/insights" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Insights</Link></li>
+              <li><Link to="/downloads" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Downloads</Link></li>
               <li><Link to="/careers" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Career</Link></li>
               </ul>
             </div>
