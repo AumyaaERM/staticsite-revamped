@@ -1,3 +1,4 @@
+import { Underline } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +7,6 @@ export const Footer: React.FC = () => {
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-
     return (
     <footer className="bg-yellow-400 py-8 md:py-12 px-4 sm:px-6 md:px-12">
         <div className="w-full">
@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
           {/* Services */}
             <div>
             <h4 className="font-bold text-lg mb-3 md:mb-4 text-black" style={{ fontFamily: 'Days One, sans-serif' }}>Services</h4>
@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/consulting/dpdp-compliance" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">DPDP Compliance Services</Link></li>
               </ul>
             </div>
-            
+
           {/* Company */}
             <div>
             <h4 className="font-bold text-lg mb-3 md:mb-4 text-black" style={{ fontFamily: 'Days One, sans-serif' }}>Company</h4>
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/careers" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'none' }} className="hover:underline">Career</Link></li>
               </ul>
             </div>
-            
+
           {/* Contact */}
             <div>
             <h4 className="font-bold text-lg mb-3 md:mb-4 text-black" style={{ fontFamily: 'Days One, sans-serif' }}>Contact Us</h4>
@@ -61,11 +61,11 @@ export const Footer: React.FC = () => {
               <li><a style={{ color: '#000000', textDecoration: 'none' }} href="https://www.linkedin.com/company/aumyaaconsultingservicesllp/" className="hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
               </ul>
             </div>
-            
+
           {/* Headquarter */}
           <div className="sm:col-span-2 lg:col-span-1">
             <h4 className="font-bold text-lg mb-3 md:mb-4 text-black" style={{ fontFamily: 'Days One, sans-serif' }}>Headquarter</h4>
-            <a 
+            <a
               href="https://maps.app.goo.gl/GmhEBJnbJZymcJ1f8"
               target="_blank"
               rel="noopener noreferrer"
@@ -73,17 +73,17 @@ export const Footer: React.FC = () => {
               style={{ fontFamily: 'Inter, sans-serif', textDecoration: 'none', color: '#000000' }}
             >
               {/* Map Pin Icon */}
-              <svg 
-                className="w-5 h-5 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-5 h-5 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
                 strokeWidth="2"
               >
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
-              
+
               <span>
                 Aumyaa Consulting Services LLP<br />
                 Corporate office:<br />
@@ -97,12 +97,12 @@ export const Footer: React.FC = () => {
             </p>
           </div>
           </div>
-          
-        <div className="border-t border-gray-600 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+
+          <div className="border-t border-gray-600 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="text-xs sm:text-sm text-black text-center sm:text-left" style={{ fontFamily: 'Arial' }}>
-              © 2025 Aumyaa Consulting Services. All rights reserved. | Privacy | Cookies
+              © 2025 Aumyaa Consulting Services. All rights reserved. | <Link to="/privacy-policy" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'underline'}}>Privacy</Link> | <Link to="/cookies-policy" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'underline' }}>Cookies</Link> | <Link to="/terms-of-use" onClick={scrollToTop} style={{ color: '#000000', textDecoration: 'underline' }}>Terms of Use</Link>
             </div>
-            
+
           <div className="flex gap-3 md:gap-4">
             <a href="https://www.linkedin.com/company/aumyaaconsultingservicesllp/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-black flex items-center justify-center hover:bg-black transition-colors" style={{ textDecoration: 'none', color: '#0077B5' }}>
               <span className="text-lg md:text-xl" style={{ color: 'inherit' }}>in</span>

@@ -11,6 +11,9 @@ import { ExecutiveCoaching } from './pages/ExecutiveCoaching';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { CookieConsent } from './components/CookieConsent';
+import { CookiesPolicy } from './pages/policies/CookiesPolicy';
+import { PrivacyPolicy } from './pages/policies/PrivacyPolicy';
+import { TermsOfUse } from './pages/policies/TermsOfUse';
 import { BusinessConsulting } from './pages/Consulting/BusinessConsulting';
 import { TechnologyConsulting } from './pages/Consulting/TechnologyConsulting';
 import { RiskAdvisory } from './pages/Consulting/RiskAdvisory';
@@ -119,6 +122,10 @@ const App: React.FC = () => {
         {/* ── DOWNLOADS ── */}
         <Route path="/admin/post-download" element={<RequireAuth><AdminPostDownload /></RequireAuth>} />
         <Route path="/downloads" element={<DownloadsPage />} />
+
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/cookies-policy" element={<CookiesPolicy />} />
       </Routes>
       {/* Cookie Consent Banner - appears on all pages */}
       <CookieConsent />
