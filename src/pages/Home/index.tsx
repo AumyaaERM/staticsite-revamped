@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Footer } from '../../components/Footer';
 import { Navbar } from '../../components/Navbar';
+import { PBGASection } from '../../components/PBGASection';
 import { TestimonialsSection } from '../../TestimonialsSection';
 import { ClientsSection } from './sections/ClientsSection';
 import { CoachingSection } from './sections/CoachingSection';
@@ -48,6 +49,8 @@ const Home: React.FC = () => {
       <CoreValues />
       <ServicesSection />
       <InFocusSection />
+      {/* PBGA – Executive Coaching promo (links to /contact & /executive-coaching#pbga) */}
+      <PBGASection variant="compact" />
       <CoachingSection />
       <InsightsDownloads />
       <ClientsSection />
