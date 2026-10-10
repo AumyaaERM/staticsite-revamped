@@ -8,11 +8,14 @@ export const ContactHeroSection: React.FC = () => {
       <div className="absolute inset-0 opacity-40">
         <img 
           src="/images/contact/hero-bg.png"
-          alt="Contact Us"
+          alt=""
           className="w-full h-full object-cover"
         />
       </div>
       
+      {/* Page heading for search engines & screen readers (design has no visible title here) */}
+      <h1 className="sr-only">Contact Aumyaa Consulting</h1>
+
       {/* Content */}
       <div className="relative w-full">
         <div className="flex items-center justify-center">

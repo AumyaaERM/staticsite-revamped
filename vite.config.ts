@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
+import seoPlugin from './scripts/vite-plugin-seo'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -21,7 +22,9 @@ export default defineConfig({
       webp: {
         quality: 80,
       },
-    })
+    }),
+    // Per-page <head> tags, sitemap.xml and Netlify _redirects (see scripts/vite-plugin-seo.ts)
+    seoPlugin(),
   ],
   server: {
     headers: {

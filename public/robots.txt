@@ -1,0 +1,9 @@
+# https://aumyaa.com/robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /consulting/dpdp-compliance/assessment
+Disallow: /spa-fallback
+
+Sitemap: https://aumyaa.com/sitemap.xml

@@ -101,13 +101,13 @@ export const Navbar: React.FC = () => {
       <div className="w-full flex items-end justify-between py-2">
         {/* Logo */}
         <div className="flex flex-shrink-0 mr-2 lg:mr-4 xl:mr-0 scale-50 mt-[-15px] ml-[-80px]">
-          <Link to="/" className="flex flex-col items-center rounded-t-[12px] px-2" style={{
+          <Link to="/" aria-label="Aumyaa Consulting – Home" className="flex flex-col items-center rounded-t-[12px] px-2" style={{
             background: '#FFFFFF',
             marginBottom: '-65px'
           }}>
             <img
               src="/images/aumyaalogo.png"
-              alt="Aumyaa Logo"
+              alt="Aumyaa Consulting"
               className="h-8 md:h-10 mb-[-15px]"
             />
           </Link>

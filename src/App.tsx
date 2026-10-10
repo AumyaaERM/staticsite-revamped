@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ScrollToTop } from './components/ScrollToTop';
+import { RouteSEO } from './components/SEO';
 import Home from './pages/Home';
 import { About } from './pages/About';
 import { Careers } from './pages/Careers';
@@ -29,6 +30,7 @@ import { Admin } from './pages/admin';
 import AdminPostInsight from './pages/admin/AdminPostInsight';
 import { AdminPostDownload } from './pages/admin/AdminPostDownload';
 import { RequireAuth } from './components/RequireAuth';
+import { NotFound } from './pages/NotFound';
 import { DPDP_FORM_URL, IS_DPDP_FORM_CONFIGURED } from './config/dpdpForm';
 
 // Main App Component
@@ -41,6 +43,8 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
+      {/* Per-page <title>/description — must stay above PageTracker so GA logs the right page title */}
+      <RouteSEO />
       <PageTracker />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -126,6 +130,17 @@ const App: React.FC = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/cookies-policy" element={<CookiesPolicy />} />
+        {/* ── 404 (must stay last) ── */}
+        <Route path="*" element={
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <div className="h-6 bg-white"></div>
+            <main className="flex-1">
+              <NotFound />
+            </main>
+            <Footer />
+          </div>
+        } />
       </Routes>
       {/* Cookie Consent Banner - appears on all pages */}
       <CookieConsent />
