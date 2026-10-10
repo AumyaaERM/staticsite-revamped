@@ -35,8 +35,16 @@ export const CookieConsent: React.FC = () => {
 
   return (
     <>
-      {/* Cookie consent banner */}
-      <div className="fixed bottom-0 left-0 right-0 z-[9999] p-4 md:p-6 animate-slide-up">
+      {/* Cookie consent banner.
+          data-nosnippet tells Google never to use this text in search results
+          (it was showing up as a "Decline Accept All" sitelink). */}
+      <div
+        data-nosnippet
+        role="dialog"
+        aria-live="polite"
+        aria-label="Cookie consent"
+        className="fixed bottom-0 left-0 right-0 z-[9999] p-4 md:p-6 animate-slide-up"
+      >
         <div 
           className="w-full rounded-2xl shadow-2xl relative"
           style={{
@@ -67,7 +75,7 @@ export const CookieConsent: React.FC = () => {
                   >
                     <span className="text-xl">🍪</span>
                   </div>
-                  <h3 
+                  <p 
                     className="text-xl md:text-2xl font-bold"
                     style={{
                       fontFamily: 'Inter, sans-serif',
@@ -75,7 +83,7 @@ export const CookieConsent: React.FC = () => {
                     }}
                   >
                     We use cookies
-                  </h3>
+                  </p>
                 </div>
                 <p 
                   className="text-sm md:text-base leading-relaxed"

@@ -162,7 +162,7 @@ export const Admin: React.FC = () => {
             >
               <img
                 src="/images/aumyaalogo.png"
-                alt="Aumyaa Logo"
+                alt="Aumyaa Consulting"
                 className="h-8 md:h-10 mb-[-15px]"
               />
             </Link>

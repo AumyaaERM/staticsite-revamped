@@ -49,7 +49,7 @@ export const TermsOfUse: React.FC = () => {
             >
               <img
                 src="/images/aumyaalogo.png"
-                alt="Aumyaa Logo"
+                alt="Aumyaa Consulting"
                 className="h-8 md:h-10 mb-[-15px]"
               />
             </Link>
@@ -101,7 +101,7 @@ export const TermsOfUse: React.FC = () => {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="space-y-10 text-gray-700 leading-relaxed">
           <header className="space-y-1 border-b border-gray-200 pb-6">
-            {/* <h1 className="text-3xl font-bold text-gray-900">Terms of Use</h1> */}
+            <h1 className="sr-only">Terms of Use</h1>
             <p className="text-sm text-gray-500">Effective Date: 13 August 2026</p>
             <p className="text-sm text-gray-500">Last Updated: 13 August 2026</p>
           </header>

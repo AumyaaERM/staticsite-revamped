@@ -1,6 +1,8 @@
 // src/pages/insights/InsightDetailPage.tsx
 import React from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { usePageMeta } from "../../hooks/usePageMeta";
+import { buildJsonLd, NOT_FOUND_META } from "../../config/seo";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Navbar } from "../../components/Navbar";
@@ -73,6 +75,28 @@ export const InsightDetailPage: React.FC<{ insight?: Insight }> = ({
 
   const isPreview = !!injected;
   const insight = injected ?? insights.find((i) => i.slug === slug) ?? null;
+
+  // Give each article its own Google title, description and Article structured data.
+  const articleMeta = !isPreview && insight
+    ? {
+        title: `${insight.title} | Aumyaa Insights`,
+        description: insight.description || `${insight.category} from Aumyaa Consulting.`,
+        image: insight.image || undefined,
+      }
+    : null;
+  // Unknown or unpublished slug → keep it out of Google.
+  const notFound = !isPreview && !insightsLoading && !insight;
+  usePageMeta(
+    notFound ? NOT_FOUND_META : articleMeta,
+    articleMeta && insight
+      ? buildJsonLd(`/insights/${insight.slug}`, articleMeta, {
+          title: insight.title,
+          description: articleMeta.description,
+          image: insight.image,
+          date: insight.date,
+        })
+      : null,
+  );
 
   // Loading / not-found states apply only on the live route (never in preview).
   if (!isPreview && insightsLoading) {
