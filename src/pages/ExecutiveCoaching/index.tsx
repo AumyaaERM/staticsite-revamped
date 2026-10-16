@@ -1,11 +1,22 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Users, Brain, TrendingUp, Award } from 'lucide-react';
+import { PBGASection } from '../../components/PBGASection';
 
 export const ExecutiveCoaching: React.FC = () => {
+  const { hash } = useLocation();
+
+  // Scroll to top on load – unless we arrived via a deep link such as /executive-coaching#pbga
   useEffect(() => {
+    if (hash) {
+      const target = document.getElementById(hash.slice(1));
+      if (target) {
+        requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, []);
+  }, [hash]);
   const services = [
     {
       icon: <Users className="w-10 h-10" style={{ color: '#4F63D2' }} />,
@@ -147,6 +158,9 @@ export const ExecutiveCoaching: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* PBGA – Personal Brand Growth Architecture (featured programme) */}
+      <PBGASection variant="full" />
 
       {/* Our Coaching Services */}
       <div className="py-10 md:py-16 px-4 sm:px-6 md:px-12" style={{ background: '#F9FAFB' }}>
